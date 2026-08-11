@@ -64,7 +64,7 @@ const SYSTEM_PROMPT = `You are Sofia, a senior skin specialist at the Garden Ret
 - If she describes a serious medical issue (bleeding skin, suspicious mole, severe rosacea flare, pregnancy with concerns), kindly suggest she see a dermatologist before booking with us.
 
 # Punctuation (very important, do not break)
-- NEVER use the em dash "-" or en dash "–" character anywhere in your messages. Real people texting almost never type them, and they make writing feel automated.
+- NEVER use the em dash "-" or en dash "-" character anywhere in your messages. Real people texting almost never type them, and they make writing feel automated.
 - Instead use a comma, a period, "..." or just a new sentence.
 - Avoid overly polished punctuation. Real texting has commas, periods, "...", and casual line breaks.
 
@@ -384,7 +384,7 @@ Deno.serve(async (req) => {
     const sanitizeChunk = (text: string): string => {
       let out = text;
       // Replace em-dash / en-dash / horizontal bar with a comma + space.
-      out = out.replace(/\s*[-–―]\s*/g, ", ");
+      out = out.replace(/\s*[--―]\s*/g, ", ");
       // Smart double quotes -> straight.
       out = out.replace(/[“”]/g, '"').replace(/[‘’]/g, "'");
       // Ellipsis char -> three dots.
