@@ -29,7 +29,7 @@ export function BookingSteps({ onBookingClick }: BookingStepsProps) {
   ];
 
   return (
-    <section className="pt-12 pb-20 bg-gradient-to-b from-white to-pink-50/30 overflow-hidden" dir="ltr">
+    <section className="pt-12 pb-20 bg-gradient-to-b from-white to-blue-50/30 overflow-hidden" dir="ltr">
       <div className="container mx-auto px-5">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -43,7 +43,7 @@ export function BookingSteps({ onBookingClick }: BookingStepsProps) {
             >
               <h2 className="text-4xl font-serif font-normal text-gray-900 leading-tight">
                 Ready To Book Your<br />
-                <span className="text-pink-500">Appointment?</span>
+                <span className="text-blue-500">Appointment?</span>
               </h2>
             </motion.div>
 
@@ -68,10 +68,10 @@ export function BookingSteps({ onBookingClick }: BookingStepsProps) {
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 + index * 0.1 }}
                   whileHover={{ scale: 1.02 }}
-                  className="flex items-start gap-4 bg-white rounded-2xl p-5 shadow-sm border border-gray-100 cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-pink-200 hover:bg-pink-50/30 group"
+                  className="flex items-start gap-4 bg-white rounded-2xl p-5 shadow-sm border border-gray-100 cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-blue-200 hover:bg-blue-50/30 group"
                 >
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-pink-100 to-pink-50 flex items-center justify-center transition-all duration-300 group-hover:from-pink-500 group-hover:to-pink-400">
-                    <span className="text-sm font-semibold text-pink-500 transition-colors duration-300 group-hover:text-white">{step.number}</span>
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center transition-all duration-300 group-hover:from-blue-500 group-hover:to-blue-400">
+                    <span className="text-sm font-semibold text-blue-500 transition-colors duration-300 group-hover:text-white">{step.number}</span>
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">{step.title}</h3>
@@ -94,7 +94,7 @@ export function BookingSteps({ onBookingClick }: BookingStepsProps) {
                 <p className="text-gray-400 text-2xl mb-1">
                   <span className="line-through decoration-2">${treatment.originalPrice}</span>
                 </p>
-                <p className="text-4xl md:text-5xl font-serif text-pink-500 font-bold">
+                <p className="text-4xl md:text-5xl font-serif text-blue-500 font-bold">
                   ${treatment.price}
                 </p>
                 <div className="flex items-center justify-center sm:justify-start gap-2 mt-3 text-amber-600 text-sm font-medium">

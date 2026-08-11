@@ -108,10 +108,11 @@ export default function ThankYou() {
                 }
 
                 const slugToPath: Record<string, string> = {
-                  led: "/",
-                  "instant-lift": "/",
+                  facelift: "/",
+                  led: "/led",
                   "led-cryo": "/led-cryo",
                   "body-sculpting": "/body-sculpting",
+                  "carbon-peeling": "/carbon-peeling",
                 };
                 navigate(slugToPath[treatmentConfig.slug] ?? (treatmentConfig.slug ? `/book/${treatmentConfig.slug}` : "/"));
               }}

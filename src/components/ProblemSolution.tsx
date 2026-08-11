@@ -44,7 +44,7 @@ export function ProblemSolution() {
 
         {/* Desktop: 2-col | Mobile: benefits first, then paragraph */}
         <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-10 md:gap-16 items-start">
-          {/* Left – Problem Copy + Bridge Line */}
+          {/* Left - Problem Copy + Bridge Line */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -54,12 +54,12 @@ export function ProblemSolution() {
             <p className="text-gray-700 text-[17px] md:text-lg lg:text-2xl xl:text-[26px] leading-relaxed font-light text-left">
               {problemCopy}
             </p>
-            <p className="text-lg md:text-xl lg:text-3xl xl:text-4xl uppercase tracking-[0.2em] text-pink-500 font-medium mt-6 lg:mt-10 text-left">
-              {bridgeLine.text} <span className="text-pink-500">{bridgeLine.highlight}</span>
+            <p className="text-lg md:text-xl lg:text-3xl xl:text-4xl uppercase tracking-[0.2em] text-blue-500 font-medium mt-6 lg:mt-10 text-left">
+              {bridgeLine.text} <span className="text-blue-500">{bridgeLine.highlight}</span>
             </p>
           </motion.div>
 
-          {/* Right – Benefit Cards (no icons) */}
+          {/* Right - Benefit Cards (no icons) */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}

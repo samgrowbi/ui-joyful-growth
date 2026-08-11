@@ -25,7 +25,7 @@ const WELCOME_MESSAGE: UIMessage = {
     {
       type: "text",
       text:
-        "Hi, I'm Sofia one of the skin specialists at the GLO+ clinic. I'm here to help you find the right treatment for your skin and book your spot, right inside this chat.\n\nWhat's bothering you most about your skin lately?",
+        "Hi, I'm Sofia one of the skin specialists at the Garden Retreat clinic. I'm here to help you find the right treatment for your skin and book your spot, right inside this chat.\n\nWhat's bothering you most about your skin lately?",
     },
   ],
 };
@@ -121,7 +121,7 @@ function FloatingBubble({
     <button
       onClick={onClick}
       aria-label="Chat with Sofia, our skin specialist"
-      className="fixed z-[60] bottom-24 right-5 md:bottom-6 md:right-6 group flex items-center gap-3 rounded-full bg-white border border-pink-200 shadow-2xl transition-all hover:scale-105 hover:shadow-pink-200/60 pl-1.5 pr-4 py-1.5 md:py-2"
+      className="fixed z-[60] bottom-24 right-5 md:bottom-6 md:right-6 group flex items-center gap-3 rounded-full bg-white border border-blue-200 shadow-2xl transition-all hover:scale-105 hover:shadow-blue-200/60 pl-1.5 pr-4 py-1.5 md:py-2"
     >
       <span className="relative h-12 w-12 md:h-14 md:w-14 shrink-0">
         <img
@@ -130,7 +130,7 @@ function FloatingBubble({
           width={112}
           height={112}
           loading="lazy"
-          className="h-full w-full rounded-full object-cover ring-2 ring-pink-100"
+          className="h-full w-full rounded-full object-cover ring-2 ring-blue-100"
         />
         <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full bg-emerald-500 ring-2 ring-white" />
       </span>
@@ -198,9 +198,9 @@ function ChatWindow({
   const showQuickReplies = messages.length <= 1 && !isLoading;
 
   return (
-    <div className="fixed inset-0 md:inset-auto md:bottom-6 md:right-6 z-[70] md:w-[400px] md:h-[640px] md:max-h-[85vh] flex flex-col bg-white md:rounded-3xl shadow-2xl overflow-hidden border border-pink-100">
+    <div className="fixed inset-0 md:inset-auto md:bottom-6 md:right-6 z-[70] md:w-[400px] md:h-[640px] md:max-h-[85vh] flex flex-col bg-white md:rounded-3xl shadow-2xl overflow-hidden border border-blue-100">
       {/* Header */}
-      <div className="flex items-center gap-3 px-5 py-4 bg-gradient-to-br from-pink-500 to-pink-600 text-white">
+      <div className="flex items-center gap-3 px-5 py-4 bg-gradient-to-br from-blue-500 to-blue-600 text-white">
         <div className="relative h-11 w-11 shrink-0">
           <img
             src={specialistAvatar}
@@ -209,12 +209,12 @@ function ChatWindow({
             height={88}
             className="h-11 w-11 rounded-full object-cover ring-2 ring-white/30"
           />
-          <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full bg-emerald-400 ring-2 ring-pink-500" />
+          <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full bg-emerald-400 ring-2 ring-blue-500" />
         </div>
         <div className="flex-1 min-w-0 leading-tight">
           <div className="font-medium text-[15px]">Sofia · Skin Specialist</div>
           <div className="text-[11px] opacity-90 flex items-center gap-1">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> Online now · GLO+ clinic
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> Online now · Garden Retreat clinic
           </div>
         </div>
         <button
@@ -229,7 +229,7 @@ function ChatWindow({
       {/* Messages */}
       <div
         ref={scrollRef}
-        className="flex-1 overflow-y-auto px-4 py-5 space-y-4 bg-pink-50/40"
+        className="flex-1 overflow-y-auto px-4 py-5 space-y-4 bg-blue-50/40"
       >
         {messages.map((m) => (
           <MessageBubble key={m.id} message={m} />
@@ -247,7 +247,7 @@ function ChatWindow({
               <button
                 key={q}
                 onClick={() => onSubmit(q)}
-                className="text-xs px-3 py-2 rounded-full bg-white border border-pink-200 text-pink-700 hover:bg-pink-100 transition"
+                className="text-xs px-3 py-2 rounded-full bg-white border border-blue-200 text-blue-700 hover:bg-blue-100 transition"
               >
                 {q}
               </button>
@@ -262,7 +262,7 @@ function ChatWindow({
           e.preventDefault();
           onSubmit(input);
         }}
-        className="border-t border-pink-100 bg-white p-3 flex items-end gap-2"
+        className="border-t border-blue-100 bg-white p-3 flex items-end gap-2"
       >
         <textarea
           ref={inputRef}
@@ -277,12 +277,12 @@ function ChatWindow({
           rows={1}
           placeholder="Type your message…"
           disabled={isLoading}
-          className="flex-1 resize-none max-h-32 rounded-2xl border border-pink-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-pink-300 disabled:opacity-50"
+          className="flex-1 resize-none max-h-32 rounded-2xl border border-blue-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300 disabled:opacity-50"
         />
         <button
           type="submit"
           disabled={isLoading || !input.trim()}
-          className="h-10 w-10 shrink-0 rounded-full bg-pink-500 hover:bg-pink-600 text-white flex items-center justify-center transition disabled:opacity-40"
+          className="h-10 w-10 shrink-0 rounded-full bg-blue-500 hover:bg-blue-600 text-white flex items-center justify-center transition disabled:opacity-40"
           aria-label="Send"
         >
           <Send className="h-4 w-4" />
@@ -308,7 +308,7 @@ function MessageBubble({ message }: { message: UIMessage }) {
         className={cn(
           "max-w-[85%] text-sm leading-relaxed",
           isUser
-            ? "bg-pink-500 text-white px-4 py-2.5 rounded-2xl rounded-br-md"
+            ? "bg-blue-500 text-white px-4 py-2.5 rounded-2xl rounded-br-md"
             : "text-gray-800",
         )}
       >
@@ -321,7 +321,7 @@ function MessageBubble({ message }: { message: UIMessage }) {
                   <p className="mb-2 last:mb-0">{children}</p>
                 ),
                 strong: ({ children }) => (
-                  <strong className="font-semibold text-pink-700">
+                  <strong className="font-semibold text-blue-700">
                     {children}
                   </strong>
                 ),
@@ -333,7 +333,7 @@ function MessageBubble({ message }: { message: UIMessage }) {
                     href={href}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-pink-600 underline"
+                    className="text-blue-600 underline"
                   >
                     {children}
                   </a>
@@ -380,7 +380,7 @@ function ToolPartRender({ part }: { part: UIMessage["parts"][number] }) {
                   day: "numeric",
                   hour: "numeric",
                   minute: "2-digit",
-                  timeZone: "America/Los_Angeles",
+                  timeZone: "America/New_York",
                 })}{" "}
                 PT
               </div>
@@ -405,7 +405,7 @@ function TypingIndicator() {
           <Dot delay="0.15s" />
           <Dot delay="0.3s" />
         </div>
-        <span className="text-[12px] text-pink-600/80">Sofia is typing…</span>
+        <span className="text-[12px] text-blue-600/80">Sofia is typing…</span>
       </div>
     </div>
   );
@@ -414,7 +414,7 @@ function TypingIndicator() {
 function Dot({ delay }: { delay: string }) {
   return (
     <span
-      className="h-2 w-2 rounded-full bg-pink-400 animate-bounce"
+      className="h-2 w-2 rounded-full bg-blue-400 animate-bounce"
       style={{ animationDelay: delay }}
     />
   );

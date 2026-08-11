@@ -53,8 +53,8 @@ export function BookingProgress({ currentStep, isMobile }: BookingProgressProps)
                 <div
                   className={cn(
                     "h-8 w-8 rounded-full flex items-center justify-center transition-all duration-300 shrink-0",
-                    isActive && "bg-pink-500 text-white animate-scale-bounce",
-                    isCompleted && "bg-pink-500 text-white",
+                    isActive && "bg-blue-500 text-white animate-scale-bounce",
+                    isCompleted && "bg-blue-500 text-white",
                     justCompleted && "animate-pulse-once",
                     !isActive && !isCompleted && "bg-muted text-muted-foreground"
                   )}
@@ -77,8 +77,8 @@ export function BookingProgress({ currentStep, isMobile }: BookingProgressProps)
                 <span
                   className={cn(
                     "text-[10px] sm:text-xs mt-1 transition-all duration-300 text-center whitespace-nowrap",
-                    isActive && "text-pink-600 font-medium",
-                    isCompleted && "text-pink-600",
+                    isActive && "text-blue-600 font-medium",
+                    isCompleted && "text-blue-600",
                     !isActive && !isCompleted && "text-muted-foreground"
                   )}
                 >
@@ -93,7 +93,7 @@ export function BookingProgress({ currentStep, isMobile }: BookingProgressProps)
                 )}>
                   <div
                     className={cn(
-                      "absolute inset-0 bg-pink-500 origin-left transition-transform duration-300",
+                      "absolute inset-0 bg-blue-500 origin-left transition-transform duration-300",
                       index < currentIndex ? "scale-x-100" : "scale-x-0"
                     )}
                   />

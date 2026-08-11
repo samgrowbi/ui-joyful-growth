@@ -24,13 +24,13 @@ export function Location() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl lg:text-5xl xl:text-6xl font-serif font-normal text-gray-900 mb-5 lg:mb-10 leading-tight">
-              Our <span className="text-pink-500">Location</span>
+              Our <span className="text-blue-500">Location</span>
             </h2>
 
             <div className="space-y-5 lg:space-y-8 mb-6 lg:mb-10">
                 <div className="flex items-start gap-3 lg:gap-5">
-                    <div className="p-2 lg:p-3 bg-pink-100 rounded-full mt-1">
-                        <MapPin className="w-5 h-5 lg:w-6 lg:h-6 text-pink-600" />
+                    <div className="p-2 lg:p-3 bg-blue-100 rounded-full mt-1">
+                        <MapPin className="w-5 h-5 lg:w-6 lg:h-6 text-blue-600" />
                     </div>
                     <div>
                         <h4 className="text-base lg:text-2xl xl:text-3xl font-serif font-bold text-gray-900 mb-0.5 lg:mb-2">Visit Us</h4>
@@ -46,12 +46,12 @@ export function Location() {
                 </div>
 
                 <div className="flex items-start gap-3 lg:gap-5">
-                    <div className="p-2 lg:p-3 bg-pink-100 rounded-full mt-1">
-                        <Phone className="w-5 h-5 lg:w-6 lg:h-6 text-pink-600" />
+                    <div className="p-2 lg:p-3 bg-blue-100 rounded-full mt-1">
+                        <Phone className="w-5 h-5 lg:w-6 lg:h-6 text-blue-600" />
                     </div>
                     <div>
                         <h4 className="text-base lg:text-2xl xl:text-3xl font-serif font-bold text-gray-900 mb-0.5 lg:mb-2">Call Us</h4>
-                        <a href={`tel:${BUSINESS_PHONE_TEL}`} className="text-gray-600 text-sm lg:text-xl xl:text-2xl hover:text-pink-500 transition-colors">
+                        <a href={`tel:${BUSINESS_PHONE_TEL}`} className="text-gray-600 text-sm lg:text-xl xl:text-2xl hover:text-blue-500 transition-colors">
                             {BUSINESS_PHONE_DISPLAY}
                         </a>
                     </div>
@@ -74,7 +74,7 @@ export function Location() {
             </Button>
           </motion.div>
 
-          {/* Right: Map — smaller */}
+          {/* Right: Map - smaller */}
           <motion.div
             className="w-full lg:w-2/5"
             initial={{ opacity: 0, x: 50 }}
@@ -82,7 +82,7 @@ export function Location() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="rounded-2xl overflow-hidden shadow-lg shadow-pink-100 border-4 border-white aspect-[4/3]">
+            <div className="rounded-2xl overflow-hidden shadow-lg shadow-blue-100 border-4 border-white aspect-[4/3]">
               <iframe
                 src={GOOGLE_MAPS_EMBED_SRC}
                 width="100%"

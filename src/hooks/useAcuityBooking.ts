@@ -148,7 +148,8 @@ export function useAcuityBooking(onBookingSuccess?: () => void, isMobile?: boole
   }, [currentStep, treatmentConfig?.slug]);
 
   const appointmentTypeID = treatmentConfig?.appointmentTypeId || "93509464";
-  const calendarID = treatmentConfig?.calendarId || "14112013";
+  // Calendar ID intentionally not used - Acuity auto-selects the calendar from the appointment type.
+  // const calendarID = treatmentConfig?.calendarId;
 
   const filterIntakeForms = (forms: IntakeForm[]) =>
     forms
@@ -192,33 +193,8 @@ export function useAcuityBooking(onBookingSuccess?: () => void, isMobile?: boole
     gcTime: 60 * 60 * 1000, // 1 hour
   });
 
-  // Fetch calendar details (including timezone) from Acuity
-  const calendarQuery = useQuery({
-    queryKey: ["acuity-calendar", calendarID],
-    queryFn: async () => {
-      const response = await fetch(
-        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/acuity-calendar?calendarID=${calendarID}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            "apikey": import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
-            "Authorization": `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
-          },
-        }
-      );
-      
-      if (!response.ok) {
-        throw new Error("Failed to fetch calendar details");
-      }
-      
-      return response.json();
-    },
-    staleTime: 60 * 60 * 1000, // 1 hour (calendar settings rarely change)
-    gcTime: 2 * 60 * 60 * 1000, // 2 hours
-  });
-
   // Get calendar timezone with fallback
-  const calendarTimezone = calendarQuery.data?.timezone || DEFAULT_ACUITY_TIMEZONE;
+  const calendarTimezone = DEFAULT_ACUITY_TIMEZONE;
 
   // Use Acuity API data, but override name/duration with local treatment config
   const treatmentDetails = appointmentTypeQuery.data

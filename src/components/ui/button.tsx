@@ -15,9 +15,9 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        cta: "relative overflow-hidden bg-pink-500 hover:bg-pink-600 text-white shadow-[0_8px_24px_-8px_rgba(236,72,153,0.55)] hover:shadow-[0_12px_36px_-6px_rgba(236,72,153,0.7)] hover:-translate-y-0.5 hover:scale-[1.03] active:scale-95 before:content-[''] before:absolute before:top-0 before:left-0 before:h-full before:w-1/3 before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:animate-shimmer-sweep before:pointer-events-none motion-reduce:before:hidden motion-reduce:hover:scale-100 motion-reduce:hover:translate-y-0",
-        ctaOutline: "border-2 border-pink-500 text-pink-500 hover:bg-pink-50 transition-all hover:scale-105 bg-transparent",
-        ctaInverted: "bg-white text-pink-500 hover:bg-white/90 shadow-lg transition-all hover:scale-105",
+        cta: "relative overflow-hidden bg-blue-500 hover:bg-blue-600 text-white shadow-[0_8px_24px_-8px_rgba(236,72,153,0.55)] hover:shadow-[0_12px_36px_-6px_rgba(236,72,153,0.7)] hover:-translate-y-0.5 hover:scale-[1.03] active:scale-95 before:content-[''] before:absolute before:top-0 before:left-0 before:h-full before:w-1/3 before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:animate-shimmer-sweep before:pointer-events-none motion-reduce:before:hidden motion-reduce:hover:scale-100 motion-reduce:hover:translate-y-0",
+        ctaOutline: "border-2 border-blue-500 text-blue-500 hover:bg-blue-50 transition-all hover:scale-105 bg-transparent",
+        ctaInverted: "bg-white text-blue-500 hover:bg-white/90 shadow-lg transition-all hover:scale-105",
       },
       size: {
         default: "px-8 py-3",

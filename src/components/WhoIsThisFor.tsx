@@ -30,7 +30,7 @@ const cardVariants: Variants = {
 
 export function WhoIsThisFor() {
   return (
-    <section className="py-6 md:py-8 lg:py-16 bg-gradient-to-b from-white via-pink-50/30 to-white" dir="ltr">
+    <section className="py-6 md:py-8 lg:py-16 bg-gradient-to-b from-white via-blue-50/30 to-white" dir="ltr">
       <div className="container mx-auto px-5">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -39,7 +39,7 @@ export function WhoIsThisFor() {
           transition={{ duration: 0.6 }}
           className="text-center mb-8 lg:mb-14"
         >
-          <p className="text-xs md:text-sm uppercase tracking-[0.22em] text-pink-500 font-bold mb-3">
+          <p className="text-xs md:text-sm uppercase tracking-[0.22em] text-blue-500 font-bold mb-3">
             Made For You
           </p>
           <h2 className="text-4xl lg:text-5xl xl:text-6xl font-serif font-normal text-gray-900 leading-tight">
@@ -61,19 +61,19 @@ export function WhoIsThisFor() {
             <motion.div
               key={text}
               variants={cardVariants}
-              className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 px-5 py-6 lg:px-7 lg:py-8 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.05)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_50px_-15px_rgba(236,72,153,0.35)] hover:border-pink-200"
+              className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 px-5 py-6 lg:px-7 lg:py-8 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.05)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_50px_-15px_rgba(236,72,153,0.35)] hover:border-blue-200"
             >
-              {/* Soft gradient blob — animates in on hover */}
-              <div className="absolute -top-12 -right-12 w-40 h-40 bg-gradient-to-br from-pink-200/40 via-pink-100/30 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+              {/* Soft gradient blob - animates in on hover */}
+              <div className="absolute -top-12 -right-12 w-40 h-40 bg-gradient-to-br from-blue-200/40 via-blue-100/30 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
               {/* Left accent bar */}
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 h-0 w-[3px] bg-gradient-to-b from-pink-400 to-pink-600 rounded-r-full transition-all duration-500 group-hover:h-3/5" />
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 h-0 w-[3px] bg-gradient-to-b from-blue-400 to-blue-600 rounded-r-full transition-all duration-500 group-hover:h-3/5" />
 
               <div className="relative flex items-start gap-4">
                 {/* Icon */}
-                <div className="flex-shrink-0 w-11 h-11 lg:w-12 lg:h-12 rounded-xl bg-pink-50 flex items-center justify-center transition-all duration-500 group-hover:bg-gradient-to-br group-hover:from-pink-500 group-hover:to-pink-400 group-hover:shadow-lg group-hover:shadow-pink-300/40 group-hover:scale-110">
+                <div className="flex-shrink-0 w-11 h-11 lg:w-12 lg:h-12 rounded-xl bg-blue-50 flex items-center justify-center transition-all duration-500 group-hover:bg-gradient-to-br group-hover:from-blue-500 group-hover:to-blue-400 group-hover:shadow-lg group-hover:shadow-blue-300/40 group-hover:scale-110">
                   <Icon
-                    className="w-5 h-5 lg:w-6 lg:h-6 text-pink-500 transition-colors duration-500 group-hover:text-white"
+                    className="w-5 h-5 lg:w-6 lg:h-6 text-blue-500 transition-colors duration-500 group-hover:text-white"
                     strokeWidth={1.75}
                   />
                 </div>

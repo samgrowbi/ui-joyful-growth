@@ -37,7 +37,7 @@ export function ExpertOpinion() {
       <div className="container mx-auto px-5">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-serif font-normal text-gray-900 leading-tight mb-6">
-            What the <span className="text-pink-500">Experts</span> Say
+            What the <span className="text-blue-500">Experts</span> Say
           </h2>
           <p className="text-gray-500 text-lg font-light">
             Leading dermatologists and medical professionals recommend our treatments
@@ -67,17 +67,17 @@ export function ExpertOpinion() {
                         {/* Left: Quote & Info */}
                         <div className="flex-1 flex flex-col justify-between">
                           <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-6 font-light text-justify">
-                            <span className="text-pink-400 text-xl align-text-top leading-none mr-1">"</span>{expert.quote}<span className="text-pink-400 text-xl align-text-top leading-none ml-1">"</span>
+                            <span className="text-blue-400 text-xl align-text-top leading-none mr-1">"</span>{expert.quote}<span className="text-blue-400 text-xl align-text-top leading-none ml-1">"</span>
                           </p>
 
                           {/* Name & Title */}
                           <p className="font-bold text-gray-900 text-xl md:text-2xl mb-1">{expert.name}</p>
-                          <p className="text-xs text-pink-500 uppercase tracking-wider font-medium leading-tight">{expert.title}</p>
+                          <p className="text-xs text-blue-500 uppercase tracking-wider font-medium leading-tight">{expert.title}</p>
                         </div>
 
                         {/* Right: Image */}
                         <div className="w-[50%] mx-auto md:w-40 lg:w-48 shrink-0">
-                          <div className="w-full aspect-square rounded-full overflow-hidden ring-4 ring-pink-300 ring-offset-2">
+                          <div className="w-full aspect-square rounded-full overflow-hidden ring-4 ring-blue-300 ring-offset-2">
                             <img
                               src={expert.image}
                               alt={expert.name}
@@ -94,8 +94,8 @@ export function ExpertOpinion() {
               ))}
             </CarouselContent>
 
-            <CarouselPrevious className="hidden md:flex -left-4 w-12 h-12 border border-pink-300 bg-white shadow-lg hover:bg-pink-50 text-gray-800 hover:text-pink-500 rounded-full" />
-            <CarouselNext className="hidden md:flex -right-4 w-12 h-12 border-none bg-white shadow-lg hover:bg-pink-50 text-gray-800 hover:text-pink-500 rounded-full" />
+            <CarouselPrevious className="hidden md:flex -left-4 w-12 h-12 border border-blue-300 bg-white shadow-lg hover:bg-blue-50 text-gray-800 hover:text-blue-500 rounded-full" />
+            <CarouselNext className="hidden md:flex -right-4 w-12 h-12 border-none bg-white shadow-lg hover:bg-blue-50 text-gray-800 hover:text-blue-500 rounded-full" />
           </Carousel>
         </div>
       </div>

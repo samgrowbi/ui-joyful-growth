@@ -57,7 +57,7 @@ export function Results() {
 
   return (
     <section id="results" className="pt-4 md:pt-6 pb-6 md:pb-10 bg-white relative overflow-hidden" dir="ltr">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] bg-pink-50/50 rounded-full blur-3xl -z-10 pointer-events-none opacity-60" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] bg-blue-50/50 rounded-full blur-3xl -z-10 pointer-events-none opacity-60" />
 
       <div className="container mx-auto px-5 pt-0 md:pt-0">
         <div className="text-center mb-8 lg:mb-12 space-y-1 lg:space-y-2">
@@ -122,7 +122,7 @@ export function Results() {
                           <div className="w-1/2 py-2.5 lg:py-3.5 bg-gray-100 text-gray-500 border-r border-white transition-colors duration-300 group-hover:bg-gray-200">
                             Before
                           </div>
-                          <div className="w-1/2 py-2.5 lg:py-3.5 bg-pink-500 text-white shadow-inner transition-colors duration-300 group-hover:bg-pink-600">
+                          <div className="w-1/2 py-2.5 lg:py-3.5 bg-blue-500 text-white shadow-inner transition-colors duration-300 group-hover:bg-blue-600">
                             After
                           </div>
                         </div>
@@ -141,8 +141,8 @@ export function Results() {
               ))}
             </CarouselContent>
 
-            <CarouselPrevious className="hidden md:flex -left-12 w-12 h-12 border-none bg-white shadow-lg hover:bg-pink-50 text-gray-800 hover:text-pink-500" />
-            <CarouselNext className="hidden md:flex -right-12 w-12 h-12 border-none bg-white shadow-lg hover:bg-pink-50 text-gray-800 hover:text-pink-500" />
+            <CarouselPrevious className="hidden md:flex -left-12 w-12 h-12 border-none bg-white shadow-lg hover:bg-blue-50 text-gray-800 hover:text-blue-500" />
+            <CarouselNext className="hidden md:flex -right-12 w-12 h-12 border-none bg-white shadow-lg hover:bg-blue-50 text-gray-800 hover:text-blue-500" />
           </Carousel>
 
           <div className="flex justify-center items-center gap-2 mt-6">
@@ -152,7 +152,7 @@ export function Results() {
                 onClick={() => scrollTo(index)}
                 className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
                   currentIndex === index
-                    ? "bg-pink-500 w-6"
+                    ? "bg-blue-500 w-6"
                     : "bg-gray-300 hover:bg-gray-400"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}

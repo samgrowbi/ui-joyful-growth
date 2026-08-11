@@ -9,7 +9,7 @@ import { ExitIntentPopup } from "@/components/ExitIntentPopup";
 import { Toaster } from "sonner";
 import { useBookingNavigation } from "@/hooks/useBookingNavigation";
 import { TreatmentProvider } from "@/context/TreatmentContext";
-import { INSTANT_LIFT_TREATMENT } from "@/config/treatments";
+import { CARBON_PEELING_TREATMENT } from "@/config/treatments";
 import { BRAND_NAME } from "@/config/brand";
 
 const Results = lazy(() => import("@/components/Results").then(m => ({ default: m.Results })));
@@ -19,16 +19,15 @@ const Feedback = lazy(() => import("@/components/Feedback").then(m => ({ default
 const Technology = lazy(() => import("@/components/Technology").then(m => ({ default: m.Technology })));
 const ClientReviews = lazy(() => import("@/components/ClientReviews").then(m => ({ default: m.ClientReviews })));
 const VisitSteps = lazy(() => import("@/components/VisitSteps").then(m => ({ default: m.VisitSteps })));
+const ExpertOpinion = lazy(() => import("@/components/ExpertOpinion").then(m => ({ default: m.ExpertOpinion })));
 const Partners = lazy(() => import("@/components/Partners").then(m => ({ default: m.Partners })));
 const About = lazy(() => import("@/components/About").then(m => ({ default: m.About })));
 const Location = lazy(() => import("@/components/Location").then(m => ({ default: m.Location })));
 const FAQ = lazy(() => import("@/components/FAQ").then(m => ({ default: m.FAQ })));
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 
-const InstantLiftInner = () => {
-  useEffect(() => {
-    document.title = `${BRAND_NAME} | ${INSTANT_LIFT_TREATMENT.label}`;
-  }, []);
+const CarbonPeelingInner = () => {
+  useEffect(() => { document.title = `${BRAND_NAME} | ${CARBON_PEELING_TREATMENT.label}`; }, []);
   const { openBooking } = useBookingNavigation();
 
   return (
@@ -43,15 +42,16 @@ const InstantLiftInner = () => {
         </section>
         <TrustStrip />
         <WhoIsThisFor />
-        <Suspense fallback={<div className="min-h-[150px]" />}>
-          <Results />
+        <Suspense fallback={<div className="min-h-[150px]" />}>          <Results />
           <ProblemSolution />
+          {/* Bridge line moved into ProblemSolution component */}
           <Technology onBookingClick={openBooking} />
           <VisitSteps />
           <Feedback />
           <ClientReviews />
           <FAQ />
           <About onBookingClick={openBooking} />
+          
           <Partners />
           <Gallery />
           <Location />
@@ -67,10 +67,10 @@ const InstantLiftInner = () => {
   );
 };
 
-const InstantLift = () => (
-  <TreatmentProvider treatment={INSTANT_LIFT_TREATMENT}>
-    <InstantLiftInner />
+const CarbonPeeling = () => (
+  <TreatmentProvider treatment={CARBON_PEELING_TREATMENT}>
+    <CarbonPeelingInner />
   </TreatmentProvider>
 );
 
-export default InstantLift;
+export default CarbonPeeling;

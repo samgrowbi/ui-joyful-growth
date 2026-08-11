@@ -118,8 +118,8 @@ export function AppointmentSnapshot({
           </div>
 
           {/* Reschedule / Cancel notice */}
-          <div className="mt-5 rounded-xl border border-pink-200 bg-pink-50/60 p-5 md:p-6 text-center">
-            <div className="flex items-center justify-center gap-2 mb-2 text-pink-600">
+          <div className="mt-5 rounded-xl border border-blue-200 bg-blue-50/60 p-5 md:p-6 text-center">
+            <div className="flex items-center justify-center gap-2 mb-2 text-blue-600">
               <Phone className="w-4 h-4" />
               <span className="text-sm font-semibold tracking-wide uppercase">Need to Reschedule or Cancel?</span>
             </div>
@@ -127,7 +127,7 @@ export function AppointmentSnapshot({
               To reschedule or cancel your appointment, please give us a call at{" "}
               <a
                 href={`tel:${BUSINESS_PHONE_TEL}`}
-                className="font-semibold text-pink-600 hover:text-pink-700 underline-offset-2 hover:underline"
+                className="font-semibold text-blue-600 hover:text-blue-700 underline-offset-2 hover:underline"
               >
                 {BUSINESS_PHONE_DISPLAY}
               </a>

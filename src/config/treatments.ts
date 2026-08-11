@@ -42,7 +42,7 @@ export interface TreatmentConfig {
   /** Acuity IDs */
   appointmentTypeId: string;
   calendarId: string;
-  /** Duration in minutes (display only – Acuity controls actual duration) */
+  /** Duration in minutes (display only - Acuity controls actual duration) */
   duration: number;
   /** Treatment image */
   image: string;
@@ -56,13 +56,13 @@ export interface TreatmentConfig {
   hideDeviceImage?: boolean;
   /** FAQ entries */
   faqs: { question: string; answer: string }[];
-  /** Before/after results – if provided, overrides the default facial results */
+  /** Before/after results - if provided, overrides the default facial results */
   beforeAfterResults?: BeforeAfterResult[];
-  /** Video testimonials – if provided, overrides the default feedback videos */
+  /** Video testimonials - if provided, overrides the default feedback videos */
   feedbackTestimonials?: { id: number; name: string; video: string; poster?: string; text: string }[];
-  /** Visit steps – if provided, overrides default steps */
+  /** Visit steps - if provided, overrides default steps */
   visitSteps?: { title: string; description: string; image?: string }[];
-  /** Client text reviews – if provided, overrides default facial reviews */
+  /** Client text reviews - if provided, overrides default facial reviews */
   clientReviews?: { id: number; name: string; image: string; timeAgo: string; rating: number; review: string }[];
   /** About section video URL override */
   aboutVideoUrl?: string;
@@ -95,8 +95,151 @@ export const LED_TREATMENT: TreatmentConfig = {
     "https://pub-eb17aaa123fc4145b1ee4c15fc2e5771.r2.dev/Med%20Spa/Hero%20Video/LED%20Hero%20Video.mp4",
   price: "69.99",
   originalPrice: "249.99",
-  appointmentTypeId: "90990594",
-  calendarId: "13836448",
+  appointmentTypeId: "91278961",
+  // calendarId intentionally unused - Acuity auto-selects from the appointment type
+  calendarId: "",
+  duration: 60,
+  image: treatmentImage,
+  technologyDescription: [
+    "Our Non-Surgical Facelift treatment delivers specific wavelengths of light energy into the skin's deeper layers, activating the body's own natural healing process of collagen production and cellular repair. The facial is entirely non-invasive, without heat, injectables, or foreign substances.",
+  ],
+  technologyHighlights: [
+    { text: "Clinically tested" },
+    { text: "Safe for all skin types and tones" },
+  ],
+  hideDeviceImage: true,
+  faqs: [
+    {
+      question: "Who is this treatment for?",
+      answer:
+        "The treatment is suitable for anyone over 35 experiencing visible signs of skin aging, such as fine lines, loss of firmness, uneven skin tone, or a tired-looking complexion. Compared to surgical treatments and injectables, our Non-surgical Lift & Skin Tightening Facial treatment is safer, more affordable, requires no downtime, and delivers completely natural-looking results.",
+    },
+    {
+      question: "How does it work?",
+      answer:
+        "Our Instant Lift & Skin Tightening Facial uses specific wavelengths of light energy to penetrate deep into the skin's layers, activating collagen production and cellular repair. The result is visibly smoother skin, restored firmness, and improved tone and texture.",
+    },
+    {
+      question: "Is it painful?",
+      answer:
+        "Not at all. The treatment is designed to be comfortable and relaxing, with most clients describing it as a calming, soothing experience.",
+    },
+    {
+      question: "Is it safe?",
+      answer:
+        "Yes. Our certified devices are clinically tested, non-invasive, and safe for all skin types and tones. There are no foreign substances entering your body and no risk of burns or damage. If you have a specific medical condition or take photosensitive medication, let us know before your visit, and our esthetician will advise you.",
+    },
+    {
+      question: "Can I combine this with other treatments?",
+      answer:
+        "Yes. Our Instant Lift & Skin Tightening is compatible with a range of other aesthetic services. Your esthetician will be happy to discuss what works best alongside this session during your first visit.",
+    },
+    {
+      question: "When will I see results?",
+      answer:
+        "Most clients notice brighter, refreshed skin immediately after their first session. Results continue to develop over the following days as your skin responds. With a course of sessions, improvements become increasingly visible and longer lasting.",
+    },
+    {
+      question: "How long do results last?",
+      answer:
+        "Results vary by skin, age, and lifestyle. A single session delivers immediate radiance and visible improvement. For results that last and continue to build, a course of treatments is recommended. Your esthetician will advise on the best plan for your skin at your first visit.",
+    },
+    {
+      question: "What happens after the treatment?",
+      answer:
+        "You can return to your normal routine immediately, including makeup, work, and exercise. There is no downtime and no redness to manage. Your esthetician will provide simple aftercare guidance at the end of your visit to help maintain and build on your results.",
+    },
+  ],
+};
+
+export const FACELIFT_TREATMENT: TreatmentConfig = {
+  slug: "facelift",
+  label: "Non Surgical Face Lift Treatment",
+  heroTitle: {
+    line1: "Non Surgical",
+    highlight: "Face Lift",
+    line2: "Treatment",
+  },
+  heroSubtitle:
+    "No Surgery. No Pain. Zero Downtime.",
+  heroVideoUrl:
+    "https://pub-eb17aaa123fc4145b1ee4c15fc2e5771.r2.dev/Med%20Spa/Hero%20Video/LED%20Hero%20Video.mp4",
+  price: "69",
+  originalPrice: "249",
+  appointmentTypeId: "93188408",
+  // calendarId intentionally unused - Acuity auto-selects from the appointment type
+  calendarId: "",
+  duration: 75,
+  image: treatmentImage,
+  technologyDescription: [
+    "Our Non-Surgical Facelift treatment delivers specific wavelengths of light energy into the skin's deeper layers, activating the body's own natural healing process of collagen production and cellular repair. The facial is entirely non-invasive, without heat, injectables, or foreign substances.",
+  ],
+  technologyHighlights: [
+    { text: "Clinically tested" },
+    { text: "Safe for all skin types and tones" },
+  ],
+  hideDeviceImage: true,
+  faqs: [
+    {
+      question: "Who is this treatment for?",
+      answer:
+        "The treatment is suitable for anyone over 35 experiencing visible signs of skin aging, such as fine lines, loss of firmness, uneven skin tone, or a tired-looking complexion. Compared to surgical treatments and injectables, our Non-surgical Lift & Skin Tightening Facial treatment is safer, more affordable, requires no downtime, and delivers completely natural-looking results.",
+    },
+    {
+      question: "How does it work?",
+      answer:
+        "Our Instant Lift & Skin Tightening Facial uses specific wavelengths of light energy to penetrate deep into the skin's layers, activating collagen production and cellular repair. The result is visibly smoother skin, restored firmness, and improved tone and texture.",
+    },
+    {
+      question: "Is it painful?",
+      answer:
+        "Not at all. The treatment is designed to be comfortable and relaxing, with most clients describing it as a calming, soothing experience.",
+    },
+    {
+      question: "Is it safe?",
+      answer:
+        "Yes. Our certified devices are clinically tested, non-invasive, and safe for all skin types and tones. There are no foreign substances entering your body and no risk of burns or damage. If you have a specific medical condition or take photosensitive medication, let us know before your visit, and our esthetician will advise you.",
+    },
+    {
+      question: "Can I combine this with other treatments?",
+      answer:
+        "Yes. Our Instant Lift & Skin Tightening is compatible with a range of other aesthetic services. Your esthetician will be happy to discuss what works best alongside this session during your first visit.",
+    },
+    {
+      question: "When will I see results?",
+      answer:
+        "Most clients notice brighter, refreshed skin immediately after their first session. Results continue to develop over the following days as your skin responds. With a course of sessions, improvements become increasingly visible and longer lasting.",
+    },
+    {
+      question: "How long do results last?",
+      answer:
+        "Results vary by skin, age, and lifestyle. A single session delivers immediate radiance and visible improvement. For results that last and continue to build, a course of treatments is recommended. Your esthetician will advise on the best plan for your skin at your first visit.",
+    },
+    {
+      question: "What happens after the treatment?",
+      answer:
+        "You can return to your normal routine immediately, including makeup, work, and exercise. There is no downtime and no redness to manage. Your esthetician will provide simple aftercare guidance at the end of your visit to help maintain and build on your results.",
+    },
+  ],
+};
+
+export const CARBON_PEELING_TREATMENT: TreatmentConfig = {
+  slug: "carbon-peeling",
+  label: "Non-Surgical Face & Neck Lift Treatment",
+  heroTitle: {
+    line1: "Non-Surgical",
+    highlight: "Face & Neck Lift",
+    line2: "Treatment",
+  },
+  heroSubtitle:
+    "No Surgery. No Pain. Zero Downtime.",
+  heroVideoUrl:
+    "https://pub-eb17aaa123fc4145b1ee4c15fc2e5771.r2.dev/Med%20Spa/Hero%20Video/LED%20Hero%20Video.mp4",
+  price: "69.99",
+  originalPrice: "249.99",
+  appointmentTypeId: "91470530",
+  // calendarId intentionally unused - Acuity auto-selects from the appointment type
+  calendarId: "",
   duration: 60,
   image: treatmentImage,
   technologyDescription: [
@@ -165,8 +308,9 @@ export const LED_CRYO_TREATMENT: TreatmentConfig = {
     "https://pub-eb17aaa123fc4145b1ee4c15fc2e5771.r2.dev/Med%20Spa/Hero%20Video/LED%20Hero%20Video.mp4",
   price: "89.99",
   originalPrice: "349.99",
-  appointmentTypeId: "91765523",
-  calendarId: "11004724",
+  appointmentTypeId: "91470109",
+  // calendarId intentionally unused - Acuity auto-selects from the appointment type
+  calendarId: "",
   duration: 75,
   image: treatmentImage,
   technologyDescription: [
@@ -220,8 +364,9 @@ export const BODY_SCULPTING_TREATMENT: TreatmentConfig = {
     "https://pub-eb17aaa123fc4145b1ee4c15fc2e5771.r2.dev/Med%20Spa/Hero%20Video/ems%20Hero.mp4",
   price: "79.99",
   originalPrice: "399.99",
-  appointmentTypeId: "71100482",
-  calendarId: "11004724",
+  appointmentTypeId: "91470424",
+  // calendarId intentionally unused - Acuity auto-selects from the appointment type
+  calendarId: "",
   duration: 75,
   image: treatmentImage,
   technologyDescription: [
@@ -293,14 +438,14 @@ export const BODY_SCULPTING_TREATMENT: TreatmentConfig = {
   ],
   aboutVideoUrl: "https://pub-eb17aaa123fc4145b1ee4c15fc2e5771.r2.dev/Med%20Spa/Body/lumiere%20new.mp4",
   clientReviews: [
-    { id: 1, name: "Jessica Taylor", image: "https://randomuser.me/api/portraits/women/45.jpg", timeAgo: "MAY 10, 2026", rating: 5, review: "I couldn't believe how much my abdomen changed after just a few sessions. My clothes fit so much better now!" },
-    { id: 2, name: "Monica Rivera", image: "https://randomuser.me/api/portraits/women/50.jpg", timeAgo: "MAY 18, 2026", rating: 5, review: "Finally got rid of the stubborn belly fat that wouldn't budge no matter how much I worked out. This treatment is a game changer." },
-    { id: 3, name: "Tanya Brooks", image: "https://randomuser.me/api/portraits/women/54.jpg", timeAgo: "MAY 5, 2026", rating: 5, review: "The cellulite on my thighs has reduced so much. I feel confident wearing shorts again for the first time in years." },
-    { id: 4, name: "Lauren Kim", image: "https://randomuser.me/api/portraits/women/38.jpg", timeAgo: "MAY 22, 2026", rating: 5, review: "I was skeptical about non-surgical body sculpting but the results speak for themselves. My waist is noticeably more contoured." },
-    { id: 5, name: "Angela Martinez", image: "https://randomuser.me/api/portraits/women/72.jpg", timeAgo: "MAY 14, 2026", rating: 5, review: "Love the muscle toning effect! My arms and abs feel firmer than they have in years. Zero downtime too." },
-    { id: 6, name: "Christine Davis", image: "https://randomuser.me/api/portraits/women/29.jpg", timeAgo: "MAY 8, 2026", rating: 5, review: "The staff made me feel so comfortable. The treatment was relaxing and the results have been incredible on my midsection." },
-    { id: 7, name: "Natalie Wong", image: "https://randomuser.me/api/portraits/women/82.jpg", timeAgo: "MAY 25, 2026", rating: 5, review: "After having kids, I thought I'd never get my body back. This treatment has been life-changing for my confidence!" },
-    { id: 8, name: "Brianna Foster", image: "https://randomuser.me/api/portraits/women/61.jpg", timeAgo: "MAY 20, 2026", rating: 5, review: "I've done three sessions and can already see a huge difference in my love handles. So worth it!" },
+    { id: 1, name: "Jessica Taylor", image: "https://randomuser.me/api/portraits/women/45.jpg", timeAgo: "AUG 1, 2026", rating: 5, review: "I couldn't believe how much my abdomen changed after just a few sessions. My clothes fit so much better now!" },
+    { id: 2, name: "Monica Rivera", image: "https://randomuser.me/api/portraits/women/50.jpg", timeAgo: "JUL 27, 2026", rating: 5, review: "Finally got rid of the stubborn belly fat that wouldn't budge no matter how much I worked out. This treatment is a game changer." },
+    { id: 3, name: "Tanya Brooks", image: "https://randomuser.me/api/portraits/women/54.jpg", timeAgo: "JUL 13, 2026", rating: 5, review: "The cellulite on my thighs has reduced so much. I feel confident wearing shorts again for the first time in years." },
+    { id: 4, name: "Lauren Kim", image: "https://randomuser.me/api/portraits/women/38.jpg", timeAgo: "AUG 7, 2026", rating: 5, review: "I was skeptical about non-surgical body sculpting but the results speak for themselves. My waist is noticeably more contoured." },
+    { id: 5, name: "Angela Martinez", image: "https://randomuser.me/api/portraits/women/72.jpg", timeAgo: "AUG 5, 2026", rating: 5, review: "Love the muscle toning effect! My arms and abs feel firmer than they have in years. Zero downtime too." },
+    { id: 6, name: "Christine Davis", image: "https://randomuser.me/api/portraits/women/29.jpg", timeAgo: "AUG 3, 2026", rating: 5, review: "The staff made me feel so comfortable. The treatment was relaxing and the results have been incredible on my midsection." },
+    { id: 7, name: "Natalie Wong", image: "https://randomuser.me/api/portraits/women/82.jpg", timeAgo: "JUL 19, 2026", rating: 5, review: "After having kids, I thought I'd never get my body back. This treatment has been life-changing for my confidence!" },
+    { id: 8, name: "Brianna Foster", image: "https://randomuser.me/api/portraits/women/61.jpg", timeAgo: "AUG 8, 2026", rating: 5, review: "I've done three sessions and can already see a huge difference in my love handles. So worth it!" },
   ],
   hideExpertOpinion: true,
   problemSolution: {
@@ -323,16 +468,3 @@ export const BODY_SCULPTING_TREATMENT: TreatmentConfig = {
 };
 
 // Instant Lift treatment - duplicate of LED with different appointment type
-export const INSTANT_LIFT_TREATMENT: TreatmentConfig = {
-  ...LED_TREATMENT,
-  slug: "instant-lift",
-  label: "Instant Lift & Skin Tightening Treatment",
-  appointmentTypeId: "93509464",
-  calendarId: "14112013",
-  price: "79.99",
-  originalPrice: "349.99",
-  duration: 60,
-  technologyDescription: [
-    "Our Instant Lift & Skin Tightening treatment delivers specific wavelengths of light energy into the skin's deeper layers, activating the body's own natural healing process of collagen production and cellular repair. The facial is entirely non-invasive, without heat, injectables, or foreign substances.",
-  ],
-};

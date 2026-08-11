@@ -5,6 +5,7 @@ import { useRef, useEffect } from "react";
 import { useTreatment } from "@/context/TreatmentContext";
 import { RotatingText } from "./ui/RotatingText";
 import { AccentWord } from "./ui/AccentWord";
+import { parseDateOnly } from "@/lib/dateOnly";
 
 interface HeroProps {
   onBookingClick: () => void;
@@ -44,7 +45,7 @@ export function Hero({ onBookingClick }: HeroProps) {
   }, []);
 
   const appointmentTypeID = treatment.appointmentTypeId || "93509464";
-  const calendarID = treatment.calendarId || "14112013";
+  // Calendar ID intentionally not used - Acuity auto-selects the calendar from the appointment type.
 
   const prefetchBookingData = () => {
     const now = new Date();
@@ -65,7 +66,7 @@ export function Hero({ onBookingClick }: HeroProps) {
         );
         if (!response.ok) throw new Error("Failed to fetch availability");
         const data = await response.json();
-        return data.map((d: { date: string }) => new Date(d.date));
+        return data.map((d: { date: string }) => parseDateOnly(d.date));
       },
       staleTime: 5 * 60 * 1000,
     });
@@ -83,24 +84,6 @@ export function Hero({ onBookingClick }: HeroProps) {
           }
         );
         if (!response.ok) throw new Error("Failed to fetch forms");
-        return response.json();
-      },
-      staleTime: 60 * 60 * 1000,
-    });
-    queryClient.prefetchQuery({
-      queryKey: ["acuity-calendar", calendarID],
-      queryFn: async () => {
-        const response = await fetch(
-          `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/acuity-calendar?calendarID=${calendarID}`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-              "apikey": import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
-              "Authorization": `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
-            },
-          }
-        );
-        if (!response.ok) throw new Error("Failed to fetch calendar");
         return response.json();
       },
       staleTime: 60 * 60 * 1000,
@@ -128,7 +111,7 @@ export function Hero({ onBookingClick }: HeroProps) {
         <div className="absolute inset-0 bg-gradient-to-r from-gray-950/90 via-black/20 to-gray-950/80 motion-safe:animate-ken-burns" />
       </div>
 
-      {/* Content — left-aligned reverse pyramid */}
+      {/* Content - left-aligned reverse pyramid */}
       <div className="z-10 container mx-auto px-5 py-12 lg:py-16" dir="ltr">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -141,7 +124,7 @@ export function Hero({ onBookingClick }: HeroProps) {
             Look Years <AccentWord>Younger</AccentWord>
           </h1>
 
-          {/* H2 — rotating value props */}
+          {/* H2 - rotating value props */}
           <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl font-sans font-light text-white/90 leading-snug mt-3 sm:mt-5 lg:mt-6 w-full">
             <RotatingText
               messages={[
@@ -152,12 +135,12 @@ export function Hero({ onBookingClick }: HeroProps) {
             />
           </h2>
 
-          {/* H3 — single inline row on mobile, single line on desktop */}
-          <p className="mt-3 sm:mt-4 text-[12px] sm:text-sm lg:text-base xl:text-lg font-bold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-pink-400">
-            No Surgery <span className="text-pink-400/60 mx-1.5">·</span> No Pain <span className="text-pink-400/60 mx-1.5">·</span> Zero Downtime
+          {/* H3 - single inline row on mobile, single line on desktop */}
+          <p className="mt-3 sm:mt-4 text-[12px] sm:text-sm lg:text-base xl:text-lg font-bold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-blue-400">
+            No Surgery <span className="text-blue-400/60 mx-1.5">·</span> No Pain <span className="text-blue-400/60 mx-1.5">·</span> Zero Downtime
           </p>
 
-          {/* Price — centered with CTA, diagonal strikethrough */}
+          {/* Price - centered with CTA, diagonal strikethrough */}
           <div className="inline-flex flex-col items-center mt-5 sm:mt-10" dir="ltr">
             <div className="flex items-baseline gap-2.5 lg:gap-3">
               <motion.span
@@ -175,7 +158,7 @@ export function Hero({ onBookingClick }: HeroProps) {
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ duration: 0.5, delay: 0.9, ease: "easeOut" }}
-                  className="absolute left-0 top-1/2 w-full h-[2px] bg-pink-500 origin-left"
+                  className="absolute left-0 top-1/2 w-full h-[2px] bg-blue-500 origin-left"
                   style={{ transform: "translateY(-50%) rotate(-12deg)" }}
                 />
               </span>
@@ -201,7 +184,7 @@ export function Hero({ onBookingClick }: HeroProps) {
                 <span className="text-white/60">·</span>
                 <span className="text-white/85">200+ Happy Clients</span>
               </div>
-              <p className="hidden sm:block text-[11px] lg:text-xs uppercase tracking-[0.2em] text-pink-400 font-bold">
+              <p className="hidden sm:block text-[11px] lg:text-xs uppercase tracking-[0.2em] text-blue-400 font-bold">
                 Limited Spots This Week
               </p>
             </div>

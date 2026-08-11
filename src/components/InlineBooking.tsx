@@ -44,7 +44,7 @@ export function InlineBooking() {
       {/* Section Header */}
       <div className="text-center mb-4 lg:mb-8">
         <h3 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif text-gray-900 mb-3 lg:mb-5 font-normal tracking-tight leading-[1.05]">
-          Secure Your Spot <span className="text-pink-500 font-semibold">in 30 Seconds</span>
+          Secure Your Spot <span className="text-blue-500 font-semibold">in 30 Seconds</span>
         </h3>
         <div className="inline-flex items-center gap-1.5 lg:gap-2 px-3 lg:px-4 py-1.5 lg:py-2 bg-green-50 border border-green-200 rounded-full">
           <Shield className="h-3.5 w-3.5 lg:h-4 lg:w-4 text-green-600" />
@@ -53,14 +53,14 @@ export function InlineBooking() {
       </div>
 
       {/* Booking Card */}
-      <Card className="max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto border-pink-200 shadow-md shadow-pink-100/50 overflow-hidden">
+      <Card className="max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto border-blue-200 shadow-md shadow-blue-100/50 overflow-hidden">
         {/* Header */}
-        <div className="px-3 py-2.5 lg:px-5 lg:py-4 bg-gradient-to-r from-pink-50 to-pink-100 border-b">
+        <div className="px-3 py-2.5 lg:px-5 lg:py-4 bg-gradient-to-r from-blue-50 to-blue-100 border-b">
           <div className="flex items-center gap-2 lg:gap-3">
             {canGoBack && (
               <button
                 onClick={booking.goBack}
-                className="p-1.5 lg:p-2 hover:bg-pink-200/50 rounded-full transition-colors"
+                className="p-1.5 lg:p-2 hover:bg-blue-200/50 rounded-full transition-colors"
               >
                 <ArrowLeft className="h-4 w-4 lg:h-5 lg:w-5 text-gray-600" />
               </button>
@@ -148,7 +148,7 @@ export function InlineBooking() {
             <Button
               onClick={booking.goNext}
               disabled={!booking.canGoNext() || booking.isBooking}
-              className="w-full bg-pink-500 hover:bg-pink-600 text-white text-sm lg:text-base h-9 lg:h-12"
+              className="w-full bg-blue-500 hover:bg-blue-600 text-white text-sm lg:text-base h-9 lg:h-12"
             >
               {booking.isBooking ? (
                 <>
