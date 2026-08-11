@@ -2,7 +2,7 @@ import { Button } from "./ui/button";
 import { motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
-import lumiereLogo from "@/assets/glo-logo.png";
+import lumiereLogo from "@/assets/garden-retreat-logo.png";
 import { BRAND_NAME } from "@/config/brand";
 
 interface NavbarProps {

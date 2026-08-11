@@ -1,5 +1,5 @@
 import { Facebook, Instagram, Phone, Mail, MapPin, Clock } from "lucide-react";
-import lumiereLogoWhite from "@/assets/glo-logo.jpg";
+import lumiereLogoWhite from "@/assets/garden-retreat-logo.png";
 import {
   BRAND_NAME,
   BRAND_TAGLINE,
