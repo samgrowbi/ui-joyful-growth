@@ -56,7 +56,7 @@ export function VisitSteps() {
             transition={{ duration: 0.6 }}
             className="hidden sm:block text-4xl lg:text-5xl xl:text-6xl font-serif font-normal text-gray-900 leading-tight"
           >
-            Here's Exactly <span className="text-pink-500">What to Expect</span>
+            Here's Exactly <span className="text-blue-500">What to Expect</span>
           </motion.h2>
         </div>
 

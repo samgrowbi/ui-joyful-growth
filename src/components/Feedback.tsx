@@ -166,7 +166,7 @@ function TestimonialCard({ item, isPlaying, onPlay, onPause }: TestimonialCardPr
         {!isPlaying && (
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 flex items-center justify-center">
             <div className="w-16 h-16 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
-              <Play className="w-7 h-7 text-pink-500 ml-1" fill="currentColor" />
+              <Play className="w-7 h-7 text-blue-500 ml-1" fill="currentColor" />
             </div>
           </div>
         )}
@@ -264,8 +264,8 @@ export function Feedback() {
               ))}
             </CarouselContent>
 
-            <CarouselPrevious className="hidden md:flex -left-5 w-10 h-10 border-none bg-white shadow-lg hover:bg-pink-50 text-gray-800 hover:text-pink-500" />
-            <CarouselNext className="hidden md:flex -right-5 w-10 h-10 border-none bg-white shadow-lg hover:bg-pink-50 text-gray-800 hover:text-pink-500" />
+            <CarouselPrevious className="hidden md:flex -left-5 w-10 h-10 border-none bg-white shadow-lg hover:bg-blue-50 text-gray-800 hover:text-blue-500" />
+            <CarouselNext className="hidden md:flex -right-5 w-10 h-10 border-none bg-white shadow-lg hover:bg-blue-50 text-gray-800 hover:text-blue-500" />
           </Carousel>
         </div>
 
@@ -277,8 +277,8 @@ export function Feedback() {
               onClick={() => api?.scrollTo(i)}
               className={`rounded-full transition-all duration-300 ${
                 i === activeIndex
-                  ? "w-6 h-2.5 bg-pink-500"
-                  : "w-2.5 h-2.5 bg-gray-300 hover:bg-pink-300"
+                  ? "w-6 h-2.5 bg-blue-500"
+                  : "w-2.5 h-2.5 bg-gray-300 hover:bg-blue-300"
               }`}
               aria-label={`Go to testimonial ${i + 1}`}
             />

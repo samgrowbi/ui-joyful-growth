@@ -25,13 +25,13 @@ export function ThankYouLocation() {
           >
             <h2 className="text-5xl lg:text-7xl font-serif text-gray-900 mb-8 leading-tight">
               Our <br/>
-              <span className="text-pink-500">Location</span>
+              <span className="text-blue-500">Location</span>
             </h2>
 
             <div className="space-y-8 mb-10">
               <div className="flex items-start gap-4">
-                <div className="p-3 bg-pink-100 rounded-full mt-1">
-                  <MapPin className="w-6 h-6 text-pink-600" />
+                <div className="p-3 bg-blue-100 rounded-full mt-1">
+                  <MapPin className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
                   <h4 className="text-xl font-serif font-bold text-gray-900 mb-1">Visit Us</h4>
@@ -47,12 +47,12 @@ export function ThankYouLocation() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="p-3 bg-pink-100 rounded-full mt-1">
-                  <Phone className="w-6 h-6 text-pink-600" />
+                <div className="p-3 bg-blue-100 rounded-full mt-1">
+                  <Phone className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
                   <h4 className="text-xl font-serif font-bold text-gray-900 mb-1">Call Us</h4>
-                  <a href={`tel:${BUSINESS_PHONE_TEL}`} className="text-gray-600 text-lg hover:text-pink-500 transition-colors">
+                  <a href={`tel:${BUSINESS_PHONE_TEL}`} className="text-gray-600 text-lg hover:text-blue-500 transition-colors">
                     {BUSINESS_PHONE_DISPLAY}
                   </a>
                 </div>
@@ -86,7 +86,7 @@ export function ThankYouLocation() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="rounded-3xl overflow-hidden shadow-2xl shadow-pink-100 border-4 border-white aspect-square">
+            <div className="rounded-3xl overflow-hidden shadow-2xl shadow-blue-100 border-4 border-white aspect-square">
               <iframe
                 src={GOOGLE_MAPS_EMBED_SRC}
                 width="100%"

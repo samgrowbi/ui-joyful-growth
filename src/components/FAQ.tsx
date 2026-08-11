@@ -44,13 +44,13 @@ export function FAQ() {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="bg-white rounded-2xl border border-gray-100 px-5 lg:px-7 shadow-sm hover-lift data-[state=open]:shadow-md data-[state=open]:border-pink-200 [&>h3>button>svg.lucide-chevron-down]:hidden"
+                className="bg-white rounded-2xl border border-gray-100 px-5 lg:px-7 shadow-sm hover-lift data-[state=open]:shadow-md data-[state=open]:border-blue-200 [&>h3>button>svg.lucide-chevron-down]:hidden"
               >
-                <AccordionTrigger className="group text-left font-serif text-base md:text-lg lg:text-2xl text-gray-900 hover:no-underline py-5 lg:py-6 gap-4 [&[data-state=open]_.faq-icon]:rotate-45 [&[data-state=open]_.faq-icon]:bg-pink-500 [&[data-state=open]_.faq-icon]:text-white">
+                <AccordionTrigger className="group text-left font-serif text-base md:text-lg lg:text-2xl text-gray-900 hover:no-underline py-5 lg:py-6 gap-4 [&[data-state=open]_.faq-icon]:rotate-45 [&[data-state=open]_.faq-icon]:bg-blue-500 [&[data-state=open]_.faq-icon]:text-white">
                   <span className="flex-1">{faq.question}</span>
                   <span
                     aria-hidden
-                    className="faq-icon flex-shrink-0 inline-flex items-center justify-center w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-pink-50 text-pink-500 transition-all duration-300"
+                    className="faq-icon flex-shrink-0 inline-flex items-center justify-center w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-blue-50 text-blue-500 transition-all duration-300"
                   >
                     <Plus className="w-4 h-4 lg:w-5 lg:h-5" strokeWidth={2} />
                   </span>

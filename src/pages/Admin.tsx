@@ -121,8 +121,8 @@ export default function Admin() {
 
   if (!isAdmin) {
     return (
-      <main className="min-h-screen flex items-center justify-center bg-pink-50/60 px-4">
-        <div className="bg-white rounded-2xl shadow-sm border border-pink-100 p-8 max-w-md text-center">
+      <main className="min-h-screen flex items-center justify-center bg-blue-50/60 px-4">
+        <div className="bg-white rounded-2xl shadow-sm border border-blue-100 p-8 max-w-md text-center">
           <h1 className="text-2xl font-serif text-gray-900 mb-2">Not authorized</h1>
           <p className="text-sm text-gray-600 mb-6">
             Your account ({userEmail}) doesn't have admin access yet. Ask the site owner to grant you admin role.
@@ -136,8 +136,8 @@ export default function Admin() {
   }
 
   return (
-    <main className="min-h-screen bg-pink-50/40">
-      <header className="bg-white border-b border-pink-100 px-6 py-4 flex items-center justify-between">
+    <main className="min-h-screen bg-blue-50/40">
+      <header className="bg-white border-b border-blue-100 px-6 py-4 flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-serif text-gray-900">Conversations</h1>
           <p className="text-xs text-gray-500">Signed in as {userEmail}</p>
@@ -154,7 +154,7 @@ export default function Admin() {
 
       <div className="grid grid-cols-1 md:grid-cols-[360px_1fr] gap-4 p-4 h-[calc(100vh-72px)]">
         {/* Conversations list */}
-        <aside className="bg-white rounded-xl border border-pink-100 overflow-y-auto">
+        <aside className="bg-white rounded-xl border border-blue-100 overflow-y-auto">
           {conversations.length === 0 && !loadingConvs && (
             <div className="p-6 text-sm text-gray-500 text-center">No conversations yet.</div>
           )}
@@ -162,8 +162,8 @@ export default function Admin() {
             <button
               key={c.id}
               onClick={() => setActiveId(c.id)}
-              className={`w-full text-left px-4 py-3 border-b border-pink-50 hover:bg-pink-50/60 transition ${
-                activeId === c.id ? "bg-pink-50" : ""
+              className={`w-full text-left px-4 py-3 border-b border-blue-50 hover:bg-blue-50/60 transition ${
+                activeId === c.id ? "bg-blue-50" : ""
               }`}
             >
               <div className="flex items-center justify-between gap-2">
@@ -184,7 +184,7 @@ export default function Admin() {
                   </span>
                 )}
                 {c.lead_email && (
-                  <span className="text-[10px] bg-pink-100 text-pink-700 px-1.5 py-0.5 rounded">
+                  <span className="text-[10px] bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded">
                     Lead
                   </span>
                 )}
@@ -194,18 +194,18 @@ export default function Admin() {
         </aside>
 
         {/* Messages panel */}
-        <section className="bg-white rounded-xl border border-pink-100 flex flex-col overflow-hidden">
+        <section className="bg-white rounded-xl border border-blue-100 flex flex-col overflow-hidden">
           {!activeConv ? (
             <div className="flex-1 flex items-center justify-center text-gray-400 text-sm">
               <MessageSquare className="h-5 w-5 mr-2" /> Select a conversation
             </div>
           ) : (
             <>
-              <div className="px-5 py-4 border-b border-pink-50 bg-pink-50/40">
+              <div className="px-5 py-4 border-b border-blue-50 bg-blue-50/40">
                 <div className="flex items-start justify-between gap-4 flex-wrap">
                   <div>
                     <div className="font-medium text-gray-900 flex items-center gap-2">
-                      <User className="h-4 w-4 text-pink-500" />
+                      <User className="h-4 w-4 text-blue-500" />
                       {activeConv.lead_name || "Anonymous visitor"}
                     </div>
                     <div className="text-xs text-gray-500 mt-1 space-x-3">
@@ -256,8 +256,8 @@ function MessageRow({ message }: { message: Message }) {
       <div
         className={`max-w-[80%] rounded-2xl px-4 py-2.5 text-sm whitespace-pre-wrap ${
           isUser
-            ? "bg-pink-500 text-white rounded-br-md"
-            : "bg-pink-50 text-gray-800 rounded-bl-md"
+            ? "bg-blue-500 text-white rounded-br-md"
+            : "bg-blue-50 text-gray-800 rounded-bl-md"
         }`}
       >
         {text || <span className="opacity-60 text-xs">[no text]</span>}

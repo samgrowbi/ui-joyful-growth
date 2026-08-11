@@ -40,7 +40,7 @@ export function Footer() {
                   href={SOCIAL_INSTAGRAM}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-pink-500 hover:scale-110 transition-all duration-300"
+                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-500 hover:scale-110 transition-all duration-300"
                 >
                   <Instagram size={20} />
                 </a>
@@ -48,7 +48,7 @@ export function Footer() {
                   href={SOCIAL_FACEBOOK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-pink-500 hover:scale-110 transition-all duration-300"
+                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-500 hover:scale-110 transition-all duration-300"
                 >
                   <Facebook size={20} />
                 </a>
@@ -62,11 +62,11 @@ export function Footer() {
             <div>
               <h4 className="text-lg lg:text-2xl font-semibold mb-6">Quick Links</h4>
               <ul className="space-y-4 text-base lg:text-lg xl:text-xl">
-                <li><a href="#hero" className="text-gray-400 hover:text-pink-400 transition-colors">Home</a></li>
-                <li><a href="#results" className="text-gray-400 hover:text-pink-400 transition-colors">Results</a></li>
-                <li><a href="#technology" className="text-gray-400 hover:text-pink-400 transition-colors">Technology</a></li>
-                <li><a href="#about" className="text-gray-400 hover:text-pink-400 transition-colors">About</a></li>
-                <li><a href="#faq" className="text-gray-400 hover:text-pink-400 transition-colors">FAQ</a></li>
+                <li><a href="#hero" className="text-gray-400 hover:text-blue-400 transition-colors">Home</a></li>
+                <li><a href="#results" className="text-gray-400 hover:text-blue-400 transition-colors">Results</a></li>
+                <li><a href="#technology" className="text-gray-400 hover:text-blue-400 transition-colors">Technology</a></li>
+                <li><a href="#about" className="text-gray-400 hover:text-blue-400 transition-colors">About</a></li>
+                <li><a href="#faq" className="text-gray-400 hover:text-blue-400 transition-colors">FAQ</a></li>
               </ul>
             </div>
 
@@ -96,7 +96,7 @@ export function Footer() {
                   href={GOOGLE_MAPS_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-start gap-3 text-gray-400 hover:text-pink-400 transition-colors group"
+                  className="flex items-start gap-3 text-gray-400 hover:text-blue-400 transition-colors group"
                 >
                   <MapPin size={20} className="shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
                   <span>
@@ -113,7 +113,7 @@ export function Footer() {
                 <a
                   href={`tel:${BUSINESS_PHONE_TEL}`}
                   onClick={() => track(Events.PhoneClicked, { source: "footer" })}
-                  className="flex items-center gap-3 text-gray-400 hover:text-pink-400 transition-colors group"
+                  className="flex items-center gap-3 text-gray-400 hover:text-blue-400 transition-colors group"
                 >
                   <Phone size={20} className="shrink-0 group-hover:scale-110 transition-transform" />
                   <span>{BUSINESS_PHONE_DISPLAY}</span>
@@ -123,7 +123,7 @@ export function Footer() {
                 <a
                   href={`mailto:${BUSINESS_EMAIL}`}
                   onClick={() => track(Events.EmailClicked, { source: "footer" })}
-                  className="flex items-center gap-3 text-gray-400 hover:text-pink-400 transition-colors group"
+                  className="flex items-center gap-3 text-gray-400 hover:text-blue-400 transition-colors group"
                 >
                   <Mail size={20} className="shrink-0 group-hover:scale-110 transition-transform" />
                   <span>{BUSINESS_EMAIL}</span>
@@ -140,8 +140,8 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-gray-500 text-sm lg:text-base xl:text-lg">
           <p>© {currentYear} {BRAND_NAME}. All rights reserved.</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-pink-400 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-pink-400 transition-colors">Terms of Service</a>
+            <a href="#" className="hover:text-blue-400 transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-blue-400 transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>

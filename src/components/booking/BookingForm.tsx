@@ -143,7 +143,7 @@ export function BookingForm({
               placeholder="Enter your first name"
               disabled={isSubmitting}
               autoComplete="given-name"
-              className={`focus:ring-pink-500 focus:border-pink-500 ${
+              className={`focus:ring-blue-500 focus:border-blue-500 ${
                 touched.firstName && errors.firstName ? "border-red-500" : ""
               }`}
             />
@@ -162,7 +162,7 @@ export function BookingForm({
               placeholder="Enter your last name"
               disabled={isSubmitting}
               autoComplete="family-name"
-              className={`focus:ring-pink-500 focus:border-pink-500 ${
+              className={`focus:ring-blue-500 focus:border-blue-500 ${
                 touched.lastName && errors.lastName ? "border-red-500" : ""
               }`}
             />
@@ -184,7 +184,7 @@ export function BookingForm({
             placeholder="Enter your email address"
             disabled={isSubmitting}
             autoComplete="email"
-            className={`focus:ring-pink-500 focus:border-pink-500 ${
+            className={`focus:ring-blue-500 focus:border-blue-500 ${
               touched.email && errors.email ? "border-red-500" : ""
             }`}
           />
@@ -196,7 +196,7 @@ export function BookingForm({
         <div className="space-y-2">
           <Label htmlFor="phone">Phone *</Label>
           <div
-            className={`flex items-stretch rounded-md border bg-background focus-within:ring-1 focus-within:ring-pink-500 focus-within:border-pink-500 ${
+            className={`flex items-stretch rounded-md border bg-background focus-within:ring-1 focus-within:ring-blue-500 focus-within:border-blue-500 ${
               touched.phone && errors.phone ? "border-red-500" : "border-input"
             }`}
           >
@@ -226,7 +226,7 @@ export function BookingForm({
       {/* Intake Forms */}
       {isLoadingForms ? (
         <div className="flex items-center justify-center py-8">
-          <Loader2 className="h-6 w-6 animate-spin text-pink-500" />
+          <Loader2 className="h-6 w-6 animate-spin text-blue-500" />
           <span className="ml-2 text-sm text-muted-foreground">Loading forms...</span>
         </div>
       ) : (

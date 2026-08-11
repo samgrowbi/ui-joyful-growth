@@ -41,14 +41,14 @@ const BookingPage = ({ treatment }: BookingPageProps) => {
   const canGoBack = booking.currentStep !== "date" && booking.currentStep !== "datetime";
 
   return (
-    <div dir="ltr" className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-rose-50 flex flex-col">
+    <div dir="ltr" className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-rose-50 flex flex-col">
       {/* Header */}
-      <header className="bg-gradient-to-r from-pink-50 to-pink-100 border-b shrink-0 sticky top-0 z-10">
+      <header className="bg-gradient-to-r from-blue-50 to-blue-100 border-b shrink-0 sticky top-0 z-10">
         <div className="container mx-auto px-5 pt-3 pb-4">
           {/* Breadcrumb back link */}
           <button
             onClick={() => navigate(`/${treatment.slug === "led" ? "" : treatment.slug}`)}
-            className="inline-flex items-center gap-1.5 text-xs sm:text-sm text-pink-600 hover:text-pink-700 font-medium transition-colors mb-2 group"
+            className="inline-flex items-center gap-1.5 text-xs sm:text-sm text-blue-600 hover:text-blue-700 font-medium transition-colors mb-2 group"
           >
             <ArrowLeft className="h-3.5 w-3.5 group-hover:-translate-x-0.5 transition-transform" />
             <span>Back to {treatment.label}</span>
@@ -56,13 +56,13 @@ const BookingPage = ({ treatment }: BookingPageProps) => {
           <div className="flex items-center gap-3">
             <button 
               onClick={canGoBack ? booking.goBack : () => navigate(-1)}
-              className="p-2 hover:bg-pink-200/50 rounded-full transition-colors"
+              className="p-2 hover:bg-blue-200/50 rounded-full transition-colors"
               aria-label="Previous step"
             >
               <ArrowLeft className="h-5 w-5 text-gray-600" />
             </button>
-            <div className="p-2 bg-pink-100 rounded-full">
-              <Calendar className="h-5 w-5 text-pink-500" />
+            <div className="p-2 bg-blue-100 rounded-full">
+              <Calendar className="h-5 w-5 text-blue-500" />
             </div>
             <div>
               <h1 className="text-xl font-serif text-foreground font-medium">
@@ -78,7 +78,7 @@ const BookingPage = ({ treatment }: BookingPageProps) => {
 
       {/* Main Content */}
       <main className="flex-1 container mx-auto px-5 py-6">
-        <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg shadow-pink-100/50 overflow-hidden">
+        <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg shadow-blue-100/50 overflow-hidden">
           {booking.currentStep === "date" && (
             <BookingCalendar
               selectedDate={booking.selectedDate}
@@ -147,7 +147,7 @@ const BookingPage = ({ treatment }: BookingPageProps) => {
             <Button
               onClick={booking.goNext}
               disabled={!booking.canGoNext() || booking.isBooking}
-              className="w-full bg-pink-500 hover:bg-pink-600 text-white"
+              className="w-full bg-blue-500 hover:bg-blue-600 text-white"
             >
               {booking.isBooking ? (
                 <>

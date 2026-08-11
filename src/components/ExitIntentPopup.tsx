@@ -90,9 +90,9 @@ export const ExitIntentPopup = ({ onBookingClick }: ExitIntentPopupProps) => {
 
   return (
     <Dialog open={showPopup} onOpenChange={setShowPopup}>
-      <DialogContent dir="ltr" className="sm:max-w-lg p-0 overflow-hidden border-pink-300 border-2 rounded-2xl [&>button]:hidden">
+      <DialogContent dir="ltr" className="sm:max-w-lg p-0 overflow-hidden border-blue-300 border-2 rounded-2xl [&>button]:hidden">
         {/* Pink Header */}
-        <div className="relative bg-gradient-to-r from-pink-400 via-pink-500 to-pink-400 px-6 py-8 text-center text-white">
+        <div className="relative bg-gradient-to-r from-blue-400 via-blue-500 to-blue-400 px-6 py-8 text-center text-white">
           <button
             onClick={handleDismiss}
             className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"

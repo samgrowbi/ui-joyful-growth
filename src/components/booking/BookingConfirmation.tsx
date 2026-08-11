@@ -43,22 +43,22 @@ export function BookingConfirmation({ confirmation, onClose }: BookingConfirmati
       
       <div className="w-full max-w-sm bg-muted/30 rounded-lg p-4 space-y-3 text-left mb-6">
         <div className="flex items-center gap-3">
-          <Calendar className="h-5 w-5 text-pink-500" />
+          <Calendar className="h-5 w-5 text-blue-500" />
           <span className="text-sm">{date}</span>
         </div>
         
         <div className="flex items-center gap-3">
-          <Clock className="h-5 w-5 text-pink-500" />
+          <Clock className="h-5 w-5 text-blue-500" />
           <span className="text-sm">{time}</span>
         </div>
         
         <div className="flex items-center gap-3">
-          <User className="h-5 w-5 text-pink-500" />
+          <User className="h-5 w-5 text-blue-500" />
           <span className="text-sm">{confirmation.firstName} {confirmation.lastName}</span>
         </div>
         
         <div className="flex items-center gap-3">
-          <Mail className="h-5 w-5 text-pink-500" />
+          <Mail className="h-5 w-5 text-blue-500" />
           <span className="text-sm">{confirmation.email}</span>
         </div>
       </div>
@@ -69,7 +69,7 @@ export function BookingConfirmation({ confirmation, onClose }: BookingConfirmati
       
       <Button 
         onClick={onClose}
-        className="bg-pink-500 hover:bg-pink-600 text-white"
+        className="bg-blue-500 hover:bg-blue-600 text-white"
       >
         Close
       </Button>

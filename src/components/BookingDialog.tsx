@@ -38,18 +38,18 @@ export function BookingDialog({ isOpen, onClose }: BookingDialogProps) {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent dir="ltr" className="w-[95vw] max-w-4xl max-h-[90vh] rounded-xl p-0 overflow-hidden flex flex-col">
-        <DialogHeader className="p-4 sm:p-5 pb-3 bg-gradient-to-r from-pink-50 to-pink-100 border-b shrink-0">
+        <DialogHeader className="p-4 sm:p-5 pb-3 bg-gradient-to-r from-blue-50 to-blue-100 border-b shrink-0">
           <div className="flex items-center gap-2.5">
             {canGoBack && (
               <button
                 onClick={booking.goBack}
-                className="p-2 hover:bg-pink-200/50 rounded-full transition-colors"
+                className="p-2 hover:bg-blue-200/50 rounded-full transition-colors"
               >
                 <ArrowLeft className="h-5 w-5 text-gray-600" />
               </button>
             )}
-            <div className="p-2 bg-pink-100 rounded-full">
-              <Calendar className="h-5 w-5 text-pink-500" />
+            <div className="p-2 bg-blue-100 rounded-full">
+              <Calendar className="h-5 w-5 text-blue-500" />
             </div>
             <div>
               <DialogTitle className="text-xl text-foreground">
@@ -137,7 +137,7 @@ export function BookingDialog({ isOpen, onClose }: BookingDialogProps) {
             <Button
               onClick={booking.goNext}
               disabled={!booking.canGoNext() || booking.isBooking}
-              className="w-full bg-pink-500 hover:bg-pink-600 text-white"
+              className="w-full bg-blue-500 hover:bg-blue-600 text-white"
             >
               {booking.isBooking ? (
                 <>

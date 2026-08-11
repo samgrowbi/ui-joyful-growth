@@ -88,7 +88,7 @@ export function StickyCTA({ onBookingClick }: StickyCTAProps) {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           dir="ltr"
-          className="fixed bottom-0 left-0 right-0 z-40 bg-white border-t-2 border-pink-200 shadow-[0_-10px_40px_rgba(236,72,153,0.15)]"
+          className="fixed bottom-0 left-0 right-0 z-40 bg-white border-t-2 border-blue-200 shadow-[0_-10px_40px_rgba(236,72,153,0.15)]"
         >
           <div className="container mx-auto px-5 py-2 md:py-4">
             <div className="flex flex-col items-center justify-center gap-1">

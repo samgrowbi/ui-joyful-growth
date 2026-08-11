@@ -49,7 +49,7 @@ export function Stats() {
   ];
 
   return (
-    <section className="pt-20 pb-12 bg-gradient-to-b from-white to-pink-50/30" dir="ltr">
+    <section className="pt-20 pb-12 bg-gradient-to-b from-white to-blue-50/30" dir="ltr">
       <div className="container mx-auto px-5">
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -81,11 +81,11 @@ export function Stats() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="bg-white p-8 rounded-3xl shadow-lg shadow-pink-100/30 border border-pink-100/50 flex flex-col items-center justify-center text-center group hover:border-pink-200 hover:shadow-xl hover:shadow-pink-200/40 hover:-translate-y-1 transition-all duration-300"
+                    className="bg-white p-8 rounded-3xl shadow-lg shadow-blue-100/30 border border-blue-100/50 flex flex-col items-center justify-center text-center group hover:border-blue-200 hover:shadow-xl hover:shadow-blue-200/40 hover:-translate-y-1 transition-all duration-300"
                 >
                     <div className="relative mb-4">
-                        <div className="absolute inset-0 bg-pink-100 blur-2xl opacity-0 group-hover:opacity-50 transition-opacity duration-500 rounded-full" />
-                        <span className="relative text-5xl md:text-6xl font-bold bg-gradient-to-br from-pink-500 to-rose-600 bg-clip-text text-transparent block transform group-hover:scale-110 transition-transform duration-300 font-sans">
+                        <div className="absolute inset-0 bg-blue-100 blur-2xl opacity-0 group-hover:opacity-50 transition-opacity duration-500 rounded-full" />
+                        <span className="relative text-5xl md:text-6xl font-bold bg-gradient-to-br from-blue-500 to-rose-600 bg-clip-text text-transparent block transform group-hover:scale-110 transition-transform duration-300 font-sans">
                             <Counter to={parseInt(stat.percentage)} />%
                         </span>
                     </div>
@@ -94,7 +94,7 @@ export function Stats() {
                         {stat.description}
                     </p>
 
-                    <h3 className="text-xl font-serif font-medium text-gray-900 tracking-wide border-b border-pink-100 pb-2 w-full max-w-[80%] mx-auto">
+                    <h3 className="text-xl font-serif font-medium text-gray-900 tracking-wide border-b border-blue-100 pb-2 w-full max-w-[80%] mx-auto">
                         {stat.feature}
                     </h3>
                 </motion.div>

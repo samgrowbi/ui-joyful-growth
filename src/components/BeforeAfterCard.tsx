@@ -18,8 +18,8 @@ export function BeforeAfterCard({ beforeImg, afterImg, label, name, age, classNa
   const [open, setOpen] = useState(false);
 
   const FallbackPlaceholder = () => (
-    <div className="w-full h-full bg-gradient-to-br from-pink-100 to-pink-200 flex items-center justify-center">
-      <span className="text-pink-400 text-sm font-medium">Image coming soon</span>
+    <div className="w-full h-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+      <span className="text-blue-400 text-sm font-medium">Image coming soon</span>
     </div>
   );
 
@@ -65,7 +65,7 @@ export function BeforeAfterCard({ beforeImg, afterImg, label, name, age, classNa
                     )}
                     {/* After 3 Sessions tag */}
                     {!showAfterFallback && (
-                      <span className="absolute top-2 right-2 lg:top-3 lg:right-3 px-2 py-0.5 lg:px-2.5 lg:py-1 text-[10px] lg:text-xs font-semibold uppercase tracking-wide bg-white/95 text-pink-600 rounded shadow-sm">
+                      <span className="absolute top-2 right-2 lg:top-3 lg:right-3 px-2 py-0.5 lg:px-2.5 lg:py-1 text-[10px] lg:text-xs font-semibold uppercase tracking-wide bg-white/95 text-blue-600 rounded shadow-sm">
                         After 3 Sessions
                       </span>
                     )}
@@ -84,7 +84,7 @@ export function BeforeAfterCard({ beforeImg, afterImg, label, name, age, classNa
                 <div className="w-1/2 py-2.5 lg:py-3.5 bg-gray-100 text-gray-500 border-r border-white transition-colors duration-300 group-hover:bg-gray-200">
                     Before
                 </div>
-                <div className="w-1/2 py-2.5 lg:py-3.5 bg-pink-500 text-white shadow-inner transition-colors duration-300 group-hover:bg-pink-600">
+                <div className="w-1/2 py-2.5 lg:py-3.5 bg-blue-500 text-white shadow-inner transition-colors duration-300 group-hover:bg-blue-600">
                     After
                 </div>
             </div>

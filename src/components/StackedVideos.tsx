@@ -139,7 +139,7 @@ export function StackedVideos() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          See Real <span className="text-pink-500 font-light">Transformations</span>
+          See Real <span className="text-blue-500 font-light">Transformations</span>
         </motion.h2>
 
         {/* Subtitle */}
@@ -171,7 +171,7 @@ export function StackedVideos() {
                 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
                 className={`absolute rounded-2xl overflow-hidden shadow-xl cursor-pointer transition-shadow duration-300 ${
-                  isActive ? "ring-4 ring-pink-500 shadow-2xl" : ""
+                  isActive ? "ring-4 ring-blue-500 shadow-2xl" : ""
                 }`}
                 style={{
                   zIndex: styles.zIndex,

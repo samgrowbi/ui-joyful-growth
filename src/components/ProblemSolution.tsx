@@ -54,8 +54,8 @@ export function ProblemSolution() {
             <p className="text-gray-700 text-[17px] md:text-lg lg:text-2xl xl:text-[26px] leading-relaxed font-light text-left">
               {problemCopy}
             </p>
-            <p className="text-lg md:text-xl lg:text-3xl xl:text-4xl uppercase tracking-[0.2em] text-pink-500 font-medium mt-6 lg:mt-10 text-left">
-              {bridgeLine.text} <span className="text-pink-500">{bridgeLine.highlight}</span>
+            <p className="text-lg md:text-xl lg:text-3xl xl:text-4xl uppercase tracking-[0.2em] text-blue-500 font-medium mt-6 lg:mt-10 text-left">
+              {bridgeLine.text} <span className="text-blue-500">{bridgeLine.highlight}</span>
             </p>
           </motion.div>
 

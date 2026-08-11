@@ -89,7 +89,7 @@ export function ClientReviews() {
   const treatment = useTreatment();
   const reviews = treatment.clientReviews || defaultReviews;
   return (
-    <section className="py-4 md:py-6 bg-pink-50/60 overflow-hidden" dir="ltr">
+    <section className="py-4 md:py-6 bg-blue-50/60 overflow-hidden" dir="ltr">
       <div className="container mx-auto px-5">
 
         {/* Reviews Carousel */}

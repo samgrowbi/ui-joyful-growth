@@ -153,8 +153,8 @@ export function Hero({ onBookingClick }: HeroProps) {
           </h2>
 
           {/* H3 — single inline row on mobile, single line on desktop */}
-          <p className="mt-3 sm:mt-4 text-[12px] sm:text-sm lg:text-base xl:text-lg font-bold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-pink-400">
-            No Surgery <span className="text-pink-400/60 mx-1.5">·</span> No Pain <span className="text-pink-400/60 mx-1.5">·</span> Zero Downtime
+          <p className="mt-3 sm:mt-4 text-[12px] sm:text-sm lg:text-base xl:text-lg font-bold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-blue-400">
+            No Surgery <span className="text-blue-400/60 mx-1.5">·</span> No Pain <span className="text-blue-400/60 mx-1.5">·</span> Zero Downtime
           </p>
 
           {/* Price — centered with CTA, diagonal strikethrough */}
@@ -175,7 +175,7 @@ export function Hero({ onBookingClick }: HeroProps) {
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ duration: 0.5, delay: 0.9, ease: "easeOut" }}
-                  className="absolute left-0 top-1/2 w-full h-[2px] bg-pink-500 origin-left"
+                  className="absolute left-0 top-1/2 w-full h-[2px] bg-blue-500 origin-left"
                   style={{ transform: "translateY(-50%) rotate(-12deg)" }}
                 />
               </span>
@@ -201,7 +201,7 @@ export function Hero({ onBookingClick }: HeroProps) {
                 <span className="text-white/60">·</span>
                 <span className="text-white/85">200+ Happy Clients</span>
               </div>
-              <p className="hidden sm:block text-[11px] lg:text-xs uppercase tracking-[0.2em] text-pink-400 font-bold">
+              <p className="hidden sm:block text-[11px] lg:text-xs uppercase tracking-[0.2em] text-blue-400 font-bold">
                 Limited Spots This Week
               </p>
             </div>

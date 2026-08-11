@@ -115,7 +115,7 @@ export function IntakeFormField({ field, value, onChange, disabled }: IntakeForm
             onChange={(e) => onChange(e.target.value)}
             placeholder={field.name}
             disabled={disabled}
-            className="focus:ring-pink-500 focus:border-pink-500"
+            className="focus:ring-blue-500 focus:border-blue-500"
           />
         );
 
@@ -127,7 +127,7 @@ export function IntakeFormField({ field, value, onChange, disabled }: IntakeForm
             onChange={(e) => onChange(e.target.value)}
             placeholder={field.name}
             disabled={disabled}
-            className="focus:ring-pink-500 focus:border-pink-500 min-h-[80px]"
+            className="focus:ring-blue-500 focus:border-blue-500 min-h-[80px]"
           />
         );
 
@@ -202,7 +202,7 @@ export function IntakeFormField({ field, value, onChange, disabled }: IntakeForm
             onChange={(e) => onChange(e.target.value)}
             placeholder={field.name}
             disabled={disabled}
-            className="focus:ring-pink-500 focus:border-pink-500"
+            className="focus:ring-blue-500 focus:border-blue-500"
           />
         );
     }

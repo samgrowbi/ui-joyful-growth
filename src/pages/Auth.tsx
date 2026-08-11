@@ -58,8 +58,8 @@ export default function Auth() {
 
   return (
     <>
-      <main className="min-h-screen flex items-center justify-center bg-pink-50/60 px-4">
-        <div className="w-full max-w-md bg-white rounded-2xl shadow-sm border border-pink-100 p-8">
+      <main className="min-h-screen flex items-center justify-center bg-blue-50/60 px-4">
+        <div className="w-full max-w-md bg-white rounded-2xl shadow-sm border border-blue-100 p-8">
           <h1 className="text-3xl font-serif text-gray-900 mb-1">Admin</h1>
           <p className="text-sm text-gray-500 mb-6">
             {mode === "signin" ? "Sign in to view conversations." : "Create an admin account."}
@@ -88,14 +88,14 @@ export default function Auth() {
                 autoComplete={mode === "signin" ? "current-password" : "new-password"}
               />
             </div>
-            <Button type="submit" disabled={loading} className="w-full bg-pink-500 hover:bg-pink-600">
+            <Button type="submit" disabled={loading} className="w-full bg-blue-500 hover:bg-blue-600">
               {loading ? "Please wait..." : mode === "signin" ? "Sign In" : "Sign Up"}
             </Button>
           </form>
           <button
             type="button"
             onClick={() => setMode(mode === "signin" ? "signup" : "signin")}
-            className="text-sm text-pink-600 hover:underline mt-4 block mx-auto"
+            className="text-sm text-blue-600 hover:underline mt-4 block mx-auto"
           >
             {mode === "signin" ? "Need an account? Sign up" : "Already have an account? Sign in"}
           </button>

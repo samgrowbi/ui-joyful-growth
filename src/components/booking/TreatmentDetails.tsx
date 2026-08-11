@@ -72,9 +72,9 @@ export function TreatmentDetails({ treatment, isLoading }: TreatmentDetailsProps
 
       {/* Title + Category - centered */}
       <div className="text-center space-y-2">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-pink-50 rounded-full">
-          <Sparkles className="h-3.5 w-3.5 text-pink-500" />
-          <span className="text-xs font-medium text-pink-600">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-50 rounded-full">
+          <Sparkles className="h-3.5 w-3.5 text-blue-500" />
+          <span className="text-xs font-medium text-blue-600">
             {treatment.category || "Premium"}
           </span>
         </div>
