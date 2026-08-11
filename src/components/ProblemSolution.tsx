@@ -78,7 +78,7 @@ export function ProblemSolution() {
                   transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
                   className="flex items-start gap-3 lg:gap-5 px-1 py-2 lg:py-3"
                 >
-                  <img src={icon} alt="" className="w-10 h-10 lg:w-16 lg:h-16 flex-shrink-0 mt-0.5" loading="lazy" width={40} height={40} />
+                  <img src={icon} alt="" className="w-10 h-10 lg:w-16 lg:h-16 flex-shrink-0 mt-0.5" loading="lazy" width={40} height={40} decoding="async" />
                   <div>
                     <h3 className="text-gray-900 font-semibold text-lg md:text-xl lg:text-2xl xl:text-[26px] mb-1.5 lg:mb-2 text-left">
                       {b.title}

@@ -29,8 +29,7 @@ export function About({ onBookingClick }: AboutProps) {
                 src={aboutHero}
                 alt="Facial treatment"
                 loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-              />
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" decoding="async" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-black/5 to-transparent pointer-events-none" />
             </div>
           </div>
@@ -57,8 +56,7 @@ export function About({ onBookingClick }: AboutProps) {
                   src={aboutHero}
                   alt="Facial treatment"
                   loading="lazy"
-                  className="w-full object-contain transition-transform duration-700 group-hover:scale-[1.03]"
-                />
+                  className="w-full object-contain transition-transform duration-700 group-hover:scale-[1.03]" decoding="async" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-black/5 to-transparent pointer-events-none" />
               </div>
             </div>
@@ -67,9 +65,9 @@ export function About({ onBookingClick }: AboutProps) {
 
             {/* Platform Logos */}
             <div className="flex items-center justify-center gap-5 md:gap-12">
-              <img src={googleMapsLogo} alt="Google Maps" loading="lazy" className="h-14 md:h-[104px] object-contain opacity-80" />
-              <img src={yelpLogo} alt="Yelp" loading="lazy" className="h-6 md:h-11 object-contain opacity-80" />
-              <img src={trustpilotLogo} alt="Trustpilot" loading="lazy" className="h-6 md:h-11 object-contain opacity-80" />
+              <img src={googleMapsLogo} alt="Google Maps" loading="lazy" className="h-14 md:h-[104px] object-contain opacity-80" decoding="async" />
+              <img src={yelpLogo} alt="Yelp" loading="lazy" className="h-6 md:h-11 object-contain opacity-80" decoding="async" />
+              <img src={trustpilotLogo} alt="Trustpilot" loading="lazy" className="h-6 md:h-11 object-contain opacity-80" decoding="async" />
             </div>
 
           </div>

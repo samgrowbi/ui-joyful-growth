@@ -132,8 +132,7 @@ export function BookingSteps({ onBookingClick }: BookingStepsProps) {
               <img
                 src={bookingWoman}
                 alt="Premium skincare experience"
-                className="w-full h-auto rounded-3xl object-cover"
-              />
+                className="w-full h-auto rounded-3xl object-cover" decoding="async" loading="lazy" />
             </div>
           </motion.div>
         </div>

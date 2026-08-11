@@ -19,8 +19,7 @@ export function Gallery() {
               src={src}
               alt="Our spa"
               loading="lazy"
-              className="w-full h-40 md:h-56 lg:h-64 rounded-xl object-cover"
-            />
+              className="w-full h-40 md:h-56 lg:h-64 rounded-xl object-cover" decoding="async" />
           ))}
         </div>
       </div>
