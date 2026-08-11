@@ -42,7 +42,7 @@ export function Navbar({ onBookingClick }: NavbarProps) {
             src={lumiereLogo} 
             alt={BRAND_NAME}
             className="h-[19px] w-auto md:h-[30px] m-[10px]" 
-            fetchPriority="high" decoding="async"/>
+            width={200} height={126} loading="eager" fetchPriority="high" decoding="async"/>
         </a>
 
         {/* Desktop Menu */}
