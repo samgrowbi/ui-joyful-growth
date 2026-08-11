@@ -44,7 +44,7 @@ export function Hero({ onBookingClick }: HeroProps) {
   }, []);
 
   const appointmentTypeID = treatment.appointmentTypeId || "93509464";
-  const calendarID = treatment.calendarId || "14112013";
+  // Calendar ID intentionally not used - Acuity auto-selects the calendar from the appointment type.
 
   const prefetchBookingData = () => {
     const now = new Date();
@@ -83,24 +83,6 @@ export function Hero({ onBookingClick }: HeroProps) {
           }
         );
         if (!response.ok) throw new Error("Failed to fetch forms");
-        return response.json();
-      },
-      staleTime: 60 * 60 * 1000,
-    });
-    queryClient.prefetchQuery({
-      queryKey: ["acuity-calendar", calendarID],
-      queryFn: async () => {
-        const response = await fetch(
-          `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/acuity-calendar?calendarID=${calendarID}`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-              "apikey": import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
-              "Authorization": `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
-            },
-          }
-        );
-        if (!response.ok) throw new Error("Failed to fetch calendar");
         return response.json();
       },
       staleTime: 60 * 60 * 1000,
