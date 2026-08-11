@@ -409,6 +409,29 @@ Deno.serve(async (req) => {
           return { saved: !error };
         },
       }),
+      request_booking_form: tool({
+        description:
+          "Open the in-chat booking form. Call this the moment the visitor has picked a date AND a time for a known treatment. Never ask intake questions in chat.",
+        inputSchema: z.object({
+          treatmentSlug: z.enum(TREATMENT_SLUGS),
+          date: z.string().describe("YYYY-MM-DD"),
+          time: z.string().describe("Human readable time, e.g. 2:30 PM"),
+          datetime: z
+            .string()
+            .describe("ISO datetime exactly as returned by get_available_times."),
+        }),
+        execute: async ({ treatmentSlug, datetime }) => {
+          return { ready: true, treatmentSlug, datetime };
+        },
+      }),
+      suggest_quick_replies: tool({
+        description:
+          "Suggest 2 to 4 very short tappable quick replies for the visitor. Keep each under 5 words.",
+        inputSchema: z.object({
+          replies: z.array(z.string()).min(1).max(4),
+        }),
+        execute: async ({ replies }) => ({ replies }),
+      }),
       book_appointment: tool({
         description:
           "Book a real appointment in Acuity. Only call AFTER the visitor explicitly confirms the date, time and her contact details.",
@@ -423,6 +446,11 @@ Deno.serve(async (req) => {
           lastName: z.string().min(1),
           email: z.string().email(),
           phone: z.string().min(7),
+          intakeAnswers: z
+            .record(z.union([z.string(), z.array(z.string())]))
+            .describe(
+              "Intake answers keyed by Acuity field id, exactly as submitted in the booking form.",
+            ),
         }),
         execute: async ({
           treatmentSlug,
@@ -431,9 +459,28 @@ Deno.serve(async (req) => {
           lastName,
           email,
           phone,
+          intakeAnswers,
         }) => {
           const t = getTreatmentBySlug(treatmentSlug);
           if (!t) return { error: "Unknown treatment" };
+
+          const answers = intakeAnswers ?? {};
+          const fields = t.intakeFields.map((f) => {
+            const raw = answers[String(f.acuityFieldId)];
+            return {
+              id: f.acuityFieldId,
+              value: Array.isArray(raw) ? raw.join(", ") : String(raw ?? ""),
+            };
+          });
+          const missing = t.intakeFields.find((f) => {
+            if (!f.required) return false;
+            const v = fields.find((x) => x.id === f.acuityFieldId)?.value ?? "";
+            return v.trim() === "";
+          });
+          if (missing) {
+            return { success: false, error: `Please complete: ${missing.label}` };
+          }
+
           const r = await callAcuity("acuity-book", {
             method: "POST",
             body: JSON.stringify({
@@ -442,6 +489,7 @@ Deno.serve(async (req) => {
               email,
               phone,
               datetime,
+              fields,
               appointmentTypeID: t.appointmentTypeId,
             }),
           });
