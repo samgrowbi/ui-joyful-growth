@@ -10,10 +10,12 @@ import ThankYou from "./pages/ThankYou";
 import BookLedCryo from "./pages/BookLedCryo";
 import BookLed from "./pages/BookLed";
 import BookBodySculpting from "./pages/BookBodySculpting";
-import BookInstantLift from "./pages/BookInstantLift";
+import BookFacelift from "./pages/BookFacelift";
+import BookCarbonPeeling from "./pages/BookCarbonPeeling";
 import LedCryo from "./pages/LedCryo";
 import BodySculpting from "./pages/BodySculpting";
-import InstantLift from "./pages/InstantLift";
+import Facelift from "./pages/Facelift";
+import CarbonPeeling from "./pages/CarbonPeeling";
 import SkinSpecialistChat from "./components/chat/SkinSpecialistChat";
 import Auth from "./pages/Auth";
 import Admin from "./pages/Admin";
@@ -27,13 +29,16 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<InstantLift />} />
+          <Route path="/" element={<Facelift />} />
+          <Route path="/facelift" element={<Facelift />} />
           <Route path="/instant-lift" element={<Navigate to="/" replace />} />
           <Route path="/led" element={<Index />} />
           <Route path="/led-cryo" element={<LedCryo />} />
           <Route path="/body-sculpting" element={<BodySculpting />} />
+          <Route path="/carbon-peeling" element={<CarbonPeeling />} />
           <Route path="/book/led" element={<BookLed />} />
-          <Route path="/book/instant-lift" element={<BookInstantLift />} />
+          <Route path="/book/facelift" element={<BookFacelift />} />
+          <Route path="/book/carbon-peeling" element={<BookCarbonPeeling />} />
           <Route path="/book/led-cryo" element={<BookLedCryo />} />
           <Route path="/book/body-sculpting" element={<BookBodySculpting />} />
           <Route path="/thank-you" element={<ThankYou />} />
