@@ -148,8 +148,7 @@ function TestimonialCard({ item, isPlaying, onPlay, onPause }: TestimonialCardPr
             src={item.poster}
             alt={item.name}
             loading="lazy"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
+            className="absolute inset-0 w-full h-full object-cover" decoding="async" />
         )}
 
         <video

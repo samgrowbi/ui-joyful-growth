@@ -127,8 +127,7 @@ export function ClientReviews() {
                         src={review.image} 
                         alt={review.name}
                         loading="lazy"
-                        className="w-11 h-11 lg:w-14 lg:h-14 rounded-full object-cover"
-                      />
+                        className="w-11 h-11 lg:w-14 lg:h-14 rounded-full object-cover" decoding="async" />
                       <div>
                         <h4 className="font-semibold text-gray-900 text-base lg:text-lg">{review.name}</h4>
                         <p className="text-xs lg:text-sm text-gray-500">{review.timeAgo}</p>

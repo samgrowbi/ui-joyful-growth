@@ -105,8 +105,7 @@ export function Results() {
                             src={item.composite}
                             alt={item.label}
                             loading="lazy"
-                            className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105"
-                          />
+                            className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105" decoding="async" />
                         </div>
                         <div className="w-full text-center py-2 lg:py-3 bg-white">
                           {('name' in item && (item as any).name) ? (

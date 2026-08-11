@@ -133,8 +133,7 @@ function FloatingBubble({
           width={112}
           height={112}
           loading="lazy"
-          className="h-full w-full rounded-full object-cover ring-2 ring-blue-100"
-        />
+          className="h-full w-full rounded-full object-cover ring-2 ring-blue-100" decoding="async" />
         <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full bg-emerald-500 ring-2 ring-white" />
       </span>
       <span className="hidden md:flex flex-col items-start text-left leading-tight">
@@ -234,8 +233,7 @@ function ChatWindow({
             alt="Sofia"
             width={88}
             height={88}
-            className="h-11 w-11 rounded-full object-cover ring-2 ring-white/30"
-          />
+            className="h-11 w-11 rounded-full object-cover ring-2 ring-white/30" decoding="async" loading="lazy" />
           <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full bg-emerald-400 ring-2 ring-blue-500" />
         </div>
         <div className="flex-1 min-w-0 leading-tight">
@@ -596,7 +594,7 @@ function BookingFormCard({
     <div className="mt-3 rounded-2xl border border-blue-200 bg-white p-4 space-y-3">
       <div>
         <div className="text-sm font-semibold text-gray-900">
-          {treatment.name ?? "Your appointment"}
+          {treatment.label ?? "Your appointment"}
         </div>
         {dt && (
           <div className="text-xs text-gray-600 mt-0.5">

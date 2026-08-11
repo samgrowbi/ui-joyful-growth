@@ -45,6 +45,7 @@ export function BeforeAfterCard({ beforeImg, afterImg, label, name, age, classNa
                           src={beforeImg}
                           alt="Before Treatment"
                           loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-110"
                           onError={() => setBeforeError(true)}
                       />
@@ -59,6 +60,7 @@ export function BeforeAfterCard({ beforeImg, afterImg, label, name, age, classNa
                           src={afterImg}
                           alt="After Treatment"
                           loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-110"
                           onError={() => setAfterError(true)}
                       />
