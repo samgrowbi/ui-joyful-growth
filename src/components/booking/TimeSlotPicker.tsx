@@ -3,8 +3,8 @@ import { cn } from "@/lib/utils";
 import { formatInTimeZone } from "date-fns-tz";
 import { DEFAULT_ACUITY_TIMEZONE } from "@/config/acuity";
 
-const PINK_SELECTED = "#F44798";
-const PINK_BORDER = "rgba(244, 71, 152, 0.2)";
+const ACCENT_SELECTED = "#3B82F6";
+const ACCENT_BORDER = "rgba(59, 130, 246, 0.2)";
 
 interface TimeSlot {
   time: string;
@@ -99,8 +99,8 @@ export function TimeSlotPicker({
               key={slot.time}
               onClick={() => onTimeSelect(slot.time)}
               style={{
-                backgroundColor: isSelected ? PINK_SELECTED : "#ffffff",
-                borderColor: isSelected ? "transparent" : PINK_BORDER,
+                backgroundColor: isSelected ? ACCENT_SELECTED : "#ffffff",
+                borderColor: isSelected ? "transparent" : ACCENT_BORDER,
               }}
               className={cn(
                 "h-12 lg:h-14 xl:h-16 rounded-xl border text-sm lg:text-base xl:text-lg font-medium transition-all duration-200",

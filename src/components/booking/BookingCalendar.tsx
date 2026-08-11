@@ -5,8 +5,8 @@ import { formatDateOnly } from "@/lib/dateOnly";
 import { format } from "date-fns";
 import { Flame } from "lucide-react";
 
-const PINK_SOLID = "#F44798";
-const PINK_BORDER = "rgba(244, 71, 152, 0.2)";
+const ACCENT_SOLID = "#3B82F6";
+const ACCENT_BORDER = "rgba(59, 130, 246, 0.2)";
 
 interface BookingCalendarProps {
   selectedDate: Date | undefined;
@@ -98,8 +98,8 @@ export function BookingCalendar({
                     <button
                       onClick={() => onDateSelect(date)}
                       style={{
-                        backgroundColor: isSelected ? PINK_SOLID : "#ffffff",
-                        borderColor: isSelected ? "transparent" : PINK_BORDER,
+                        backgroundColor: isSelected ? ACCENT_SOLID : "#ffffff",
+                        borderColor: isSelected ? "transparent" : ACCENT_BORDER,
                       }}
                       className={cn(
                         "w-full h-12 lg:h-16 xl:h-20 inline-flex flex-col items-center justify-center rounded-xl border transition-all duration-200",

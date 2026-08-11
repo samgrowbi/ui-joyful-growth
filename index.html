@@ -6,16 +6,20 @@
 
     <!-- Meta Pixel Code (deferred) -->
     <script>
+      // Stub + init run immediately so events fired before the script finishes
+      // loading are queued (and replayed in order). Only the network fetch of
+      // fbevents.js is deferred to window load to keep it non-render-blocking.
+      !function(f,b,e,v,n){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[]}(window, document,'script');
+      fbq('init', '1689154455241427');
       window.addEventListener('load', function() {
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1689154455241427');
+        var t = document.createElement('script');
+        t.async = !0;
+        t.src = 'https://connect.facebook.net/en_US/fbevents.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(t, s);
         fbq('track', 'PageView');
       });
     </script>
