@@ -7,9 +7,13 @@ const treatmentDescriptions: Record<string, { noteLine: string; description: str
     noteLine: "It is a real, results-driven treatment performed by trained professionals who specialize in advanced skincare technology.",
     description: "Our LED technology delivers therapeutic light energy to stimulate cellular regeneration, promoting collagen production and tissue repair for visible, lasting results.",
   },
-  "instant-lift": {
+  facelift: {
     noteLine: "It is a real, results-driven treatment performed by trained professionals who specialize in advanced skincare technology.",
-    description: "Our Instant Lift & Skin Tightening treatment delivers specific wavelengths of light energy into the skin's deeper layers, activating the body's own natural healing process of collagen production and cellular repair. The facial is entirely non-invasive, without heat, injectables, or foreign substances.",
+    description: "Our Non Surgical Face Lift treatment delivers specific wavelengths of light energy into the skin's deeper layers, activating the body's own natural healing process of collagen production and cellular repair. The treatment is entirely non-invasive, without heat, injectables, or foreign substances.",
+  },
+  "carbon-peeling": {
+    noteLine: "It is a real, results-driven treatment performed by trained professionals who specialize in advanced skincare technology.",
+    description: "Our Carbon Peeling treatment gently resurfaces the skin, refining pores and clearing congestion for a smoother, brighter complexion with no downtime.",
   },
   "led-cryo": {
     noteLine: "It is a real, results-driven treatment performed by trained professionals who specialize in advanced skincare technology.",
@@ -22,7 +26,7 @@ const treatmentDescriptions: Record<string, { noteLine: string; description: str
 };
 
 function getTreatmentInfo(treatment: ReturnType<typeof useTreatment>) {
-  return treatmentDescriptions[treatment.slug] || treatmentDescriptions["instant-lift"];
+  return treatmentDescriptions[treatment.slug] || treatmentDescriptions["facelift"];
 }
 
 export function TreatmentInfo() {

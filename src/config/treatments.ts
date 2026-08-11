@@ -468,17 +468,3 @@ export const BODY_SCULPTING_TREATMENT: TreatmentConfig = {
 };
 
 // Instant Lift treatment - duplicate of LED with different appointment type
-export const INSTANT_LIFT_TREATMENT: TreatmentConfig = {
-  ...LED_TREATMENT,
-  slug: "instant-lift",
-  label: "Instant Lift & Skin Tightening Treatment",
-  appointmentTypeId: "93509464",
-  // calendarId intentionally unused - Acuity auto-selects from the appointment type
-  calendarId: "",
-  price: "79.99",
-  originalPrice: "349.99",
-  duration: 60,
-  technologyDescription: [
-    "Our Instant Lift & Skin Tightening treatment delivers specific wavelengths of light energy into the skin's deeper layers, activating the body's own natural healing process of collagen production and cellular repair. The facial is entirely non-invasive, without heat, injectables, or foreign substances.",
-  ],
-};
