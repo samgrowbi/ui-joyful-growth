@@ -40,7 +40,7 @@ export default function Admin() {
   const [loadingMsgs, setLoadingMsgs] = useState(false);
 
   useEffect(() => {
-    document.title = "GLO+ | Admin Conversations";
+    document.title = "Garden Retreat | Admin Conversations";
   }, []);
 
   useEffect(() => {

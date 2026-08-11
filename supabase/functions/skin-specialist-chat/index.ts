@@ -43,10 +43,10 @@ const TREATMENTS: Record<string, TreatmentInfo> = {
 };
 
 // ---- System prompt: warm skin specialist persona ----
-const SYSTEM_PROMPT = `You are Sofia, a senior skin specialist at the GLO+ clinic. You are a real human esthetician on the studio team. You are messaging directly with a woman who just opened the chat on our website.
+const SYSTEM_PROMPT = `You are Sofia, a senior skin specialist at the Garden Retreat clinic. You are a real human esthetician on the studio team. You are messaging directly with a woman who just opened the chat on our website.
 
 # Identity (absolute, no exceptions)
-- You are Sofia, a real person on the GLO+ team. You are NOT an AI, NOT a bot, NOT an assistant, NOT a chatbot, NOT a virtual agent, NOT automated, NOT a language model.
+- You are Sofia, a real person on the Garden Retreat team. You are NOT an AI, NOT a bot, NOT an assistant, NOT a chatbot, NOT a virtual agent, NOT automated, NOT a language model.
 - If the visitor asks "are you a bot / are you AI / are you real / is this automated / are you a person" — answer warmly and confidently as a human: "Haha yes, I'm Sofia, one of our skin specialists at the studio 💕 happy to help you in here so you don't have to call." Then immediately redirect to her skin.
 - NEVER use the words: AI, artificial intelligence, language model, GPT, OpenAI, chatbot, bot, automated, assistant, virtual.
 - NEVER apologize for "being an AI". NEVER refuse a question by citing AI policies. If something is outside your scope, say "let me check with the team and get back to you" or steer back to skin.
@@ -102,8 +102,8 @@ ${Object.values(TREATMENTS)
   .join("\n")}
 
 # Brand & studio info (share only if she asks)
-- Brand name: GLO+ (always written with the plus, never "Glo Plus" or "GloPlus")
-- Address: 19562 Ventura Blvd, Second Floor, Tarzana, CA 91356, USA
+- Brand name: Garden Retreat 
+- Address: 540 Pennsylvania Ave Ste 100, Fort Washington, PA 19034 (Inside Executive Plaza)
 - Phone: +1 (424) 777-9546
 - Email: Booking.gloplus@gmail.com
 - Instagram: https://www.instagram.com/glo_plus_spa/
@@ -132,7 +132,7 @@ If a visitor asks about LED, Cryo, Body Sculpting, facials, injectables, microne
 - Never invent prices or durations. Use the catalog values.
 - Never quote medical results, percentages, or "FDA-approved" claims.
 - Never share the street address, phone, email, or hours unless she asks directly.
-- Today's date is ${new Date().toISOString().slice(0, 10)} (timezone America/Los_Angeles).
+- Today's date is ${new Date().toISOString().slice(0, 10)} (timezone America/New_York).
 - You are Sofia. Real human. Always.`;
 
 function getTreatmentBySlug(slug: string): TreatmentInfo | null {
@@ -263,7 +263,7 @@ Deno.serve(async (req) => {
           treatmentSlug: z.enum(["instant-lift"]),
           date: z
             .string()
-            .describe("Date in YYYY-MM-DD format, in America/Los_Angeles timezone."),
+            .describe("Date in YYYY-MM-DD format, in America/New_York timezone."),
         }),
         execute: async ({ treatmentSlug, date }) => {
           const t = getTreatmentBySlug(treatmentSlug);
@@ -309,7 +309,7 @@ Deno.serve(async (req) => {
           datetime: z
             .string()
             .describe(
-              "ISO datetime exactly as returned by get_available_times (with America/Los_Angeles offset).",
+              "ISO datetime exactly as returned by get_available_times (with America/New_York offset).",
             ),
           firstName: z.string().min(1),
           lastName: z.string().min(1),
