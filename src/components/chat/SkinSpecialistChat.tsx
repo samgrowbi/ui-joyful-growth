@@ -594,7 +594,7 @@ function BookingFormCard({
     <div className="mt-3 rounded-2xl border border-blue-200 bg-white p-4 space-y-3">
       <div>
         <div className="text-sm font-semibold text-gray-900">
-          {treatment.name ?? "Your appointment"}
+          {treatment.label ?? "Your appointment"}
         </div>
         {dt && (
           <div className="text-xs text-gray-600 mt-0.5">
