@@ -3,7 +3,7 @@
 
 import treatmentImage from "@/assets/treatment-facial.webp";
 
-export const DEFAULT_ACUITY_APPOINTMENT_TYPE_ID = "93509464";
+export const DEFAULT_ACUITY_APPOINTMENT_TYPE_ID = "93188408";
 export const DEFAULT_ACUITY_CALENDAR_ID = "14112013";
 export const DEFAULT_ACUITY_TIMEZONE = "America/New_York";
 
@@ -15,7 +15,7 @@ export const PROMOTIONAL_PRICE = "79.99";
 
 // Fallback details if API fails
 export const TREATMENT_DETAILS_FALLBACK = {
-  id: 93509464,
+  id: 93188408,
   name: "Treatment",
   description: "",
   duration: 60,
