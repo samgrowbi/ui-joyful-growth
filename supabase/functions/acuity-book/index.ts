@@ -26,7 +26,7 @@ serve(async (req) => {
       phone, 
       datetime, 
       fields, 
-      appointmentTypeID = '93509464',
+      appointmentTypeID = '93188408',
       // IMPORTANT: do not default calendarID; only send it if caller explicitly provides one.
       // Sending the wrong calendarID can trigger a 403 Forbidden from Acuity.
       calendarID

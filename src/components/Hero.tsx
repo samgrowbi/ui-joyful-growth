@@ -6,6 +6,7 @@ import { useTreatment } from "@/context/TreatmentContext";
 import { RotatingText } from "./ui/RotatingText";
 import { AccentWord } from "./ui/AccentWord";
 import { parseDateOnly } from "@/lib/dateOnly";
+import { DEFAULT_ACUITY_APPOINTMENT_TYPE_ID } from "@/config/acuity";
 
 interface HeroProps {
   onBookingClick: () => void;
@@ -44,7 +45,7 @@ export function Hero({ onBookingClick }: HeroProps) {
     };
   }, []);
 
-  const appointmentTypeID = treatment.appointmentTypeId || "93509464";
+  const appointmentTypeID = treatment.appointmentTypeId || DEFAULT_ACUITY_APPOINTMENT_TYPE_ID;
   // Calendar ID intentionally not used - Acuity auto-selects the calendar from the appointment type.
 
   const prefetchBookingData = () => {
