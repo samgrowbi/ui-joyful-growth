@@ -7,15 +7,18 @@ import { X, Send } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
 import specialistAvatar from "@/assets/specialist-avatar.jpg";
+import { getTreatmentBySlug, getIntakeFields, type IntakeField } from "@/config/treatmentRegistry";
 
 const SESSION_KEY = "lumiere_chat_session_id";
 const ENDPOINT = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/skin-specialist-chat`;
 
 const QUICK_REPLIES = [
-  "Fine lines & wrinkles",
-  "Sagging skin",
-  "Dull, tired skin",
-  "Just exploring",
+  "Non Surgical Face Lift",
+  "Instant Lift & Skin Tightening",
+  "LED + Cryo Face & Neck Lift",
+  "Carbon Peeling",
+  "Body Sculpting",
+  "I have a question",
 ];
 
 const WELCOME_MESSAGE: UIMessage = {
@@ -195,7 +198,31 @@ function ChatWindow({
     await sendMessage({ text: value });
   };
 
-  const showQuickReplies = messages.length <= 1 && !isLoading;
+  const suggested = useMemo(() => {
+    const lastAssistant = [...messages].reverse().find((m) => m.role === "assistant");
+    if (!lastAssistant) return [] as string[];
+    const part = [...lastAssistant.parts]
+      .reverse()
+      .find((p) => p.type === "tool-suggest_quick_replies") as
+      | { output?: { replies?: string[] } }
+      | undefined;
+    return part?.output?.replies ?? [];
+  }, [messages]);
+
+  const [chipsDismissed, setChipsDismissed] = useState(false);
+  useEffect(() => {
+    setChipsDismissed(false);
+  }, [messages.length]);
+
+  const activeChips =
+    chipsDismissed || isLoading || input.trim()
+      ? []
+      : suggested.length > 0
+        ? suggested
+        : messages.length <= 1
+          ? QUICK_REPLIES
+          : [];
+  const showQuickReplies = activeChips.length > 0;
 
   return (
     <div className="fixed inset-0 md:inset-auto md:bottom-6 md:right-6 z-[70] md:w-[400px] md:h-[640px] md:max-h-[85vh] flex flex-col bg-white md:rounded-3xl shadow-2xl overflow-hidden border border-blue-100">
@@ -232,7 +259,7 @@ function ChatWindow({
         className="flex-1 overflow-y-auto px-4 py-5 space-y-4 bg-blue-50/40"
       >
         {messages.map((m) => (
-          <MessageBubble key={m.id} message={m} />
+          <MessageBubble key={m.id} message={m} onSend={onSubmit} />
         ))}
         {isLoading && <TypingIndicator />}
         {error && (
@@ -243,10 +270,13 @@ function ChatWindow({
 
         {showQuickReplies && (
           <div className="flex flex-wrap gap-2 pt-2">
-            {QUICK_REPLIES.map((q) => (
+            {activeChips.map((q) => (
               <button
                 key={q}
-                onClick={() => onSubmit(q)}
+                onClick={() => {
+                  setChipsDismissed(true);
+                  onSubmit(q);
+                }}
                 className="text-xs px-3 py-2 rounded-full bg-white border border-blue-200 text-blue-700 hover:bg-blue-100 transition"
               >
                 {q}
@@ -292,12 +322,22 @@ function ChatWindow({
   );
 }
 
-function MessageBubble({ message }: { message: UIMessage }) {
+function MessageBubble({
+  message,
+  onSend,
+}: {
+  message: UIMessage;
+  onSend: (text: string) => void | Promise<void>;
+}) {
   const isUser = message.role === "user";
-  const text = message.parts
+  let text = message.parts
     .map((p) => (p.type === "text" ? p.text : ""))
     .join("")
     .trim();
+  // Hide raw form submission payloads from the transcript.
+  if (isUser && text.startsWith("[BOOKING_FORM_SUBMISSION]")) {
+    text = "Sent my details 💕";
+  }
   const toolParts = message.parts.filter((p) => p.type?.startsWith("tool-"));
 
   if (!text && toolParts.length === 0) return null;
@@ -347,21 +387,46 @@ function MessageBubble({ message }: { message: UIMessage }) {
         {isUser && <span className="whitespace-pre-wrap">{text}</span>}
 
         {toolParts.map((p, idx) => (
-          <ToolPartRender key={idx} part={p} />
+          <ToolPartRender key={idx} part={p} onSend={onSend} />
         ))}
       </div>
     </div>
   );
 }
 
-function ToolPartRender({ part }: { part: UIMessage["parts"][number] }) {
+function ToolPartRender({
+  part,
+  onSend,
+}: {
+  part: UIMessage["parts"][number];
+  onSend: (text: string) => void | Promise<void>;
+}) {
   const type = part.type ?? "";
+
+  if (type === "tool-request_booking_form") {
+    const state = (part as { state?: string }).state;
+    const output = (part as {
+      output?: { ready?: boolean; treatmentSlug?: string; datetime?: string };
+    }).output;
+    if (state === "output-available" && output?.ready && output.treatmentSlug) {
+      return (
+        <BookingFormCard
+          treatmentSlug={output.treatmentSlug}
+          datetime={output.datetime ?? ""}
+          onSend={onSend}
+        />
+      );
+    }
+    return null;
+  }
+
   // Booking success card
   if (type === "tool-book_appointment") {
     const state = (part as { state?: string }).state;
-    const output = (part as { output?: { success?: boolean; treatmentName?: string; datetime?: string } }).output;
+    const output = (part as { output?: BookingOutput }).output;
     if (state === "output-available" && output?.success) {
       const dt = output.datetime ? new Date(output.datetime) : null;
+      fireSchedulePixel(output as BookingOutput);
       return (
         <div className="mt-3 rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
           <div className="flex items-center gap-2 text-emerald-700 font-semibold text-sm">
@@ -382,7 +447,7 @@ function ToolPartRender({ part }: { part: UIMessage["parts"][number] }) {
                   minute: "2-digit",
                   timeZone: "America/New_York",
                 })}{" "}
-                PT
+                ET
               </div>
             )}
             <div className="text-[11px] text-gray-500 mt-2">
