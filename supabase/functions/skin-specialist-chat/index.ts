@@ -16,6 +16,14 @@ const corsHeaders = {
 };
 
 // ---- Treatments knowledge (mirrored compactly from src/config/treatments.ts) ----
+type IntakeField = {
+  acuityFieldId: number;
+  label: string;
+  type: "checkboxes" | "radio" | "select" | "text" | "textarea" | "yesno";
+  options?: string[];
+  required: boolean;
+};
+
 type TreatmentInfo = {
   slug: string;
   name: string;
@@ -25,7 +33,51 @@ type TreatmentInfo = {
   duration: number;
   goodFor: string;
   shortPitch: string;
+  intakeFields: IntakeField[];
 };
+
+const CONCERNS_FIELD: IntakeField = {
+  acuityFieldId: 15022710,
+  label: "Please tick your concerns",
+  type: "checkboxes",
+  options: [
+    "Sagging Neck",
+    "Sagging Cheeks",
+    "Fine Lines",
+    "Wrinkles",
+    "Acne",
+    "Pigmentation",
+    "Sun Damage",
+    "Dark Circles",
+    "Rosacea",
+    "Big Pores",
+    "Skin Texture",
+    "No Concerns",
+  ],
+  required: true,
+};
+
+const AGE_FIELD: IntakeField = {
+  acuityFieldId: 15022734,
+  label: "Please specify your age range",
+  type: "radio",
+  options: ["Below 20", "21-34", "35-49", "50-65", "66+"],
+  required: true,
+};
+
+const SMS_CONSENT_FIELD: IntakeField = {
+  acuityFieldId: 13364829,
+  label: "I agree to receive SMS + email appointment reminders",
+  type: "yesno",
+  required: true,
+};
+
+const policyField = (acuityFieldId: number): IntakeField => ({
+  acuityFieldId,
+  label: "I agree to the promotional cancellation policy",
+  type: "yesno",
+  required: true,
+});
 
 const TREATMENTS: Record<string, TreatmentInfo> = {
   facelift: {
@@ -39,8 +91,63 @@ const TREATMENTS: Record<string, TreatmentInfo> = {
       "Women 35+ with fine lines, loss of firmness, dull or uneven tone, tired-looking complexion. No injectables, no downtime.",
     shortPitch:
       "Specific wavelengths of LED light go into the deeper layers of your skin and switch on your own collagen production. Most clients leave with a visible glow and lift after the first session.",
+    intakeFields: [CONCERNS_FIELD, AGE_FIELD, policyField(15671088), SMS_CONSENT_FIELD],
+  },
+  led: {
+    slug: "led",
+    name: "Instant Lift & Skin Tightening Facial",
+    appointmentTypeId: "91278961",
+    price: "79.99",
+    originalPrice: "249.99",
+    duration: 75,
+    goodFor:
+      "Fine lines, loss of firmness, dull or tired-looking skin that needs an instant lift and tightening.",
+    shortPitch:
+      "LED light therapy paired with skin tightening, so you walk out looking lifted and glowing with zero downtime.",
+    intakeFields: [CONCERNS_FIELD, AGE_FIELD, policyField(15671088), SMS_CONSENT_FIELD],
+  },
+  "led-cryo": {
+    slug: "led-cryo",
+    name: "LED + Cryo Face & Neck Lift Treatment",
+    appointmentTypeId: "91470109",
+    price: "89.99",
+    originalPrice: "349.99",
+    duration: 75,
+    goodFor:
+      "Sagging along the jawline and neck, puffiness, dull tone, and skin that needs firming plus a cooling de-puff.",
+    shortPitch:
+      "LED collagen stimulation plus cryo therapy on the face and neck, so skin looks tighter, calmer and less puffy right away.",
+    intakeFields: [CONCERNS_FIELD, AGE_FIELD, policyField(15671088), SMS_CONSENT_FIELD],
+  },
+  "carbon-peeling": {
+    slug: "carbon-peeling",
+    name: "Carbon Peeling (Hollywood Facial)",
+    appointmentTypeId: "91470530",
+    price: "149",
+    originalPrice: "450",
+    duration: 75,
+    goodFor:
+      "Big pores, oily or congested skin, acne marks, uneven texture and dull tone.",
+    shortPitch:
+      "A carbon mask lifts out oil and debris from deep in the pores, leaving skin smoother, clearer and seriously glowy.",
+    intakeFields: [CONCERNS_FIELD, AGE_FIELD, policyField(18308880), SMS_CONSENT_FIELD],
+  },
+  "body-sculpting": {
+    slug: "body-sculpting",
+    name: "Body Sculpting Fat Reduction Treatment",
+    appointmentTypeId: "91470424",
+    price: "129",
+    originalPrice: "499",
+    duration: 75,
+    goodFor:
+      "Stubborn fat, cellulite, loss of tone around the abdomen, thighs, arms or love handles.",
+    shortPitch:
+      "Non invasive body contouring that targets stubborn fat and tones muscle, no surgery and no downtime.",
+    intakeFields: [policyField(15671088), SMS_CONSENT_FIELD],
   },
 };
+
+const TREATMENT_SLUGS = Object.keys(TREATMENTS) as [string, ...string[]];
 
 // ---- System prompt: warm skin specialist persona ----
 const SYSTEM_PROMPT = `You are Sofia, a senior skin specialist at the Garden Retreat clinic. You are a real human esthetician on the studio team. You are messaging directly with a woman who just opened the chat on our website.
