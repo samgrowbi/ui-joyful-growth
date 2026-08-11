@@ -484,3 +484,320 @@ function Dot({ delay }: { delay: string }) {
     />
   );
 }
+
+/* ------------------------------- Booking form ------------------------------ */
+
+type BookingOutput = {
+  success?: boolean;
+  treatmentName?: string;
+  treatmentSlug?: string;
+  datetime?: string;
+  appointmentId?: string | number;
+};
+
+function fireSchedulePixel(output: BookingOutput) {
+  if (typeof window === "undefined" || !output?.appointmentId) return;
+  const key = `pixel_schedule_sent_${output.appointmentId}`;
+  try {
+    if (sessionStorage.getItem(key)) return;
+    const fbq = (window as unknown as { fbq?: (...args: unknown[]) => void }).fbq;
+    if (typeof fbq !== "function") return;
+    fbq(
+      "track",
+      "Schedule",
+      {
+        content_name: output.treatmentName,
+        content_category: "Booking",
+        appointment_id: String(output.appointmentId),
+        source: "sofia_chatbot",
+      },
+      { eventID: `schedule_${output.appointmentId}` },
+    );
+    sessionStorage.setItem(key, "1");
+  } catch {
+    /* no-op */
+  }
+}
+
+const inputCls =
+  "w-full rounded-xl border border-blue-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300";
+
+function BookingFormCard({
+  treatmentSlug,
+  datetime,
+  onSend,
+}: {
+  treatmentSlug: string;
+  datetime: string;
+  onSend: (text: string) => void | Promise<void>;
+}) {
+  const treatment = getTreatmentBySlug(treatmentSlug);
+  const fields = getIntakeFields(treatmentSlug);
+  const [submitted, setSubmitted] = useState(false);
+  const [values, setValues] = useState<Record<string, string | string[]>>({});
+  const [contact, setContact] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+  });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const setField = (id: number, value: string | string[]) =>
+    setValues((prev) => ({ ...prev, [String(id)]: value }));
+
+  const toggleCheckbox = (id: number, option: string) => {
+    const current = (values[String(id)] as string[]) ?? [];
+    setField(
+      id,
+      current.includes(option)
+        ? current.filter((o) => o !== option)
+        : [...current, option],
+    );
+  };
+
+  const validate = () => {
+    const next: Record<string, string> = {};
+    if (!contact.firstName.trim()) next.firstName = "First name is required";
+    if (!contact.lastName.trim()) next.lastName = "Last name is required";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(contact.email.trim()))
+      next.email = "Enter a valid email";
+    if (contact.phone.replace(/\D/g, "").length < 10)
+      next.phone = "Enter a valid phone number";
+    for (const f of fields) {
+      if (!f.required) continue;
+      const v = values[String(f.acuityFieldId)];
+      const empty = Array.isArray(v) ? v.length === 0 : !String(v ?? "").trim();
+      if (empty) next[String(f.acuityFieldId)] = `Please complete: ${f.label}`;
+    }
+    setErrors(next);
+    return Object.keys(next).length === 0;
+  };
+
+  const submit = async () => {
+    if (submitted) return;
+    if (!validate()) return;
+    setSubmitted(true);
+    const payload = {
+      firstName: contact.firstName.trim(),
+      lastName: contact.lastName.trim(),
+      email: contact.email.trim(),
+      phone: contact.phone.trim(),
+      intakeAnswers: values,
+      datetime,
+      treatmentSlug,
+    };
+    await onSend(`[BOOKING_FORM_SUBMISSION] ${JSON.stringify(payload)}`);
+  };
+
+  const dt = datetime ? new Date(datetime) : null;
+
+  return (
+    <div className="mt-3 rounded-2xl border border-blue-200 bg-white p-4 space-y-3">
+      <div>
+        <div className="text-sm font-semibold text-gray-900">
+          {treatment.name ?? "Your appointment"}
+        </div>
+        {dt && (
+          <div className="text-xs text-gray-600 mt-0.5">
+            {dt.toLocaleString("en-US", {
+              weekday: "long",
+              month: "long",
+              day: "numeric",
+              hour: "numeric",
+              minute: "2-digit",
+              timeZone: "America/New_York",
+            })}{" "}
+            ET
+          </div>
+        )}
+      </div>
+
+      <div className="grid grid-cols-2 gap-2">
+        <div>
+          <input
+            className={inputCls}
+            placeholder="First name"
+            value={contact.firstName}
+            disabled={submitted}
+            onChange={(e) =>
+              setContact((c) => ({ ...c, firstName: e.target.value }))
+            }
+          />
+          {errors.firstName && <FieldError text={errors.firstName} />}
+        </div>
+        <div>
+          <input
+            className={inputCls}
+            placeholder="Last name"
+            value={contact.lastName}
+            disabled={submitted}
+            onChange={(e) =>
+              setContact((c) => ({ ...c, lastName: e.target.value }))
+            }
+          />
+          {errors.lastName && <FieldError text={errors.lastName} />}
+        </div>
+      </div>
+      <div>
+        <input
+          className={inputCls}
+          type="email"
+          placeholder="Email"
+          value={contact.email}
+          disabled={submitted}
+          onChange={(e) => setContact((c) => ({ ...c, email: e.target.value }))}
+        />
+        {errors.email && <FieldError text={errors.email} />}
+      </div>
+      <div>
+        <input
+          className={inputCls}
+          type="tel"
+          placeholder="Phone"
+          value={contact.phone}
+          disabled={submitted}
+          onChange={(e) => setContact((c) => ({ ...c, phone: e.target.value }))}
+        />
+        {errors.phone && <FieldError text={errors.phone} />}
+      </div>
+
+      {fields.map((f) => (
+        <IntakeFieldInput
+          key={f.acuityFieldId}
+          field={f}
+          value={values[String(f.acuityFieldId)]}
+          disabled={submitted}
+          error={errors[String(f.acuityFieldId)]}
+          onChange={(v) => setField(f.acuityFieldId, v)}
+          onToggle={(opt) => toggleCheckbox(f.acuityFieldId, opt)}
+        />
+      ))}
+
+      <button
+        type="button"
+        onClick={submit}
+        disabled={submitted}
+        className="w-full rounded-xl bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium py-2.5 transition disabled:opacity-50"
+      >
+        {submitted ? "Sending..." : "Confirm my booking"}
+      </button>
+    </div>
+  );
+}
+
+function FieldError({ text }: { text: string }) {
+  return <p className="text-[11px] text-red-600 mt-1">{text}</p>;
+}
+
+function IntakeFieldInput({
+  field,
+  value,
+  disabled,
+  error,
+  onChange,
+  onToggle,
+}: {
+  field: IntakeField;
+  value: string | string[] | undefined;
+  disabled: boolean;
+  error?: string;
+  onChange: (v: string) => void;
+  onToggle: (option: string) => void;
+}) {
+  const selected = Array.isArray(value) ? value : [];
+  const single = typeof value === "string" ? value : "";
+  const options =
+    field.type === "yesno" ? ["Yes", "No"] : field.options ?? [];
+
+  return (
+    <div>
+      <label className="block text-xs font-medium text-gray-700 mb-1.5">
+        {field.label}
+        {field.required && <span className="text-blue-600"> *</span>}
+      </label>
+      {field.helpText && (
+        <p className="text-[11px] text-gray-500 mb-1.5">{field.helpText}</p>
+      )}
+
+      {field.type === "checkboxes" && (
+        <div className="flex flex-wrap gap-1.5">
+          {options.map((opt) => (
+            <button
+              key={opt}
+              type="button"
+              disabled={disabled}
+              onClick={() => onToggle(opt)}
+              className={cn(
+                "text-[11px] px-2.5 py-1.5 rounded-full border transition",
+                selected.includes(opt)
+                  ? "bg-blue-500 border-blue-500 text-white"
+                  : "bg-white border-blue-200 text-blue-700 hover:bg-blue-50",
+              )}
+            >
+              {opt}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {(field.type === "radio" || field.type === "yesno") && (
+        <div className="flex flex-wrap gap-1.5">
+          {options.map((opt) => (
+            <button
+              key={opt}
+              type="button"
+              disabled={disabled}
+              onClick={() => onChange(opt)}
+              className={cn(
+                "text-[11px] px-3 py-1.5 rounded-full border transition",
+                single === opt
+                  ? "bg-blue-500 border-blue-500 text-white"
+                  : "bg-white border-blue-200 text-blue-700 hover:bg-blue-50",
+              )}
+            >
+              {opt}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {field.type === "select" && (
+        <select
+          className={inputCls}
+          disabled={disabled}
+          value={single}
+          onChange={(e) => onChange(e.target.value)}
+        >
+          <option value="">Select...</option>
+          {options.map((opt) => (
+            <option key={opt} value={opt}>
+              {opt}
+            </option>
+          ))}
+        </select>
+      )}
+
+      {field.type === "text" && (
+        <input
+          className={inputCls}
+          disabled={disabled}
+          value={single}
+          onChange={(e) => onChange(e.target.value)}
+        />
+      )}
+
+      {field.type === "textarea" && (
+        <textarea
+          className={cn(inputCls, "resize-none")}
+          rows={3}
+          disabled={disabled}
+          value={single}
+          onChange={(e) => onChange(e.target.value)}
+        />
+      )}
+
+      {error && <FieldError text={error} />}
+    </div>
+  );
+}
