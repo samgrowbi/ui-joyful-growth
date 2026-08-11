@@ -467,10 +467,12 @@ Deno.serve(async (req) => {
           const answers = intakeAnswers ?? {};
           const fields = t.intakeFields.map((f) => {
             const raw = answers[String(f.acuityFieldId)];
-            return {
-              id: f.acuityFieldId,
-              value: Array.isArray(raw) ? raw.join(", ") : String(raw ?? ""),
-            };
+            let value = Array.isArray(raw) ? raw.join(", ") : String(raw ?? "");
+            // Acuity checkbox fields expect the literal "yes" when checked.
+            if (f.type === "yesno") {
+              value = /^(yes|true|1)$/i.test(value.trim()) ? "yes" : "";
+            }
+            return { id: f.acuityFieldId, value };
           });
           const missing = t.intakeFields.find((f) => {
             if (!f.required) return false;
