@@ -542,7 +542,7 @@ Deno.serve(async (req) => {
     const sanitizeChunk = (text: string): string => {
       let out = text;
       // Replace em-dash / en-dash / horizontal bar with a comma + space.
-      out = out.replace(/\s*[--―]\s*/g, ", ");
+      out = out.replace(/\s*[\u2013\u2014\u2015]\s*/g, ", ");
       // Smart double quotes -> straight.
       out = out.replace(/[“”]/g, '"').replace(/[‘’]/g, "'");
       // Ellipsis char -> three dots.
@@ -576,11 +576,17 @@ Deno.serve(async (req) => {
     const humanTypingTransform = () => () =>
       new TransformStream({
         async transform(chunk, controller) {
-          if (chunk.type !== "text-delta" || !chunk.text) {
+          const raw =
+            typeof (chunk as { text?: unknown }).text === "string"
+              ? ((chunk as { text: string }).text)
+              : typeof (chunk as { delta?: unknown }).delta === "string"
+                ? ((chunk as { delta: string }).delta)
+                : "";
+          if (chunk.type !== "text-delta" || !raw) {
             controller.enqueue(chunk);
             return;
           }
-          const cleaned = sanitizeChunk(chunk.text);
+          const cleaned = sanitizeChunk(raw);
           if (!cleaned) return;
           const tokens = cleaned.match(/\S+\s*|\s+/g) ?? [cleaned];
           for (const token of tokens) {
@@ -601,7 +607,7 @@ Deno.serve(async (req) => {
               delay += 120 + Math.floor(Math.random() * 250);
             }
             await new Promise((r) => setTimeout(r, delay));
-            controller.enqueue({ ...chunk, text: token });
+            controller.enqueue({ ...chunk, text: token, delta: token });
           }
         },
       });
