@@ -83,22 +83,22 @@ export interface TreatmentConfig {
 
 export const LED_TREATMENT: TreatmentConfig = {
   slug: "led",
-  label: "Non-Surgical Face & Neck Lift Treatment",
+  label: "Instant Lift & Skin Tightening Treatment",
   heroTitle: {
-    line1: "Non-Surgical",
-    highlight: "Face & Neck Lift",
+    line1: "Instant Lift &",
+    highlight: "Skin Tightening",
     line2: "Treatment",
   },
   heroSubtitle:
-    "No Surgery. No Pain. Zero Downtime.",
+    "Step into a more youthful version of yourself with lifting technology that helps your skin look younger.",
   heroVideoUrl:
     "https://pub-eb17aaa123fc4145b1ee4c15fc2e5771.r2.dev/Med%20Spa/Hero%20Video/LED%20Hero%20Video.mp4",
-  price: "69.99",
+  price: "79.99",
   originalPrice: "249.99",
   appointmentTypeId: "91278961",
   // calendarId intentionally unused - Acuity auto-selects from the appointment type
   calendarId: "",
-  duration: 60,
+  duration: 75,
   image: treatmentImage,
   technologyDescription: [
     "Our Non-Surgical Facelift treatment delivers specific wavelengths of light energy into the skin's deeper layers, activating the body's own natural healing process of collagen production and cellular repair. The facial is entirely non-invasive, without heat, injectables, or foreign substances.",
@@ -225,22 +225,22 @@ export const FACELIFT_TREATMENT: TreatmentConfig = {
 
 export const CARBON_PEELING_TREATMENT: TreatmentConfig = {
   slug: "carbon-peeling",
-  label: "Non-Surgical Face & Neck Lift Treatment",
+  label: "Carbon Peeling (Hollywood Facial) Treatment",
   heroTitle: {
-    line1: "Non-Surgical",
-    highlight: "Face & Neck Lift",
+    line1: "Carbon Peeling",
+    highlight: "Hollywood Facial",
     line2: "Treatment",
   },
   heroSubtitle:
-    "No Surgery. No Pain. Zero Downtime.",
+    "Experience the celebrity-favorite carbon peeling treatment that deeply cleanses, rejuvenates, and gives your skin a radiant Hollywood glow.",
   heroVideoUrl:
     "https://pub-eb17aaa123fc4145b1ee4c15fc2e5771.r2.dev/Med%20Spa/Hero%20Video/LED%20Hero%20Video.mp4",
-  price: "69.99",
-  originalPrice: "249.99",
+  price: "149",
+  originalPrice: "450",
   appointmentTypeId: "91470530",
   // calendarId intentionally unused - Acuity auto-selects from the appointment type
   calendarId: "",
-  duration: 60,
+  duration: 75,
   image: treatmentImage,
   technologyDescription: [
     "Our Non-Surgical Facelift treatment delivers specific wavelengths of light energy into the skin's deeper layers, activating the body's own natural healing process of collagen production and cellular repair. The facial is entirely non-invasive, without heat, injectables, or foreign substances.",
@@ -362,8 +362,8 @@ export const BODY_SCULPTING_TREATMENT: TreatmentConfig = {
     "Experience the revolutionary body sculpting technology that tones muscles and reduces fat instantly without any downtime.",
   heroVideoUrl:
     "https://pub-eb17aaa123fc4145b1ee4c15fc2e5771.r2.dev/Med%20Spa/Hero%20Video/ems%20Hero.mp4",
-  price: "79.99",
-  originalPrice: "399.99",
+  price: "129",
+  originalPrice: "499",
   appointmentTypeId: "91470424",
   // calendarId intentionally unused - Acuity auto-selects from the appointment type
   calendarId: "",
