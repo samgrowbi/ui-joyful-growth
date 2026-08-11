@@ -95,8 +95,151 @@ export const LED_TREATMENT: TreatmentConfig = {
     "https://pub-eb17aaa123fc4145b1ee4c15fc2e5771.r2.dev/Med%20Spa/Hero%20Video/LED%20Hero%20Video.mp4",
   price: "69.99",
   originalPrice: "249.99",
-  appointmentTypeId: "90990594",
-  calendarId: "13836448",
+  appointmentTypeId: "91278961",
+  // calendarId intentionally unused - Acuity auto-selects from the appointment type
+  calendarId: "",
+  duration: 60,
+  image: treatmentImage,
+  technologyDescription: [
+    "Our Non-Surgical Facelift treatment delivers specific wavelengths of light energy into the skin's deeper layers, activating the body's own natural healing process of collagen production and cellular repair. The facial is entirely non-invasive, without heat, injectables, or foreign substances.",
+  ],
+  technologyHighlights: [
+    { text: "Clinically tested" },
+    { text: "Safe for all skin types and tones" },
+  ],
+  hideDeviceImage: true,
+  faqs: [
+    {
+      question: "Who is this treatment for?",
+      answer:
+        "The treatment is suitable for anyone over 35 experiencing visible signs of skin aging, such as fine lines, loss of firmness, uneven skin tone, or a tired-looking complexion. Compared to surgical treatments and injectables, our Non-surgical Lift & Skin Tightening Facial treatment is safer, more affordable, requires no downtime, and delivers completely natural-looking results.",
+    },
+    {
+      question: "How does it work?",
+      answer:
+        "Our Instant Lift & Skin Tightening Facial uses specific wavelengths of light energy to penetrate deep into the skin's layers, activating collagen production and cellular repair. The result is visibly smoother skin, restored firmness, and improved tone and texture.",
+    },
+    {
+      question: "Is it painful?",
+      answer:
+        "Not at all. The treatment is designed to be comfortable and relaxing, with most clients describing it as a calming, soothing experience.",
+    },
+    {
+      question: "Is it safe?",
+      answer:
+        "Yes. Our certified devices are clinically tested, non-invasive, and safe for all skin types and tones. There are no foreign substances entering your body and no risk of burns or damage. If you have a specific medical condition or take photosensitive medication, let us know before your visit, and our esthetician will advise you.",
+    },
+    {
+      question: "Can I combine this with other treatments?",
+      answer:
+        "Yes. Our Instant Lift & Skin Tightening is compatible with a range of other aesthetic services. Your esthetician will be happy to discuss what works best alongside this session during your first visit.",
+    },
+    {
+      question: "When will I see results?",
+      answer:
+        "Most clients notice brighter, refreshed skin immediately after their first session. Results continue to develop over the following days as your skin responds. With a course of sessions, improvements become increasingly visible and longer lasting.",
+    },
+    {
+      question: "How long do results last?",
+      answer:
+        "Results vary by skin, age, and lifestyle. A single session delivers immediate radiance and visible improvement. For results that last and continue to build, a course of treatments is recommended. Your esthetician will advise on the best plan for your skin at your first visit.",
+    },
+    {
+      question: "What happens after the treatment?",
+      answer:
+        "You can return to your normal routine immediately, including makeup, work, and exercise. There is no downtime and no redness to manage. Your esthetician will provide simple aftercare guidance at the end of your visit to help maintain and build on your results.",
+    },
+  ],
+};
+
+export const FACELIFT_TREATMENT: TreatmentConfig = {
+  slug: "facelift",
+  label: "Non Surgical Face Lift Treatment",
+  heroTitle: {
+    line1: "Non Surgical",
+    highlight: "Face Lift",
+    line2: "Treatment",
+  },
+  heroSubtitle:
+    "No Surgery. No Pain. Zero Downtime.",
+  heroVideoUrl:
+    "https://pub-eb17aaa123fc4145b1ee4c15fc2e5771.r2.dev/Med%20Spa/Hero%20Video/LED%20Hero%20Video.mp4",
+  price: "69",
+  originalPrice: "249",
+  appointmentTypeId: "93188408",
+  // calendarId intentionally unused - Acuity auto-selects from the appointment type
+  calendarId: "",
+  duration: 75,
+  image: treatmentImage,
+  technologyDescription: [
+    "Our Non-Surgical Facelift treatment delivers specific wavelengths of light energy into the skin's deeper layers, activating the body's own natural healing process of collagen production and cellular repair. The facial is entirely non-invasive, without heat, injectables, or foreign substances.",
+  ],
+  technologyHighlights: [
+    { text: "Clinically tested" },
+    { text: "Safe for all skin types and tones" },
+  ],
+  hideDeviceImage: true,
+  faqs: [
+    {
+      question: "Who is this treatment for?",
+      answer:
+        "The treatment is suitable for anyone over 35 experiencing visible signs of skin aging, such as fine lines, loss of firmness, uneven skin tone, or a tired-looking complexion. Compared to surgical treatments and injectables, our Non-surgical Lift & Skin Tightening Facial treatment is safer, more affordable, requires no downtime, and delivers completely natural-looking results.",
+    },
+    {
+      question: "How does it work?",
+      answer:
+        "Our Instant Lift & Skin Tightening Facial uses specific wavelengths of light energy to penetrate deep into the skin's layers, activating collagen production and cellular repair. The result is visibly smoother skin, restored firmness, and improved tone and texture.",
+    },
+    {
+      question: "Is it painful?",
+      answer:
+        "Not at all. The treatment is designed to be comfortable and relaxing, with most clients describing it as a calming, soothing experience.",
+    },
+    {
+      question: "Is it safe?",
+      answer:
+        "Yes. Our certified devices are clinically tested, non-invasive, and safe for all skin types and tones. There are no foreign substances entering your body and no risk of burns or damage. If you have a specific medical condition or take photosensitive medication, let us know before your visit, and our esthetician will advise you.",
+    },
+    {
+      question: "Can I combine this with other treatments?",
+      answer:
+        "Yes. Our Instant Lift & Skin Tightening is compatible with a range of other aesthetic services. Your esthetician will be happy to discuss what works best alongside this session during your first visit.",
+    },
+    {
+      question: "When will I see results?",
+      answer:
+        "Most clients notice brighter, refreshed skin immediately after their first session. Results continue to develop over the following days as your skin responds. With a course of sessions, improvements become increasingly visible and longer lasting.",
+    },
+    {
+      question: "How long do results last?",
+      answer:
+        "Results vary by skin, age, and lifestyle. A single session delivers immediate radiance and visible improvement. For results that last and continue to build, a course of treatments is recommended. Your esthetician will advise on the best plan for your skin at your first visit.",
+    },
+    {
+      question: "What happens after the treatment?",
+      answer:
+        "You can return to your normal routine immediately, including makeup, work, and exercise. There is no downtime and no redness to manage. Your esthetician will provide simple aftercare guidance at the end of your visit to help maintain and build on your results.",
+    },
+  ],
+};
+
+export const CARBON_PEELING_TREATMENT: TreatmentConfig = {
+  slug: "carbon-peeling",
+  label: "Non-Surgical Face & Neck Lift Treatment",
+  heroTitle: {
+    line1: "Non-Surgical",
+    highlight: "Face & Neck Lift",
+    line2: "Treatment",
+  },
+  heroSubtitle:
+    "No Surgery. No Pain. Zero Downtime.",
+  heroVideoUrl:
+    "https://pub-eb17aaa123fc4145b1ee4c15fc2e5771.r2.dev/Med%20Spa/Hero%20Video/LED%20Hero%20Video.mp4",
+  price: "69.99",
+  originalPrice: "249.99",
+  appointmentTypeId: "91470530",
+  // calendarId intentionally unused - Acuity auto-selects from the appointment type
+  calendarId: "",
   duration: 60,
   image: treatmentImage,
   technologyDescription: [
@@ -165,8 +308,9 @@ export const LED_CRYO_TREATMENT: TreatmentConfig = {
     "https://pub-eb17aaa123fc4145b1ee4c15fc2e5771.r2.dev/Med%20Spa/Hero%20Video/LED%20Hero%20Video.mp4",
   price: "89.99",
   originalPrice: "349.99",
-  appointmentTypeId: "91765523",
-  calendarId: "11004724",
+  appointmentTypeId: "91470109",
+  // calendarId intentionally unused - Acuity auto-selects from the appointment type
+  calendarId: "",
   duration: 75,
   image: treatmentImage,
   technologyDescription: [
@@ -220,8 +364,9 @@ export const BODY_SCULPTING_TREATMENT: TreatmentConfig = {
     "https://pub-eb17aaa123fc4145b1ee4c15fc2e5771.r2.dev/Med%20Spa/Hero%20Video/ems%20Hero.mp4",
   price: "79.99",
   originalPrice: "399.99",
-  appointmentTypeId: "71100482",
-  calendarId: "11004724",
+  appointmentTypeId: "91470424",
+  // calendarId intentionally unused - Acuity auto-selects from the appointment type
+  calendarId: "",
   duration: 75,
   image: treatmentImage,
   technologyDescription: [
@@ -328,7 +473,8 @@ export const INSTANT_LIFT_TREATMENT: TreatmentConfig = {
   slug: "instant-lift",
   label: "Instant Lift & Skin Tightening Treatment",
   appointmentTypeId: "93509464",
-  calendarId: "14112013",
+  // calendarId intentionally unused - Acuity auto-selects from the appointment type
+  calendarId: "",
   price: "79.99",
   originalPrice: "349.99",
   duration: 60,
