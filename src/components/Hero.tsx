@@ -5,6 +5,7 @@ import { useRef, useEffect } from "react";
 import { useTreatment } from "@/context/TreatmentContext";
 import { RotatingText } from "./ui/RotatingText";
 import { AccentWord } from "./ui/AccentWord";
+import { parseDateOnly } from "@/lib/dateOnly";
 
 interface HeroProps {
   onBookingClick: () => void;
@@ -65,7 +66,7 @@ export function Hero({ onBookingClick }: HeroProps) {
         );
         if (!response.ok) throw new Error("Failed to fetch availability");
         const data = await response.json();
-        return data.map((d: { date: string }) => new Date(d.date));
+        return data.map((d: { date: string }) => parseDateOnly(d.date));
       },
       staleTime: 5 * 60 * 1000,
     });
