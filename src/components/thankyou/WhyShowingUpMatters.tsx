@@ -43,13 +43,13 @@ export function WhyShowingUpMatters() {
 
             {/* Content */}
             <div>
-              <div className="bg-rose-50 border border-rose-100 rounded-lg p-6 mb-6">
+              <div className="bg-blue-50 border border-blue-100 rounded-lg p-6 mb-6">
                 <p className="text-foreground font-medium mb-4">Your visit includes:</p>
                 <ul className="space-y-3">
                   {benefits.map((benefit, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-rose-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check className="w-3 h-3 text-rose-600" />
+                      <div className="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check className="w-3 h-3 text-blue-600" />
                       </div>
                       <span className="text-muted-foreground">{benefit}</span>
                     </li>
