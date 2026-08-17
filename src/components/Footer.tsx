@@ -79,7 +79,7 @@ export function Footer() {
                     <Clock size={20} className="shrink-0 mt-0.5 hidden sm:block" />
                     <div>
                       <p className="text-white">{row.days}</p>
-                      <p>{row.hours}</p>
+                      <p className="whitespace-nowrap">{row.hours}</p>
                     </div>
                   </li>
                 ))}
