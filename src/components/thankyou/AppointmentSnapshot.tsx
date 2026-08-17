@@ -68,8 +68,8 @@ export function AppointmentSnapshot({
             <div className="space-y-4">
               {/* Treatment */}
               <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-lg bg-rose-50 flex items-center justify-center flex-shrink-0">
-                  <Calendar className="w-5 h-5 text-rose-600" />
+                <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                  <Calendar className="w-5 h-5 text-blue-600" />
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Treatment</p>
@@ -79,8 +79,8 @@ export function AppointmentSnapshot({
 
               {/* Date & Time */}
               <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-lg bg-rose-50 flex items-center justify-center flex-shrink-0">
-                  <Clock className="w-5 h-5 text-rose-600" />
+                <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                  <Clock className="w-5 h-5 text-blue-600" />
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Date & Time</p>
@@ -93,8 +93,8 @@ export function AppointmentSnapshot({
 
               {/* Location */}
               <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-lg bg-rose-50 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-5 h-5 text-rose-600" />
+                <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-5 h-5 text-blue-600" />
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Location</p>
@@ -105,8 +105,8 @@ export function AppointmentSnapshot({
               {/* Duration */}
               {duration && (
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-rose-50 flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-5 h-5 text-rose-600" />
+                  <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-5 h-5 text-blue-600" />
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Duration</p>

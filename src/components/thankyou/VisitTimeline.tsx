@@ -72,14 +72,14 @@ export function VisitTimeline() {
           
           <div className="relative max-w-2xl mx-auto">
             {/* Timeline line */}
-            <div className="absolute left-4 top-0 bottom-0 w-px bg-rose-200 hidden md:block" />
+            <div className="absolute left-4 top-0 bottom-0 w-px bg-blue-200 hidden md:block" />
             
             <div className="space-y-6">
               {steps.map((step, index) => (
                 <div key={index} className="relative flex gap-4 md:gap-6">
                   {/* Step number */}
-                  <div className="w-8 h-8 rounded-full bg-rose-100 border-2 border-rose-200 flex items-center justify-center flex-shrink-0 z-10">
-                    <span className="text-sm font-semibold text-rose-600">{index + 1}</span>
+                  <div className="w-8 h-8 rounded-full bg-blue-100 border-2 border-blue-200 flex items-center justify-center flex-shrink-0 z-10">
+                    <span className="text-sm font-semibold text-blue-600">{index + 1}</span>
                   </div>
                   
                   {/* Content */}
