@@ -14,7 +14,6 @@ import { BRAND_NAME } from "@/config/brand";
 
 const Results = lazy(() => import("@/components/Results").then(m => ({ default: m.Results })));
 const ProblemSolution = lazy(() => import("@/components/ProblemSolution").then(m => ({ default: m.ProblemSolution })));
-const Gallery = lazy(() => import("@/components/Gallery").then(m => ({ default: m.Gallery })));
 const Feedback = lazy(() => import("@/components/Feedback").then(m => ({ default: m.Feedback })));
 const Technology = lazy(() => import("@/components/Technology").then(m => ({ default: m.Technology })));
 const ClientReviews = lazy(() => import("@/components/ClientReviews").then(m => ({ default: m.ClientReviews })));
@@ -53,7 +52,6 @@ const LedCryoInner = () => {
           <FAQ />
           <About onBookingClick={openBooking} />
           <Partners />
-          <Gallery />
           <Team />
           <Location />
           <SpaceGallery />
