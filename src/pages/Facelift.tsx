@@ -22,6 +22,7 @@ const VisitSteps = lazy(() => import("@/components/VisitSteps").then(m => ({ def
 const ExpertOpinion = lazy(() => import("@/components/ExpertOpinion").then(m => ({ default: m.ExpertOpinion })));
 const Partners = lazy(() => import("@/components/Partners").then(m => ({ default: m.Partners })));
 const About = lazy(() => import("@/components/About").then(m => ({ default: m.About })));
+const Team = lazy(() => import("@/components/Team").then(m => ({ default: m.Team })));
 const Location = lazy(() => import("@/components/Location").then(m => ({ default: m.Location })));
 const FAQ = lazy(() => import("@/components/FAQ").then(m => ({ default: m.FAQ })));
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
@@ -54,6 +55,7 @@ const FaceliftInner = () => {
           
           <Partners />
           <Gallery />
+          <Team />
           <Location />
         </Suspense>
       </main>
