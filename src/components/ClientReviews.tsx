@@ -25,7 +25,7 @@ const defaultReviews = [
     image: "https://randomuser.me/api/portraits/women/68.jpg",
     timeAgo: "JUL 14, 2026",
     rating: 5,
-    review: "I'm not exaggerating when I say my husband did a double take when I got home. He thought I got filler or something. Nope, just the LED facial! My pores are smaller and my skin just looks... alive again. 10/10."
+    review: "I'm not exaggerating when I say my husband did a double take when I got home. He thought I got filler or something. Nope, just the facelift facial! My skin looks lifted and my jawline feels tighter. 10/10."
   },
   {
     id: 3,
