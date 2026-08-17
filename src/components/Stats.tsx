@@ -85,7 +85,7 @@ export function Stats() {
                 >
                     <div className="relative mb-4">
                         <div className="absolute inset-0 bg-blue-100 blur-2xl opacity-0 group-hover:opacity-50 transition-opacity duration-500 rounded-full" />
-                        <span className="relative text-5xl md:text-6xl font-bold bg-gradient-to-br from-blue-500 to-rose-600 bg-clip-text text-transparent block transform group-hover:scale-110 transition-transform duration-300 font-sans">
+                        <span className="relative text-5xl md:text-6xl font-bold bg-gradient-to-br from-blue-500 to-blue-700 bg-clip-text text-transparent block transform group-hover:scale-110 transition-transform duration-300 font-sans">
                             <Counter to={parseInt(stat.percentage)} />%
                         </span>
                     </div>

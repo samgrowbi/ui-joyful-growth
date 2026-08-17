@@ -11,7 +11,7 @@ export function HeroConfirmation({ firstName }: HeroConfirmationProps) {
       <div 
         className="absolute inset-0 -z-10" 
         style={{
-          background: 'radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(253,242,248,0.6) 50%, rgba(252,231,243,0.3) 100%)'
+          background: 'radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(239,246,255,0.6) 50%, rgba(219,234,254,0.3) 100%)'
         }}
       />
       <div className="container mx-auto px-5 text-center">

@@ -51,7 +51,7 @@ export function Navbar({ onBookingClick }: NavbarProps) {
             <a
               key={link.name}
               href={link.href}
-              className="text-base lg:text-lg xl:text-xl font-medium text-gray-700 hover:text-rose-400 transition-colors"
+              className="text-base lg:text-lg xl:text-xl font-medium text-gray-700 hover:text-blue-500 transition-colors"
             >
               {link.name}
             </a>
@@ -67,7 +67,7 @@ export function Navbar({ onBookingClick }: NavbarProps) {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden text-rose-400"
+          className="md:hidden text-blue-500"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -86,7 +86,7 @@ export function Navbar({ onBookingClick }: NavbarProps) {
               key={link.name}
               href={link.href}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-gray-800 font-medium text-lg hover:text-rose-400"
+              className="text-gray-800 font-medium text-lg hover:text-blue-500"
             >
               {link.name}
             </a>

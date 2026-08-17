@@ -61,7 +61,7 @@ export function WhoIsThisFor() {
             <motion.div
               key={text}
               variants={cardVariants}
-              className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 px-5 py-6 lg:px-7 lg:py-8 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.05)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_50px_-15px_rgba(236,72,153,0.35)] hover:border-blue-200"
+              className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 px-5 py-6 lg:px-7 lg:py-8 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.05)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_50px_-15px_rgba(59,130,246,0.35)] hover:border-blue-200"
             >
               {/* Soft gradient blob - animates in on hover */}
               <div className="absolute -top-12 -right-12 w-40 h-40 bg-gradient-to-br from-blue-200/40 via-blue-100/30 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
