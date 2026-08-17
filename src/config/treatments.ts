@@ -104,6 +104,9 @@ export const LED_TREATMENT: TreatmentConfig = {
     "Our Non-Surgical Facelift treatment delivers specific wavelengths of light energy into the skin's deeper layers, activating the body's own natural healing process of collagen production and cellular repair. The facial is entirely non-invasive, without heat, injectables, or foreign substances.",
   ],
   technologyHighlights: [
+    { text: "Targets skin at a cellular level" },
+    { text: "Stimulates natural collagen renewal" },
+    { text: "Non-invasive, zero recovery time" },
     { text: "Clinically tested" },
     { text: "Safe for all skin types and tones" },
   ],
