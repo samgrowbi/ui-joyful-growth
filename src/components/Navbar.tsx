@@ -41,7 +41,7 @@ export function Navbar({ onBookingClick }: NavbarProps) {
           <img 
             src={lumiereLogo} 
             alt={BRAND_NAME}
-            className="h-[19px] w-auto md:h-[30px] m-[10px]" 
+            className="h-[22px] w-auto md:h-[34.5px] m-[10px]" 
             width={200} height={126} loading="eager" fetchPriority="high" decoding="async"/>
         </a>
 
