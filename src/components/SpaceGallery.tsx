@@ -27,7 +27,7 @@ export function SpaceGallery() {
         </h2>
       </div>
       <div className="flex flex-col gap-3 md:gap-4">
-        {/* Top row — scrolls right */}
+        {/* Top row - scrolls right */}
         <div className="relative">
           <div className="flex gap-3 md:gap-4 animate-scroll-right w-max">
             {[...topRow, ...topRow].map((src, i) => (
@@ -43,7 +43,7 @@ export function SpaceGallery() {
           </div>
         </div>
 
-        {/* Bottom row — scrolls left */}
+        {/* Bottom row - scrolls left */}
         <div className="relative">
           <div className="flex gap-3 md:gap-4 animate-scroll-left w-max">
             {[...bottomRow, ...bottomRow].map((src, i) => (

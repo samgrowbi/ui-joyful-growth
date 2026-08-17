@@ -23,6 +23,7 @@ const Partners = lazy(() => import("@/components/Partners").then(m => ({ default
 const About = lazy(() => import("@/components/About").then(m => ({ default: m.About })));
 const Team = lazy(() => import("@/components/Team").then(m => ({ default: m.Team })));
 const Location = lazy(() => import("@/components/Location").then(m => ({ default: m.Location })));
+const SpaceGallery = lazy(() => import("@/components/SpaceGallery").then(m => ({ default: m.SpaceGallery })));
 const FAQ = lazy(() => import("@/components/FAQ").then(m => ({ default: m.FAQ })));
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 
@@ -55,6 +56,7 @@ const LedCryoInner = () => {
           <Gallery />
           <Team />
           <Location />
+          <SpaceGallery />
         </Suspense>
       </main>
       <Suspense fallback={null}>
