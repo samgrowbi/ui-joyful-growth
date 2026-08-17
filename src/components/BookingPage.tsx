@@ -41,7 +41,7 @@ const BookingPage = ({ treatment }: BookingPageProps) => {
   const canGoBack = booking.currentStep !== "date" && booking.currentStep !== "datetime";
 
   return (
-    <div dir="ltr" className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-rose-50 flex flex-col">
+    <div dir="ltr" className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50 flex flex-col">
       {/* Header */}
       <header className="bg-gradient-to-r from-blue-50 to-blue-100 border-b shrink-0 sticky top-0 z-10">
         <div className="container mx-auto px-5 pt-3 pb-4">

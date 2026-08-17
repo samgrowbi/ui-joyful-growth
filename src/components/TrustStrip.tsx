@@ -25,7 +25,7 @@ export function TrustStrip() {
           {items.map(({ heading, value, suffix, Icon }, i) => (
             <div
               key={heading}
-              className="group relative flex flex-col items-center text-center bg-white rounded-2xl px-4 py-7 lg:px-5 lg:py-9 border border-blue-100/70 shadow-[0_2px_20px_-12px_rgba(236,72,153,0.25)] hover:shadow-[0_10px_40px_-15px_rgba(236,72,153,0.35)] hover:-translate-y-1 transition-all duration-500"
+              className="group relative flex flex-col items-center text-center bg-white rounded-2xl px-4 py-7 lg:px-5 lg:py-9 border border-blue-100/70 shadow-[0_2px_20px_-12px_rgba(59,130,246,0.25)] hover:shadow-[0_10px_40px_-15px_rgba(59,130,246,0.35)] hover:-translate-y-1 transition-all duration-500"
               style={{ transitionDelay: `${i * 40}ms` }}
             >
               {/* Top accent bar */}

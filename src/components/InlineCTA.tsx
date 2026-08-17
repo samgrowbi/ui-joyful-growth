@@ -14,7 +14,7 @@ export function InlineCTA({ title = "Ready to Get Started?", subtitle = "Book yo
     return (
       <section className="py-4 px-5" dir="ltr">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="container mx-auto">
-          <div className="bg-gradient-to-br from-rose-400 via-blue-300 to-rose-400 rounded-3xl p-8 md:p-12 text-white overflow-hidden relative shadow-2xl">
+          <div className="bg-gradient-to-br from-blue-500 via-blue-300 to-blue-500 rounded-3xl p-8 md:p-12 text-white overflow-hidden relative shadow-2xl">
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10">
               <div className="text-center">
                 <h3 className="text-3xl md:text-4xl font-light font-bold mb-3">{title}</h3>

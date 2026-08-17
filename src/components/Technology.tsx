@@ -109,7 +109,7 @@ export function Technology({ onBookingClick }: TechnologyProps) {
                   return (
                     <div
                       key={index}
-                      className="bg-gray-50/80 rounded-xl px-4 py-3.5 lg:px-6 lg:py-5 border border-gray-100 transition-all duration-300 hover:bg-blue-50/60 hover:border-blue-200 hover:shadow-[0_0_15px_-3px_rgba(236,72,153,0.3)]"
+                      className="bg-gray-50/80 rounded-xl px-4 py-3.5 lg:px-6 lg:py-5 border border-gray-100 transition-all duration-300 hover:bg-blue-50/60 hover:border-blue-200 hover:shadow-[0_0_15px_-3px_rgba(59,130,246,0.3)]"
                     >
                       <h3 className="text-gray-900 font-sans font-bold text-[15px] md:text-base lg:text-lg mb-1">
                         {item.title}

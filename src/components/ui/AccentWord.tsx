@@ -14,7 +14,7 @@ export function AccentWord({ children, className = "" }: AccentWordProps) {
   const reduce = useReducedMotion();
   return (
     <span className={`relative inline-block text-blue-500 group ${className}`}>
-      <span className="relative z-10 transition-[text-shadow] duration-300 group-hover:[text-shadow:0_0_24px_rgba(236,72,153,0.45)]">
+      <span className="relative z-10 transition-[text-shadow] duration-300 group-hover:[text-shadow:0_0_24px_rgba(59,130,246,0.45)]">
         {children}
       </span>
       <motion.span
