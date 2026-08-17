@@ -81,7 +81,7 @@ const defaultReviews = [
     image: "https://randomuser.me/api/portraits/women/79.jpg",
     timeAgo: "AUG 4, 2026",
     rating: 5,
-    review: "Full transparency: I was the biggest skeptic. LED therapy sounded too good to be true. But here I am writing a 5-star review because my jawline looks tighter, my skin is clearer, and I went to brunch without makeup last Sunday. Enough said."
+    review: "Full transparency: I was the biggest skeptic. A non surgical face lift sounded too good to be true. But here I am writing a 5-star review because my jawline looks tighter, my skin is clearer, and I went to brunch without makeup last Sunday. Enough said."
   },
 ];
 
