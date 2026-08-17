@@ -25,7 +25,7 @@ const defaultReviews = [
     image: "https://randomuser.me/api/portraits/women/68.jpg",
     timeAgo: "JUL 14, 2026",
     rating: 5,
-    review: "I'm not exaggerating when I say my husband did a double take when I got home. He thought I got filler or something. Nope, just the LED facial! My pores are smaller and my skin just looks... alive again. 10/10."
+    review: "I'm not exaggerating when I say my husband did a double take when I got home. He thought I got filler or something. Nope, just the facelift facial! My skin looks lifted and my jawline feels tighter. 10/10."
   },
   {
     id: 3,
@@ -81,7 +81,7 @@ const defaultReviews = [
     image: "https://randomuser.me/api/portraits/women/79.jpg",
     timeAgo: "AUG 4, 2026",
     rating: 5,
-    review: "Full transparency: I was the biggest skeptic. LED therapy sounded too good to be true. But here I am writing a 5-star review because my jawline looks tighter, my skin is clearer, and I went to brunch without makeup last Sunday. Enough said."
+    review: "Full transparency: I was the biggest skeptic. A non surgical face lift sounded too good to be true. But here I am writing a 5-star review because my jawline looks tighter, my skin is clearer, and I went to brunch without makeup last Sunday. Enough said."
   },
 ];
 
