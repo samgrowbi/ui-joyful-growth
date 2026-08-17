@@ -23,7 +23,7 @@ export const GOOGLE_MAPS_EMBED_SRC =
   "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3050.471373100607!2d-75.2058305!3d40.1317827!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6bbb88f1568bb%3A0xd067bf83890716a9!2sGarden%20Retreat%20MedSpa%3A%20The%20Future%20of%20Anti-Aging!5e0!3m2!1sen!2sin!4v1785176380513!5m2!1sen!2sin";
 
 export const BUSINESS_HOURS = [
-  { days: "Monday - Friday", hours: "9:30 AM - 5:30 PM" },
-  { days: "Saturday", hours: "Closed" },
-  { days: "Sunday", hours: "1:00 PM - 6:00 PM" },
+  { days: "Mon - Fri", hours: "9:30 AM - 5:30 PM" },
+  { days: "Sat", hours: "Closed" },
+  { days: "Sun", hours: "1:00 PM - 6:00 PM" },
 ];
