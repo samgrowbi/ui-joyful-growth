@@ -471,3 +471,10 @@ export const BODY_SCULPTING_TREATMENT: TreatmentConfig = {
 };
 
 // Instant Lift treatment - duplicate of LED with different appointment type
+
+// Facelift V2 - identical to the Facelift page, only the appointment type differs
+export const FACELIFT_V2_TREATMENT: TreatmentConfig = {
+  ...FACELIFT_TREATMENT,
+  slug: "faceliftv2",
+  appointmentTypeId: "97205918",
+};
