@@ -11,10 +11,12 @@ import BookLedCryo from "./pages/BookLedCryo";
 import BookLed from "./pages/BookLed";
 import BookBodySculpting from "./pages/BookBodySculpting";
 import BookFacelift from "./pages/BookFacelift";
+import BookFaceliftV2 from "./pages/BookFaceliftV2";
 import BookCarbonPeeling from "./pages/BookCarbonPeeling";
 import LedCryo from "./pages/LedCryo";
 import BodySculpting from "./pages/BodySculpting";
 import Facelift from "./pages/Facelift";
+import FaceliftV2 from "./pages/FaceliftV2";
 import CarbonPeeling from "./pages/CarbonPeeling";
 import SkinSpecialistChat from "./components/chat/SkinSpecialistChat";
 import Auth from "./pages/Auth";
@@ -31,6 +33,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Facelift />} />
           <Route path="/facelift" element={<Facelift />} />
+          <Route path="/faceliftv2" element={<FaceliftV2 />} />
           <Route path="/instant-lift" element={<Navigate to="/" replace />} />
           <Route path="/led" element={<Index />} />
           <Route path="/led-cryo" element={<LedCryo />} />
@@ -38,6 +41,7 @@ const App = () => (
           <Route path="/carbon-peeling" element={<CarbonPeeling />} />
           <Route path="/book/led" element={<BookLed />} />
           <Route path="/book/facelift" element={<BookFacelift />} />
+          <Route path="/book/faceliftv2" element={<BookFaceliftV2 />} />
           <Route path="/book/carbon-peeling" element={<BookCarbonPeeling />} />
           <Route path="/book/led-cryo" element={<BookLedCryo />} />
           <Route path="/book/body-sculpting" element={<BookBodySculpting />} />

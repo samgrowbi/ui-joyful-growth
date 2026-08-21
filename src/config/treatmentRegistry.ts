@@ -3,12 +3,14 @@ import {
   LED_CRYO_TREATMENT,
   BODY_SCULPTING_TREATMENT,
   FACELIFT_TREATMENT,
+  FACELIFT_V2_TREATMENT,
   CARBON_PEELING_TREATMENT,
   TreatmentConfig,
 } from "./treatments";
 
 const treatments: Record<string, TreatmentConfig> = {
   facelift: FACELIFT_TREATMENT,
+  faceliftv2: FACELIFT_V2_TREATMENT,
   led: LED_TREATMENT,
   "led-cryo": LED_CRYO_TREATMENT,
   "body-sculpting": BODY_SCULPTING_TREATMENT,
@@ -81,6 +83,7 @@ function policyField(acuityFieldId: number): IntakeField {
 }
 
 export const TREATMENT_INTAKE_FIELDS: Record<string, IntakeField[]> = {
+  faceliftv2: [CONCERNS_FIELD, AGE_FIELD, policyField(15671088), SMS_CONSENT_FIELD],
   facelift: [CONCERNS_FIELD, AGE_FIELD, policyField(15671088), SMS_CONSENT_FIELD],
   led: [CONCERNS_FIELD, AGE_FIELD, policyField(15671088), SMS_CONSENT_FIELD],
   "led-cryo": [CONCERNS_FIELD, AGE_FIELD, policyField(15671088), SMS_CONSENT_FIELD],
