@@ -1,7 +1,33 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
-import { ArrowLeft, ArrowRight, Check, CircleCheck, Clock, Sparkles, Zap, Loader2 } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Check,
+  CircleCheck,
+  Clock,
+  Sparkles,
+  Zap,
+  Loader2,
+  TrendingDown,
+  Frown,
+  Minus,
+  Waves,
+  CircleDot,
+  CircleDashed,
+  Sun,
+  Moon,
+  Flame,
+  Grid3x3,
+  Layers,
+  ClipboardList,
+  Target,
+  CalendarCheck,
+  User,
+  Mail,
+  Phone,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -11,28 +37,28 @@ import { BRAND_NAME } from "@/config/brand";
 import { FACELIFT_TREATMENT } from "@/config/treatments";
 
 
-const CONCERNS = [
-  "Sagging Neck",
-  "Sagging Cheeks",
-  "Fine Lines",
-  "Wrinkles",
-  "Acne",
-  "Pigmentation",
-  "Sun Damage",
-  "Dark Circles",
-  "Rosacea",
-  "Big Pores",
-  "Skin Texture",
-  "No Concerns",
+const CONCERNS: { label: string; Icon: typeof TrendingDown }[] = [
+  { label: "Sagging Neck", Icon: TrendingDown },
+  { label: "Sagging Cheeks", Icon: Frown },
+  { label: "Fine Lines", Icon: Minus },
+  { label: "Wrinkles", Icon: Waves },
+  { label: "Acne", Icon: CircleDot },
+  { label: "Pigmentation", Icon: CircleDashed },
+  { label: "Sun Damage", Icon: Sun },
+  { label: "Dark Circles", Icon: Moon },
+  { label: "Rosacea", Icon: Flame },
+  { label: "Big Pores", Icon: Grid3x3 },
+  { label: "Skin Texture", Icon: Layers },
+  { label: "No Concerns", Icon: CircleCheck },
 ];
 
 const AGE_RANGES = ["Below 20", "21-34", "35-49", "50-65", "66+"];
 
 const ANALYSIS_STEPS = [
-  "Reviewing your concerns",
-  "Matching to treatment options",
-  "Checking appointment availability",
-  "Preparing your consultation",
+  { label: "Reviewing your concerns", Icon: ClipboardList },
+  { label: "Matching to treatment options", Icon: Target },
+  { label: "Checking appointment availability", Icon: CalendarCheck },
+  { label: "Preparing your consultation", Icon: Sparkles },
 ];
 
 const INTRO_STATS = [
@@ -215,7 +241,7 @@ const Quiz = () => {
             {screen === 0 && (
               <motion.div key="intro" {...screenMotion} className="text-center">
                 <p className="text-[11px] sm:text-xs uppercase tracking-[0.28em] text-blue-600 font-semibold">
-                  Dermatologist-Developed
+                  Look Years Younger
                 </p>
                 <h1 className="mt-5 font-serif text-4xl sm:text-5xl lg:text-6xl text-gray-900 leading-[1.08] tracking-tight">
                   Find your personalized face lift plan in 60 seconds.
@@ -266,23 +292,36 @@ const Quiz = () => {
                 <p className="mt-2 text-gray-500">Select all that apply</p>
 
                 <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {CONCERNS.map((concern) => {
-                    const selected = concerns.includes(concern);
+                  {CONCERNS.map(({ label, Icon }) => {
+                    const selected = concerns.includes(label);
                     return (
                       <button
-                        key={concern}
+                        key={label}
                         type="button"
-                        onClick={() => toggleConcern(concern)}
+                        onClick={() => toggleConcern(label)}
                         aria-pressed={selected}
                         className={cn(
-                          "flex items-center justify-between gap-3 w-full text-left rounded-xl border px-5 py-4 transition-all duration-200",
+                          "flex items-center gap-3 w-full text-left rounded-xl border px-4 py-4 transition-all duration-200",
                           selected
                             ? "border-blue-500 bg-blue-50 shadow-[0_4px_20px_-12px_rgba(59,130,246,0.6)]"
                             : "border-gray-200 bg-white hover:border-blue-300 hover:bg-blue-50/40",
                         )}
                       >
-                        <span className={cn("text-base", selected ? "text-blue-700 font-medium" : "text-gray-800")}>
-                          {concern}
+                        <span
+                          className={cn(
+                            "flex items-center justify-center h-9 w-9 rounded-lg shrink-0 transition-colors",
+                            selected ? "bg-blue-500 text-white" : "bg-blue-50 text-blue-500",
+                          )}
+                        >
+                          <Icon className="h-4 w-4" strokeWidth={1.75} />
+                        </span>
+                        <span
+                          className={cn(
+                            "text-base flex-1",
+                            selected ? "text-blue-700 font-medium" : "text-gray-800",
+                          )}
+                        >
+                          {label}
                         </span>
                         {selected && (
                           <span className="flex items-center justify-center h-6 w-6 rounded-full bg-blue-500 text-white shrink-0">
@@ -313,7 +352,7 @@ const Quiz = () => {
                   What's your age range?
                 </h1>
 
-                <div className="mt-8 space-y-3">
+                <div className="mt-8 grid grid-cols-3 gap-3">
                   {AGE_RANGES.map((range) => {
                     const selected = ageRange === range;
                     return (
@@ -326,7 +365,7 @@ const Quiz = () => {
                         }}
                         aria-pressed={selected}
                         className={cn(
-                          "flex items-center justify-between gap-3 w-full text-left rounded-xl border px-5 py-4 transition-all duration-200",
+                          "flex flex-col items-center justify-center gap-2 rounded-xl border px-3 py-6 text-center transition-all duration-200",
                           selected
                             ? "border-blue-500 bg-blue-50 shadow-[0_4px_20px_-12px_rgba(59,130,246,0.6)]"
                             : "border-gray-200 bg-white hover:border-blue-300 hover:bg-blue-50/40",
@@ -336,8 +375,8 @@ const Quiz = () => {
                           {range}
                         </span>
                         {selected && (
-                          <span className="flex items-center justify-center h-6 w-6 rounded-full bg-blue-500 text-white shrink-0">
-                            <Check className="h-3.5 w-3.5" />
+                          <span className="flex items-center justify-center h-5 w-5 rounded-full bg-blue-500 text-white">
+                            <Check className="h-3 w-3" />
                           </span>
                         )}
                       </button>
@@ -354,13 +393,20 @@ const Quiz = () => {
                 <h1 className="mt-6 font-serif text-3xl sm:text-4xl text-gray-900 tracking-tight">
                   Finding your personalized plan...
                 </h1>
+                <p className="mt-2 text-sm font-medium text-blue-500">
+                  {Math.round((analysisDone / ANALYSIS_STEPS.length) * 100)}% complete
+                </p>
 
                 <div className="mt-8 mx-auto max-w-md space-y-3 text-left">
-                  {ANALYSIS_STEPS.map((step, i) => {
+                  {ANALYSIS_STEPS.map(({ label, Icon }, i) => {
                     const done = i < analysisDone;
+                    const active = i === analysisDone;
                     return (
-                      <div
-                        key={step}
+                      <motion.div
+                        key={label}
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: i * 0.05 }}
                         className={cn(
                           "flex items-center gap-3 rounded-xl border px-4 py-3 transition-all duration-300",
                           done ? "border-blue-200 bg-blue-50" : "border-gray-200 bg-white",
@@ -368,16 +414,23 @@ const Quiz = () => {
                       >
                         <span
                           className={cn(
-                            "flex items-center justify-center h-6 w-6 rounded-full shrink-0 transition-colors",
-                            done ? "bg-blue-500 text-white" : "bg-gray-100 text-gray-300",
+                            "relative flex items-center justify-center h-8 w-8 rounded-full shrink-0 transition-colors",
+                            done
+                              ? "bg-blue-500 text-white"
+                              : active
+                                ? "bg-blue-50 text-blue-500"
+                                : "bg-gray-100 text-gray-300",
                           )}
                         >
-                          {done ? <Check className="h-3.5 w-3.5" /> : <Loader2 className="h-3.5 w-3.5 animate-spin" />}
+                          {active && !done && (
+                            <span className="absolute inset-0 rounded-full bg-blue-400/40 animate-ping" />
+                          )}
+                          {done ? <Check className="h-4 w-4" /> : <Icon className="h-4 w-4" strokeWidth={1.75} />}
                         </span>
                         <span className={cn("text-sm", done ? "text-blue-700 font-medium" : "text-gray-500")}>
-                          {step}
+                          {label}
                         </span>
-                      </div>
+                      </motion.div>
                     );
                   })}
                 </div>
@@ -391,53 +444,71 @@ const Quiz = () => {
                   Almost done - where should we send your plan?
                 </h1>
 
-                <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="quiz-first">First Name *</Label>
-                    <Input
-                      id="quiz-first"
-                      value={form.firstName}
-                      onChange={(e) => setForm({ ...form, firstName: e.target.value })}
-                      placeholder="Jane"
-                    />
-                    {errors.firstName && <p className="text-sm text-red-600">{errors.firstName}</p>}
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="quiz-last">Last Name *</Label>
-                    <Input
-                      id="quiz-last"
-                      value={form.lastName}
-                      onChange={(e) => setForm({ ...form, lastName: e.target.value })}
-                      placeholder="Doe"
-                    />
-                    {errors.lastName && <p className="text-sm text-red-600">{errors.lastName}</p>}
-                  </div>
-                  <div className="space-y-2 sm:col-span-2">
-                    <Label htmlFor="quiz-email">Email *</Label>
-                    <Input
-                      id="quiz-email"
-                      type="email"
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      placeholder="jane@example.com"
-                    />
-                    {errors.email && <p className="text-sm text-red-600">{errors.email}</p>}
-                  </div>
-                  <div className="space-y-2 sm:col-span-2">
-                    <Label htmlFor="quiz-phone">Phone *</Label>
-                    <div className="flex gap-2">
-                      <span className="flex items-center justify-center px-3 rounded-md border border-input bg-gray-50 text-sm text-gray-600 shrink-0">
-                        +1
-                      </span>
-                      <Input
-                        id="quiz-phone"
-                        inputMode="tel"
-                        value={formatSubscriber(form.phone)}
-                        onChange={(e) => setForm({ ...form, phone: normalizeSubscriber(e.target.value) })}
-                        placeholder="(555) 123-4567"
-                      />
+                <div className="mt-8 rounded-2xl border border-blue-100/80 bg-white p-5 sm:p-6 shadow-[0_8px_30px_-16px_rgba(59,130,246,0.35)]">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="quiz-first">First Name *</Label>
+                      <div className="relative">
+                        <User className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                        <Input
+                          id="quiz-first"
+                          value={form.firstName}
+                          onChange={(e) => setForm({ ...form, firstName: e.target.value })}
+                          placeholder="Jane"
+                          className="h-12 rounded-xl pl-10 border-gray-200 focus-visible:ring-2 focus-visible:ring-blue-500/40 focus-visible:border-blue-400"
+                        />
+                      </div>
+                      {errors.firstName && <p className="text-sm text-red-600">{errors.firstName}</p>}
                     </div>
-                    {errors.phone && <p className="text-sm text-red-600">{errors.phone}</p>}
+                    <div className="space-y-2">
+                      <Label htmlFor="quiz-last">Last Name *</Label>
+                      <div className="relative">
+                        <User className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                        <Input
+                          id="quiz-last"
+                          value={form.lastName}
+                          onChange={(e) => setForm({ ...form, lastName: e.target.value })}
+                          placeholder="Doe"
+                          className="h-12 rounded-xl pl-10 border-gray-200 focus-visible:ring-2 focus-visible:ring-blue-500/40 focus-visible:border-blue-400"
+                        />
+                      </div>
+                      {errors.lastName && <p className="text-sm text-red-600">{errors.lastName}</p>}
+                    </div>
+                    <div className="space-y-2 sm:col-span-2">
+                      <Label htmlFor="quiz-email">Email *</Label>
+                      <div className="relative">
+                        <Mail className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                        <Input
+                          id="quiz-email"
+                          type="email"
+                          value={form.email}
+                          onChange={(e) => setForm({ ...form, email: e.target.value })}
+                          placeholder="jane@example.com"
+                          className="h-12 rounded-xl pl-10 border-gray-200 focus-visible:ring-2 focus-visible:ring-blue-500/40 focus-visible:border-blue-400"
+                        />
+                      </div>
+                      {errors.email && <p className="text-sm text-red-600">{errors.email}</p>}
+                    </div>
+                    <div className="space-y-2 sm:col-span-2">
+                      <Label htmlFor="quiz-phone">Phone *</Label>
+                      <div className="flex gap-2">
+                        <span className="flex items-center justify-center px-3.5 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-600 shrink-0">
+                          +1
+                        </span>
+                        <div className="relative flex-1">
+                          <Phone className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                          <Input
+                            id="quiz-phone"
+                            inputMode="tel"
+                            value={formatSubscriber(form.phone)}
+                            onChange={(e) => setForm({ ...form, phone: normalizeSubscriber(e.target.value) })}
+                            placeholder="(555) 123-4567"
+                            className="h-12 rounded-xl pl-10 border-gray-200 focus-visible:ring-2 focus-visible:ring-blue-500/40 focus-visible:border-blue-400"
+                          />
+                        </div>
+                      </div>
+                      {errors.phone && <p className="text-sm text-red-600">{errors.phone}</p>}
+                    </div>
                   </div>
                 </div>
 
@@ -446,7 +517,7 @@ const Quiz = () => {
                 <Button
                   onClick={handleSubmit}
                   disabled={isSubmitting}
-                  className="mt-8 w-full py-6 text-base bg-blue-500 hover:bg-blue-600 text-white rounded-xl"
+                  className="mt-6 w-full py-6 text-base bg-blue-500 hover:bg-blue-600 text-white rounded-xl"
                 >
                   {isSubmitting ? (
                     <>
@@ -454,7 +525,7 @@ const Quiz = () => {
                     </>
                   ) : (
                     <>
-                      Complete My Assessment <ArrowRight className="ml-2 h-5 w-5" />
+                      Continue to Pick Your Time <ArrowRight className="ml-2 h-5 w-5" />
                     </>
                   )}
                 </Button>
