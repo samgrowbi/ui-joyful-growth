@@ -10,11 +10,6 @@ import { supabase } from "@/integrations/supabase/client";
 import { BRAND_NAME } from "@/config/brand";
 import { FACELIFT_TREATMENT } from "@/config/treatments";
 
-declare global {
-  interface Window {
-    fbq?: (...args: unknown[]) => void;
-  }
-}
 
 const CONCERNS = [
   "Sagging Neck",
