@@ -21,6 +21,7 @@ import CarbonPeeling from "./pages/CarbonPeeling";
 import SkinSpecialistChat from "./components/chat/SkinSpecialistChat";
 import Auth from "./pages/Auth";
 import Admin from "./pages/Admin";
+import Quiz from "./pages/Quiz";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +46,7 @@ const App = () => (
           <Route path="/book/carbon-peeling" element={<BookCarbonPeeling />} />
           <Route path="/book/led-cryo" element={<BookLedCryo />} />
           <Route path="/book/body-sculpting" element={<BookBodySculpting />} />
+          <Route path="/quiz" element={<Quiz />} />
           <Route path="/thank-you" element={<ThankYou />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/admin" element={<Admin />} />
