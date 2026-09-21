@@ -145,6 +145,48 @@ export type Database = {
         }
         Relationships: []
       }
+      quiz_submissions: {
+        Row: {
+          age_range: string | null
+          concerns: string[]
+          created_at: string
+          email: string
+          first_name: string
+          id: string
+          last_name: string
+          phone: string
+          referrer: string | null
+          source_page: string
+          user_agent: string | null
+        }
+        Insert: {
+          age_range?: string | null
+          concerns?: string[]
+          created_at?: string
+          email: string
+          first_name: string
+          id?: string
+          last_name: string
+          phone: string
+          referrer?: string | null
+          source_page?: string
+          user_agent?: string | null
+        }
+        Update: {
+          age_range?: string | null
+          concerns?: string[]
+          created_at?: string
+          email?: string
+          first_name?: string
+          id?: string
+          last_name?: string
+          phone?: string
+          referrer?: string | null
+          source_page?: string
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
