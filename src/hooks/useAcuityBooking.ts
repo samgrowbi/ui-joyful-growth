@@ -81,11 +81,18 @@ export function useAcuityBooking(onBookingSuccess?: () => void, isMobile?: boole
     }
   };
   const [displayedMonth, setDisplayedMonth] = useState<Date>(new Date());
-  const [formData, setFormData] = useState<BookingFormData>({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
+  const [formData, setFormData] = useState<BookingFormData>(() => {
+    // Allow pre-filling from URL params (e.g. arriving from the /quiz funnel)
+    const params =
+      typeof window !== "undefined" ? new URLSearchParams(window.location.search) : null;
+    const rawPhone = (params?.get("phone") || "").replace(/\D/g, "");
+    const phone = rawPhone.length === 11 && rawPhone.startsWith("1") ? rawPhone.slice(1) : rawPhone;
+    return {
+      firstName: params?.get("firstName") || "",
+      lastName: params?.get("lastName") || "",
+      email: params?.get("email") || "",
+      phone: phone.slice(0, 10),
+    };
   });
   const [intakeFields, setIntakeFields] = useState<Record<number, string>>({});
   const [confirmation, setConfirmation] = useState<BookingConfirmation | null>(null);
