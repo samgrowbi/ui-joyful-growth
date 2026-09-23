@@ -86,11 +86,16 @@ export function BeforeAfterCard({ beforeImg, afterImg, label, name, age, classNa
               </div>
             )}
             {/* Before/After Bar */}
-            <div className="flex w-full text-center text-sm lg:text-lg xl:text-xl font-medium tracking-wide uppercase">
-                <div className="w-1/2 py-2.5 lg:py-3.5 bg-gray-100 text-gray-500 border-r border-white transition-colors duration-300 group-hover:bg-gray-200">
+            <div
+              className={cn(
+                "flex w-full text-center font-medium tracking-wide uppercase",
+                compact ? "text-xs" : "text-sm lg:text-lg xl:text-xl",
+              )}
+            >
+                <div className={cn("w-1/2 bg-gray-100 text-gray-500 border-r border-white transition-colors duration-300 group-hover:bg-gray-200", compact ? "py-1.5" : "py-2.5 lg:py-3.5")}>
                     Before
                 </div>
-                <div className="w-1/2 py-2.5 lg:py-3.5 bg-blue-500 text-white shadow-inner transition-colors duration-300 group-hover:bg-blue-600">
+                <div className={cn("w-1/2 bg-blue-500 text-white shadow-inner transition-colors duration-300 group-hover:bg-blue-600", compact ? "py-1.5" : "py-2.5 lg:py-3.5")}>
                     After
                 </div>
             </div>
