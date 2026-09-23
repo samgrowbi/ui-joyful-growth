@@ -26,6 +26,10 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import { BeforeAfterCard } from "@/components/BeforeAfterCard";
+import { defaultResults } from "@/components/Results";
 import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
 import { BRAND_NAME } from "@/config/brand";
@@ -35,10 +39,7 @@ import { FACELIFT_TREATMENT } from "@/config/treatments";
 // distinct from the treatment's general list price elsewhere on the site.
 const QUIZ_OFFER_PRICE = "69.99";
 const QUIZ_REGULAR_PRICE = "249.99";
-
-// Same before/after photo set already used in the site's Results section —
-// reusing real client images rather than introducing new ones.
-const BEFORE_AFTER_BASE = "https://pub-eb17aaa123fc4145b1ee4c15fc2e5771.r2.dev/Med%20Spa/Before%20After";
+const QUIZ_SAVINGS = Math.round(parseFloat(QUIZ_REGULAR_PRICE) - parseFloat(QUIZ_OFFER_PRICE));
 
 
 const CONCERNS: { label: string; Icon: typeof TrendingDown }[] = [
@@ -277,35 +278,33 @@ const Quiz = () => {
                   <span>from 200+ happy clients</span>
                 </div>
 
-                <div className="mt-6 inline-flex items-center gap-2.5 rounded-full bg-white border border-[#C1694F]/30 px-5 py-2.5">
-                  <span className="font-serif text-xl text-[#C1694F]">${QUIZ_OFFER_PRICE}</span>
-                  <span className="text-sm text-gray-400 line-through">${QUIZ_REGULAR_PRICE}</span>
-                  <span className="text-[11px] uppercase tracking-wider font-semibold text-[#C1694F]">
-                    Quiz Exclusive
-                  </span>
+                <div className="mt-6 mx-auto max-w-sm rounded-2xl bg-[#C1694F] px-6 py-5 text-center shadow-[0_16px_36px_-16px_rgba(193,105,79,0.55)]">
+                  <p className="text-[11px] uppercase tracking-[0.22em] font-semibold text-white/80">
+                    Quiz Exclusive Offer
+                  </p>
+                  <div className="mt-2 flex items-baseline justify-center gap-3">
+                    <span className="font-serif text-4xl sm:text-5xl text-white leading-none">
+                      ${QUIZ_OFFER_PRICE}
+                    </span>
+                    <span className="text-lg text-white/70 line-through">${QUIZ_REGULAR_PRICE}</span>
+                  </div>
+                  <p className="mt-2 text-sm font-semibold text-white">You Save ${QUIZ_SAVINGS}</p>
                 </div>
 
-                <div className="mt-8 flex items-center justify-center gap-2 sm:gap-3 max-w-sm mx-auto">
-                  <div className="relative flex-1 rounded-xl overflow-hidden aspect-[3/4]">
-                    <img
-                      src={`${BEFORE_AFTER_BASE}/a3-before.png`}
-                      alt="Before Garden Retreat face lift treatment"
-                      className="w-full h-full object-cover"
-                    />
-                    <span className="absolute bottom-2 left-2 rounded-full bg-white/90 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-gray-700">
-                      Before
-                    </span>
-                  </div>
-                  <div className="relative flex-1 rounded-xl overflow-hidden aspect-[3/4]">
-                    <img
-                      src={`${BEFORE_AFTER_BASE}/a3-after.png`}
-                      alt="After Garden Retreat face lift treatment"
-                      className="w-full h-full object-cover"
-                    />
-                    <span className="absolute bottom-2 left-2 rounded-full bg-gray-900/85 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white">
-                      After
-                    </span>
-                  </div>
+                <div className="mt-8 max-w-md mx-auto">
+                  <Carousel
+                    opts={{ align: "start", loop: true, dragFree: false, containScroll: "trimSnaps", duration: 40 }}
+                    plugins={[Autoplay({ delay: 2500, stopOnInteraction: false, stopOnMouseEnter: true })]}
+                    className="w-full"
+                  >
+                    <CarouselContent className="-ml-3">
+                      {defaultResults.map((r) => (
+                        <CarouselItem key={r.id} className="basis-[70%] sm:basis-1/2 pl-3">
+                          <BeforeAfterCard beforeImg={r.before} afterImg={r.after} label={r.label} name={r.name} age={r.age} />
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                  </Carousel>
                 </div>
 
                 <Button
