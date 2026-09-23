@@ -279,10 +279,7 @@ const Quiz = () => {
                 </div>
 
                 <div className="mt-6 mx-auto max-w-sm rounded-2xl bg-[#C1694F] px-6 py-5 text-center shadow-[0_16px_36px_-16px_rgba(193,105,79,0.55)]">
-                  <p className="text-[11px] uppercase tracking-[0.22em] font-semibold text-white/80">
-                    Quiz Exclusive Offer
-                  </p>
-                  <div className="mt-2 flex items-baseline justify-center gap-3">
+                  <div className="flex items-baseline justify-center gap-3">
                     <span className="font-serif text-4xl sm:text-5xl text-white leading-none">
                       ${QUIZ_OFFER_PRICE}
                     </span>
@@ -300,7 +297,14 @@ const Quiz = () => {
                     <CarouselContent className="-ml-3">
                       {defaultResults.map((r) => (
                         <CarouselItem key={r.id} className="basis-[70%] sm:basis-1/2 pl-3">
-                          <BeforeAfterCard beforeImg={r.before} afterImg={r.after} label={r.label} name={r.name} age={r.age} />
+                          <BeforeAfterCard
+                            beforeImg={r.before}
+                            afterImg={r.after}
+                            label={r.label}
+                            name={r.name}
+                            age={r.age}
+                            compact
+                          />
                         </CarouselItem>
                       ))}
                     </CarouselContent>
