@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ThankYou from "./pages/ThankYou";
@@ -24,6 +24,12 @@ import Admin from "./pages/Admin";
 import Quiz from "./pages/Quiz";
 
 const queryClient = new QueryClient();
+
+const ChatWidget = () => {
+  const { pathname } = useLocation();
+  if (pathname === "/quiz") return null;
+  return <SkinSpecialistChat />;
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -53,7 +59,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <SkinSpecialistChat />
+        <ChatWidget />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
