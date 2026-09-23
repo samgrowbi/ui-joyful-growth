@@ -10,9 +10,13 @@ interface BeforeAfterCardProps {
   name?: string;
   age?: number;
   className?: string;
+  // When true, hides the name/age footer and the "After N Sessions" badge.
+  // Defaults to false so existing usages (the main site's Results section)
+  // render exactly as before.
+  compact?: boolean;
 }
 
-export function BeforeAfterCard({ beforeImg, afterImg, label, name, age, className }: BeforeAfterCardProps) {
+export function BeforeAfterCard({ beforeImg, afterImg, label, name, age, className, compact = false }: BeforeAfterCardProps) {
   const [beforeError, setBeforeError] = useState(false);
   const [afterError, setAfterError] = useState(false);
   const [open, setOpen] = useState(false);
@@ -66,7 +70,7 @@ export function BeforeAfterCard({ beforeImg, afterImg, label, name, age, classNa
                       />
                     )}
                     {/* After 3 Sessions tag */}
-                    {!showAfterFallback && (
+                    {!showAfterFallback && !compact && (
                       <span className="absolute top-2 right-2 lg:top-3 lg:right-3 px-2 py-0.5 lg:px-2.5 lg:py-1 text-[10px] lg:text-xs font-semibold uppercase tracking-wide bg-white/95 text-blue-600 rounded shadow-sm">
                         After 3 Sessions
                       </span>
@@ -75,7 +79,7 @@ export function BeforeAfterCard({ beforeImg, afterImg, label, name, age, classNa
                 </div>
             </div>
             {/* Name & Age */}
-            {name && (
+            {name && !compact && (
               <div className="w-full text-center py-2 lg:py-3 bg-white">
                 <span className="text-sm lg:text-lg xl:text-xl font-medium text-gray-800">{name}</span>
                 {age && <span className="text-sm lg:text-lg xl:text-xl text-gray-500">, {age}</span>}
