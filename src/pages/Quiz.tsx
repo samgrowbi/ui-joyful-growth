@@ -316,7 +316,7 @@ const Quiz = () => {
                   onClick={() => setScreen(1)}
                   className="mt-6 h-14 px-10 text-base bg-[#C1694F] hover:bg-[#A85940] text-white rounded-xl"
                 >
-                  Start My Free Assessment <ArrowRight className="ml-2 h-5 w-5" />
+                  Book My Appointment <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </motion.div>
             )}
