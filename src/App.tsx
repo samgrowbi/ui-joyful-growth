@@ -25,6 +25,12 @@ import Quiz from "./pages/Quiz";
 
 const queryClient = new QueryClient();
 
+const ChatWidget = () => {
+  const { pathname } = useLocation();
+  if (pathname === "/quiz") return null;
+  return <SkinSpecialistChat />;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
