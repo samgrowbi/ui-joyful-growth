@@ -278,17 +278,17 @@ const Quiz = () => {
                   <span>from 200+ happy clients</span>
                 </div>
 
-                <div className="mt-6 mx-auto max-w-sm rounded-2xl bg-[#C1694F] px-6 py-5 text-center shadow-[0_16px_36px_-16px_rgba(193,105,79,0.55)]">
-                  <div className="flex items-baseline justify-center gap-3">
-                    <span className="font-serif text-4xl sm:text-5xl text-white leading-none">
+                <div className="mt-6 mx-auto max-w-xs rounded-2xl bg-[#C1694F] px-5 py-3.5 text-center shadow-[0_16px_36px_-16px_rgba(193,105,79,0.55)]">
+                  <div className="flex items-baseline justify-center gap-2">
+                    <span className="font-serif text-2xl sm:text-3xl text-white leading-none">
                       ${QUIZ_OFFER_PRICE}
                     </span>
-                    <span className="text-lg text-white/70 line-through">${QUIZ_REGULAR_PRICE}</span>
+                    <span className="text-sm text-white/70 line-through">${QUIZ_REGULAR_PRICE}</span>
                   </div>
-                  <p className="mt-2 text-sm font-semibold text-white">You Save ${QUIZ_SAVINGS}</p>
+                  <p className="mt-1 text-xs font-semibold text-white">You Save ${QUIZ_SAVINGS}</p>
                 </div>
 
-                <div className="mt-8 max-w-md mx-auto">
+                <div className="mt-8 max-w-2xl mx-auto">
                   <Carousel
                     opts={{ align: "start", loop: true, dragFree: false, containScroll: "trimSnaps", duration: 40 }}
                     plugins={[Autoplay({ delay: 2500, stopOnInteraction: false, stopOnMouseEnter: true })]}
@@ -296,7 +296,7 @@ const Quiz = () => {
                   >
                     <CarouselContent className="-ml-3">
                       {defaultResults.map((r) => (
-                        <CarouselItem key={r.id} className="basis-[70%] sm:basis-1/2 pl-3">
+                        <CarouselItem key={r.id} className="basis-[85%] sm:basis-1/2 pl-3">
                           <BeforeAfterCard
                             beforeImg={r.before}
                             afterImg={r.after}
