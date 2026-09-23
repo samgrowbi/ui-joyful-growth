@@ -28,7 +28,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { BeforeAfterCard } from "@/components/BeforeAfterCard";
 import { defaultResults } from "@/components/Results";
 import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
