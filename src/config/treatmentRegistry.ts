@@ -22,7 +22,7 @@ export function getTreatmentBySlug(slug: string | null): TreatmentConfig {
 }
 
 /* -------------------------------------------------------------------------
-   Acuity intake fields per treatment (used by Sofia's in-chat booking form).
+   Acuity intake fields per treatment.
    Field IDs come from the Acuity API (acuity-forms) for each appointment type.
    Do NOT reuse these for the /book pages - those keep their own flow.
 ---------------------------------------------------------------------------*/
