@@ -4,32 +4,15 @@ import Autoplay from "embla-carousel-autoplay";
 import { BeforeAfterCard } from "./BeforeAfterCard";
 import { useTreatment } from "@/context/TreatmentContext";
 import { AccentWord } from "./ui/AccentWord";
-import faceCatherineBefore from "@/assets/before-after/face_catherine_before.webp.asset.json";
-import faceCatherineAfter from "@/assets/before-after/face_catherine_after.webp.asset.json";
-import faceMargaretBefore from "@/assets/before-after/face_margaret_before.webp.asset.json";
-import faceMargaretAfter from "@/assets/before-after/face_margaret_after.webp.asset.json";
-import faceElaineBefore from "@/assets/before-after/face_elaine_before.webp.asset.json";
-import faceElaineAfter from "@/assets/before-after/face_elaine_after.webp.asset.json";
-import faceBriannaBefore from "@/assets/before-after/face_brianna_before.webp.asset.json";
-import faceBriannaAfter from "@/assets/before-after/face_brianna_after.webp.asset.json";
-import faceVanessaBefore from "@/assets/before-after/face_vanessa_before.webp.asset.json";
-import faceVanessaAfter from "@/assets/before-after/face_vanessa_after.webp.asset.json";
-import faceRosalindBefore from "@/assets/before-after/face_rosalind_before.webp.asset.json";
-import faceRosalindAfter from "@/assets/before-after/face_rosalind_after.webp.asset.json";
-const R2_BASE = "https://pub-eb17aaa123fc4145b1ee4c15fc2e5771.r2.dev/Med%20Spa/Before%20After";
+const RESULT_IMAGE_BASE = "https://pub-eb17aaa123fc4145b1ee4c15fc2e5771.r2.dev/Med%20Spa/Before%20After/New/Face/Face2";
 
 export const defaultResults = [
-  { id: 3, before: `${R2_BASE}/a3-before.png`, after: `${R2_BASE}/a3-after.png`, label: "Facial Lifting", name: "Maria", age: 61 },
-  { id: 4, before: `${R2_BASE}/a4-before.png`, after: `${R2_BASE}/a4-after.png`, label: "Skin Rejuvenation", name: "Jennifer", age: 55 },
-  { id: 5, before: `${R2_BASE}/a5-after.png`, after: `${R2_BASE}/a5-before.png`, label: "Pigmentation", name: "Laura", age: 58 },
-  { id: 6, before: `${R2_BASE}/a6-after.png`, after: `${R2_BASE}/a6-before.png`, label: "Skin Tightening", name: "Rachel", age: 68 },
-  { id: 7, before: `${R2_BASE}/a7-before.png`, after: `${R2_BASE}/a7-after.png`, label: "Neck Rejuvenation", name: "Diana", age: 58 },
-  { id: 11, before: faceCatherineBefore.url, after: faceCatherineAfter.url, label: "Skin Rejuvenation", name: "Catherine", age: 54 },
-  { id: 12, before: faceMargaretBefore.url, after: faceMargaretAfter.url, label: "Facial Lifting", name: "Margaret", age: 57 },
-  { id: 13, before: faceElaineBefore.url, after: faceElaineAfter.url, label: "Wrinkle Reduction", name: "Elaine", age: 62 },
-  { id: 14, before: faceBriannaBefore.url, after: faceBriannaAfter.url, label: "Skin Tightening", name: "Brianna", age: 34 },
-  { id: 15, before: faceVanessaBefore.url, after: faceVanessaAfter.url, label: "Skin Rejuvenation", name: "Vanessa", age: 49 },
-  { id: 16, before: faceRosalindBefore.url, after: faceRosalindAfter.url, label: "Neck Rejuvenation", name: "Rosalind", age: 63 },
+  { id: 11, composite: `${RESULT_IMAGE_BASE}/1.png`, label: "Skin Rejuvenation", name: "Catherine", age: 54 },
+  { id: 12, composite: `${RESULT_IMAGE_BASE}/2.jpeg`, label: "Facial Lifting", name: "Margaret", age: 57 },
+  { id: 13, composite: `${RESULT_IMAGE_BASE}/3.png`, label: "Wrinkle Reduction", name: "Elaine", age: 62 },
+  { id: 14, composite: `${RESULT_IMAGE_BASE}/4.png`, label: "Skin Tightening", name: "Brianna", age: 34 },
+  { id: 15, composite: `${RESULT_IMAGE_BASE}/5.jpeg`, label: "Skin Rejuvenation", name: "Vanessa", age: 49 },
+  { id: 16, composite: `${RESULT_IMAGE_BASE}/6.png`, label: "Neck Rejuvenation", name: "Rosalind", age: 63 },
 ];
 
 export function Results() {
@@ -103,9 +86,14 @@ export function Results() {
                         <div className="w-full aspect-[4/3] lg:aspect-[3/2] overflow-hidden bg-gray-100">
                           <img
                             src={item.composite}
-                            alt={item.label}
+                            alt={`${item.label} before and after treatment result`}
                             loading="lazy"
                             className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105" decoding="async" />
+                          {treatmentResults == null && (
+                            <span className="absolute top-2 right-2 lg:top-3 lg:right-3 px-2 py-0.5 lg:px-2.5 lg:py-1 text-[10px] lg:text-xs font-semibold uppercase tracking-wide bg-white/95 text-blue-600 rounded shadow-sm">
+                              After 3 Sessions
+                            </span>
+                          )}
                         </div>
                         <div className="w-full text-center py-2 lg:py-3 bg-white">
                           {('name' in item && (item as any).name) ? (
