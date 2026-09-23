@@ -28,7 +28,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { BeforeAfterCard } from "@/components/BeforeAfterCard";
 import { defaultResults } from "@/components/Results";
 import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
@@ -297,14 +296,19 @@ const Quiz = () => {
                     <CarouselContent className="-ml-3">
                       {defaultResults.map((r) => (
                         <CarouselItem key={r.id} className="basis-[85%] sm:basis-1/2 pl-3">
-                          <BeforeAfterCard
-                            beforeImg={r.before}
-                            afterImg={r.after}
-                            label={r.label}
-                            name={r.name}
-                            age={r.age}
-                            compact
-                          />
+                          <div className="overflow-hidden rounded-2xl bg-white shadow-lg">
+                            <img
+                              src={r.composite}
+                              alt={`${r.label} before and after treatment result`}
+                              loading="lazy"
+                              decoding="async"
+                              className="aspect-[4/3] w-full object-cover"
+                            />
+                            <div className="flex w-full text-center text-xs font-medium uppercase tracking-wide">
+                              <div className="w-1/2 border-r border-white bg-gray-100 py-1.5 text-gray-500">Before</div>
+                              <div className="w-1/2 bg-blue-500 py-1.5 text-white shadow-inner">After</div>
+                            </div>
+                          </div>
                         </CarouselItem>
                       ))}
                     </CarouselContent>
