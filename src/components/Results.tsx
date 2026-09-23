@@ -18,7 +18,7 @@ import faceRosalindBefore from "@/assets/before-after/face_rosalind_before.webp.
 import faceRosalindAfter from "@/assets/before-after/face_rosalind_after.webp.asset.json";
 const R2_BASE = "https://pub-eb17aaa123fc4145b1ee4c15fc2e5771.r2.dev/Med%20Spa/Before%20After";
 
-const defaultResults = [
+export const defaultResults = [
   { id: 3, before: `${R2_BASE}/a3-before.png`, after: `${R2_BASE}/a3-after.png`, label: "Facial Lifting", name: "Maria", age: 61 },
   { id: 4, before: `${R2_BASE}/a4-before.png`, after: `${R2_BASE}/a4-after.png`, label: "Skin Rejuvenation", name: "Jennifer", age: 55 },
   { id: 5, before: `${R2_BASE}/a5-after.png`, after: `${R2_BASE}/a5-before.png`, label: "Pigmentation", name: "Laura", age: 58 },
