@@ -11,7 +11,6 @@ export const defaultResults = [
   { id: 12, composite: `${RESULT_IMAGE_BASE}/2.jpeg`, label: "Facial Lifting", name: "Margaret", age: 57 },
   { id: 13, composite: `${RESULT_IMAGE_BASE}/3.png`, label: "Wrinkle Reduction", name: "Elaine", age: 62 },
   { id: 14, composite: `${RESULT_IMAGE_BASE}/4.png`, label: "Skin Tightening", name: "Brianna", age: 34 },
-  { id: 15, composite: `${RESULT_IMAGE_BASE}/5.jpeg`, label: "Skin Rejuvenation", name: "Vanessa", age: 49 },
 ];
 
 export function Results() {
