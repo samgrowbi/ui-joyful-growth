@@ -12,7 +12,6 @@ export const defaultResults = [
   { id: 13, composite: `${RESULT_IMAGE_BASE}/3.png`, label: "Wrinkle Reduction", name: "Elaine", age: 62 },
   { id: 14, composite: `${RESULT_IMAGE_BASE}/4.png`, label: "Skin Tightening", name: "Brianna", age: 34 },
   { id: 15, composite: `${RESULT_IMAGE_BASE}/5.jpeg`, label: "Skin Rejuvenation", name: "Vanessa", age: 49 },
-  { id: 16, composite: `${RESULT_IMAGE_BASE}/6.png`, label: "Neck Rejuvenation", name: "Rosalind", age: 63 },
 ];
 
 export function Results() {
