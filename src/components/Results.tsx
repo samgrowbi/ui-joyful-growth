@@ -81,13 +81,16 @@ export function Results() {
             ]}
             className="w-full mx-auto"
           >
-            <CarouselContent className="-ml-6">
+            <CarouselContent className={isFacialResults ? "-ml-4 md:-ml-7" : "-ml-6"}>
               {results.map((item) => (
-                <CarouselItem key={item.id} className="basis-[85%] md:basis-1/2 pl-6">
+                <CarouselItem
+                  key={item.id}
+                  className={isFacialResults ? "basis-[92%] md:basis-1/2 pl-4 md:pl-7" : "basis-[85%] md:basis-1/2 pl-6"}
+                >
                   {isComposite && 'composite' in item && item.composite ? (
                     <div className="group" dir="ltr">
                       <div className="relative w-full overflow-hidden rounded-2xl shadow-lg bg-white transition-all duration-500 ease-out group-hover:shadow-2xl group-hover:-translate-y-1">
-                        <div className={isFacialResults ? "w-full aspect-[4/5] overflow-hidden bg-gray-100" : "w-full aspect-[4/3] lg:aspect-[3/2] overflow-hidden bg-gray-100"}>
+                        <div className={isFacialResults ? "w-full aspect-[3/2] overflow-hidden bg-gray-100" : "w-full aspect-[4/3] lg:aspect-[3/2] overflow-hidden bg-gray-100"}>
                           <img
                             src={item.composite}
                             alt={isFacialResults && item.name && item.age
