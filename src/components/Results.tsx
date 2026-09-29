@@ -7,10 +7,11 @@ import { AccentWord } from "./ui/AccentWord";
 const RESULT_IMAGE_BASE = "https://pub-eb17aaa123fc4145b1ee4c15fc2e5771.r2.dev/Med%20Spa/Before%20After/New/Face/Face2";
 
 export const defaultResults = [
-  { id: 11, composite: `${RESULT_IMAGE_BASE}/1.png`, label: "Skin Rejuvenation", name: "Catherine", age: 54 },
-  { id: 12, composite: `${RESULT_IMAGE_BASE}/2.jpeg`, label: "Facial Lifting", name: "Margaret", age: 57 },
-  { id: 13, composite: `${RESULT_IMAGE_BASE}/3.png`, label: "Wrinkle Reduction", name: "Elaine", age: 62 },
-  { id: 14, composite: `${RESULT_IMAGE_BASE}/4.png`, label: "Skin Tightening", name: "Brianna", age: 34 },
+  { id: 11, composite: `${RESULT_IMAGE_BASE}/1.png`, label: "Skin Rejuvenation", name: "Catherine", age: 38, objectPosition: "center center" },
+  { id: 12, composite: `${RESULT_IMAGE_BASE}/2.jpeg`, label: "Facial Lifting", name: "Margaret", age: 41, objectPosition: "center center" },
+  { id: 13, composite: `${RESULT_IMAGE_BASE}/3.png`, label: "Wrinkle Reduction", name: "Elaine", age: 62, objectPosition: "center center" },
+  { id: 14, composite: `${RESULT_IMAGE_BASE}/4.png`, label: "Skin Tightening", name: "Brianna", age: 34, objectPosition: "center center" },
+  { id: 15, composite: `${RESULT_IMAGE_BASE}/5.jpeg`, label: "Skin Rejuvenation", name: "Rosalind", age: 42, objectPosition: "center center" },
 ];
 
 export function Results() {
@@ -21,6 +22,7 @@ export function Results() {
   const treatmentResults = treatment.beforeAfterResults;
   const results = treatmentResults || defaultResults;
   const isComposite = results.some((result) => result.composite);
+  const isFacialResults = treatmentResults == null;
 
   useEffect(() => {
     if (!api) return;
@@ -41,19 +43,23 @@ export function Results() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] bg-blue-50/50 rounded-full blur-3xl -z-10 pointer-events-none opacity-60" />
 
       <div className="container mx-auto px-5 pt-0 md:pt-0">
-        <div className="text-center mb-8 lg:mb-12 space-y-1 lg:space-y-2">
-          <p className="text-[18px] lg:text-base uppercase tracking-[0.2em] text-gray-400 font-bold">No Filters</p>
+        <div className="text-center mb-8 lg:mb-12">
+          {!isFacialResults && (
+            <p className="text-[18px] lg:text-base uppercase tracking-[0.2em] text-gray-400 font-bold">No Filters</p>
+          )}
           <h2 className="hidden sm:block text-4xl lg:text-5xl xl:text-6xl font-serif font-normal text-gray-900 leading-tight">
             <span className="text-gray-900">Real People.</span> <AccentWord>Real Results.</AccentWord>
           </h2>
-          <div className="flex justify-center pt-2">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-green-50 border border-green-200 rounded-full text-xs lg:text-sm font-medium text-green-700">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="text-green-600">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-              Verified Photos
-            </span>
-          </div>
+          {!isFacialResults && (
+            <div className="flex justify-center pt-2">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-green-50 border border-green-200 rounded-full text-xs lg:text-sm font-medium text-green-700">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="text-green-600">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                Verified Photos
+              </span>
+            </div>
+          )}
         </div>
 
         <div className="relative">
@@ -81,17 +87,15 @@ export function Results() {
                   {isComposite && 'composite' in item && item.composite ? (
                     <div className="group" dir="ltr">
                       <div className="relative w-full overflow-hidden rounded-2xl shadow-lg bg-white transition-all duration-500 ease-out group-hover:shadow-2xl group-hover:-translate-y-1">
-                        <div className="w-full aspect-[4/3] lg:aspect-[3/2] overflow-hidden bg-gray-100">
+                        <div className={isFacialResults ? "w-full aspect-[4/5] overflow-hidden bg-gray-100" : "w-full aspect-[4/3] lg:aspect-[3/2] overflow-hidden bg-gray-100"}>
                           <img
                             src={item.composite}
-                            alt={`${item.label} before and after treatment result`}
+                            alt={isFacialResults && item.name && item.age
+                              ? `Before and after treatment result - ${item.name}, ${item.age}`
+                              : `${item.label} before and after treatment result`}
                             loading="lazy"
+                            style={{ objectPosition: item.objectPosition ?? "center center" }}
                             className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105" decoding="async" />
-                          {treatmentResults == null && (
-                            <span className="absolute top-2 right-2 lg:top-3 lg:right-3 px-2 py-0.5 lg:px-2.5 lg:py-1 text-[10px] lg:text-xs font-semibold uppercase tracking-wide bg-white/95 text-blue-600 rounded shadow-sm">
-                              After 3 Sessions
-                            </span>
-                          )}
                         </div>
                         <div className="w-full text-center py-2 lg:py-3 bg-white">
                           {('name' in item && (item as any).name) ? (

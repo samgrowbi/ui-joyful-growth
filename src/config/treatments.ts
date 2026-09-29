@@ -19,6 +19,8 @@ export interface BeforeAfterResult {
   label: string;
   name?: string;
   age?: number;
+  /** Optional crop alignment for composite result images */
+  objectPosition?: string;
 }
 
 export interface TreatmentConfig {
