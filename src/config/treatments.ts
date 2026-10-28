@@ -171,7 +171,7 @@ export const FACELIFT_TREATMENT: TreatmentConfig = {
     "https://pub-eb17aaa123fc4145b1ee4c15fc2e5771.r2.dev/Med%20Spa/Hero%20Video/LED%20Hero%20Video.mp4",
   price: "69",
   originalPrice: "249",
-  appointmentTypeId: "93188408",
+  appointmentTypeId: "97205918",
   // calendarId intentionally unused - Acuity auto-selects from the appointment type
   calendarId: "",
   duration: 75,
